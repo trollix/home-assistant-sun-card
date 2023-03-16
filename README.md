@@ -1,4 +1,4 @@
-# Home assistant Sun card
+# Home assistant Sun card 2
 Home assistant Sun card based on Google weather design
 
 ## Preview
