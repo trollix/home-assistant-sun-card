@@ -148,6 +148,7 @@ class SunCard extends LitElement {
     config.showElevation = this.config.showElevation ?? Constants.DEFAULT_CONFIG.showElevation
     config.timeFormat = this.config.timeFormat ?? Constants.DEFAULT_CONFIG.timeFormat
     config.title = this.config.title
+    config.sunColor = this.config.sunColor
 
     if (!Object.keys(Constants.LOCALIZATION_LANGUAGES).includes(config.language!)) {
       config.language = Constants.DEFAULT_CONFIG.language

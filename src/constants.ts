@@ -21,7 +21,8 @@ export class Constants {
     language: 'en',
     showAzimuth: false,
     showElevation: false,
-    timeFormat: '24h'
+    timeFormat: '24h',
+    sunColor: '#f9d05e'
   }
 
   static readonly EVENT_X_POSITIONS = {

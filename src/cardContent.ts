@@ -15,7 +15,7 @@ export class SunCardContent {
       <ha-card>
         <div class="sun-card ${config.darkMode ? '' : 'sun-card-light'}">
           ${this.generateHeader(data, localization, config)}
-          ${this.generateBody(data)}
+          ${this.generateBody(data, config)}
           ${this.generateFooter(data, localization, config)}
         </div>
       </ha-card>
@@ -43,7 +43,7 @@ export class SunCardContent {
     `
   }
 
-  private static generateBody (data: TSunCardData): TemplateResult {
+  private static generateBody (data: TSunCardData, config: TSunCardConfig): TemplateResult {
     const sunID = Math.random().toString(36).replace('0.', '')
     const dawnID = Math.random().toString(36).replace('0.', '')
     const dayID = Math.random().toString(36).replace('0.', '')
@@ -54,8 +54,8 @@ export class SunCardContent {
         <svg viewBox="0 0 550 150" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="${sunID}" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style="stop-color:#f9d05e;stop-opacity:1" />
-              <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:#f9d05e;stop-opacity:1" />
+              <stop offset="0%" style="stop-color:${config.sunColor};stop-opacity:1" />
+              <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:${config.sunColor};stop-opacity:1" />
               <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
             </linearGradient>
             

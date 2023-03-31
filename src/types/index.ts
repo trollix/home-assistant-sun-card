@@ -5,6 +5,7 @@ export type TSunCardConfig = {
   showElevation?: boolean
   timeFormat?: '12h' | '24h'
   title?: string
+  sunColor?: string
 }
 
 export type TSunCardTime = {
