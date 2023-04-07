@@ -42,6 +42,7 @@ export type TSunCardTexts = {
   Noon: string
   Sunrise: string
   Sunset: string
+  Daylength: string
 
   errors: {
     [key in ESunCardErrors]: string
