@@ -41,10 +41,10 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 | title             | `string`             | Card title                           | Doesn't display a title by default                  |
 | sunColor          | `string`             | Color of the sun                     | '#f9d05e' by default                                |
 | linesColor        | `string`             | Color of the lines                   | '#464646' by default                                |
-| darklinesColor    | `string`             | Color of the lines                   | '#464646' by default                                |
-| dayProgressColor  | `string`             | Color of the night                   | '#8ebeeb' by default                                |
-| duskProgressColor | `string`             | Color of the night                   | '#393b78' by default                                |
-| showDayLength     | `string`             | Length of the day                    | `false`                                             |
+| darklinesColor    | `string`             | Color of the lines (dark)            | '#464646' by default                                |
+| dayProgressColor  | `string`             | Color of the day progress            | '#8ebeeb' by default                                |
+| duskProgressColor | `string`             | Color of the dusk progress           | '#393b78' by default                                |
+| showDayLength     | `boolean`            | Length of the day                    | `false`                                             |
 
 
 (<sup>1</sup>) Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `hu`, `it`, `nl`, `pl`, `pt-BR`, `ru`, `sl`, `sv`

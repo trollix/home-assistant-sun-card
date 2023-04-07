@@ -129,11 +129,19 @@ export class SunCardContent {
           <span class="sun-card-dawn-time sun-card-text-time">${data?.elevation ?? ''}</span>
         </div>
       ` : html``
+
+      const daylength = html`
+        <div class="sun-card-text-container">
+          <span class="sun-card-text-subtitle">L. jour</span>
+          <span class="sun-card-dawn-time sun-card-text-time">12h</span>
+        </div>
+      `
   
       bottomRow = html`
         <div class="sun-card-footer-row">
           ${azimuth}
           ${elevation}
+          ${daylength}
         </div>
       `
     }
