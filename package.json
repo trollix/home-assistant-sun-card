@@ -7,7 +7,7 @@
     "start": "rollup -c rollup.config.dev.js --watch --bundleConfigAsCjs",
     "build": "rimraf dist && npm run lint && npm run rollup",
     "lint": "eslint src/*.ts",
-    "rollup": "rollup -c"
+    "rollup": "rollup -c --bundleConfigAsCjs"
   },
   "repository": {
     "type": "git",
