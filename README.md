@@ -13,7 +13,7 @@ Home assistant Sun card based on Google weather design
 Home assistant Sun card is available by default on HACS directory. More info [here](https://hacs.xyz/).
 
 ### Manually
-1. Download the `home-assistant-sun-card.js` file from the [latest release available](https://github.com/AitorDB/home-assistant-sun-card/releases) and save it in your `configuration/www` folder.
+1. Download the `home-assistant-sun-card.js` file from the [latest release available](https://github.com/trollix/home-assistant-sun-card/releases) and save it in your `configuration/www` folder.
 1. Go to `Configuration > Lovelace dashboard > Resources` in Home Assistant and click on `Add resource`.
     1. Add `/local/community/home-assistant-sun-card.js` to the URL.
     1. Choose `Javascript Module` as Resource type.
@@ -31,15 +31,20 @@ Note: If `Custom: Sun card` doesn't appear you will have to reload cleaning the 
 Note: If you get an error similar to this `Custom element doesn't exist` you will have to reload cleaning the cache.
 
 ## Config
-| Name          | Accepted values      | Description                          | Default                                             |
-|---------------|----------------------|--------------------------------------|-----------------------------------------------------|
-| darkMode      | `boolean`            | Changes card colors to dark or light | Home assistant dark mode state                      |
-| language      | `string`<sup>1</sup> | Changes card language                | Home assistant language or english if not supported |
-| showAzimuth   | `boolean`            | Displays azimuth in the footer       | `false`                                             |
-| showElevation | `boolean`            | Displays elevation in the footer     | `false`                                             |
-| timeFormat    | `'12h'`/`'24h'`      | Displayed time format                | Locale based on Home assistant language             |
-| title         | `string`             | Card title                           | Doesn't display a title by default                  |
-| sunColor      | `string`             | Color of the sun                     | '#f9d05e' by default                                |
+| Name              | Accepted values      | Description                          | Default                                             |
+|-------------------|----------------------|--------------------------------------|-----------------------------------------------------|
+| darkMode          | `boolean`            | Changes card colors to dark or light | Home assistant dark mode state                      |
+| language          | `string`<sup>1</sup> | Changes card language                | Home assistant language else english                |
+| showAzimuth       | `boolean`            | Displays azimuth in the footer       | `false`                                             |
+| showElevation     | `boolean`            | Displays elevation in the footer     | `false`                                             |
+| timeFormat        | `'12h'`/`'24h'`      | Displayed time format                | Locale based on Home assistant language             |
+| title             | `string`             | Card title                           | Doesn't display a title by default                  |
+| sunColor          | `string`             | Color of the sun                     | '#f9d05e' by default                                |
+| linesColor        | `string`             | Color of the lines                   | '#464646' by default                                |
+| darklinesColor    | `string`             | Color of the lines                   | '#464646' by default                                |
+| dayProgressColor  | `string`             | Color of the night                   | '#8ebeeb' by default                                |
+| duskProgressColor | `string`             | Color of the night                   | '#393b78' by default                                |
+| showDayLength     | `string`             | Length of the day                    | `false`                                             |
 
 
 (<sup>1</sup>) Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `hu`, `it`, `nl`, `pl`, `pt-BR`, `ru`, `sl`, `sv`
