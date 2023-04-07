@@ -6,6 +6,7 @@
   "Noon": "Mezzogiorno solare",
   "Sunrise": "Alba",
   "Sunset": "Tramonto",
+  "Daylength": "Day Length",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

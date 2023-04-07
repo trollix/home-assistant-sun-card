@@ -6,6 +6,7 @@
   "Noon": "Keskipäivä",
   "Sunrise": "Auringonnousu",
   "Sunset": "Auringonlasku",
+  "Daylength": "Day Length",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

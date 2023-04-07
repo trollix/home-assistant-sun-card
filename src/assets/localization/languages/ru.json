@@ -6,6 +6,7 @@
   "Noon": "Зенит",
   "Sunrise": "Восход",
   "Sunset": "Закат",
+  "Daylength": "Day Length",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

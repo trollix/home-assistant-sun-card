@@ -6,6 +6,7 @@
   "Noon": "Dél",
   "Sunrise": "Napkelte",
   "Sunset": "Napnyugta",
+  "Daylength": "Day Length",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }
