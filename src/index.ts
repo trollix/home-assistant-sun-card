@@ -26,7 +26,7 @@ class SunCard extends LitElement {
   static get styles () {
     return cardStyles
   }
-  
+
   set hass (hass: HomeAssistant) {
     this.lastHass = hass
 
@@ -76,17 +76,32 @@ class SunCard extends LitElement {
       sunPercentOverHorizon = Math.min((100 * yOver) / (2 * Constants.SUN_RADIUS), 100)
     }
 
+
+    // tix - time hhHmm between sunset and sunrise
+    const timeBetweenDuskAndDown = this.convertMinutestoHoursAndMinutes(Math.max(eventsAt.sunset - eventsAt.sunrise, 0))
+
     return {
       dawnProgressPercent,
       dayProgressPercent,
       duskProgressPercent,
       sunPercentOverHorizon,
-      sunPosition: { x: sunPosition.x, y: sunPosition.y }
+      sunPosition: { x: sunPosition.x, y: sunPosition.y },
+      timeBetweenDuskAndDown
     }
   }
 
+   
   convertDateToMinutesSinceDayStarted (date: Date) {
     return (date.getHours() * 60) + date.getMinutes()
+  }
+
+  // Tix
+  convertMinutestoHoursAndMinutes ( minutes: number) {
+    const cHours = Math.floor(minutes / 60)
+    const cMinutes = minutes % 60
+    const total = cHours.toString() + "H" + cMinutes.toString()
+
+    return { total }
   }
 
   parseTime (timeText: string, locale?: string) {
@@ -121,7 +136,8 @@ class SunCard extends LitElement {
       dusk: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_dusk),
       noon: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_noon),
       sunrise: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_rising),
-      sunset: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_setting)
+      sunset: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_setting),
+      timeBetweenDuskAndDown: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_setting),
     }
 
     const {
