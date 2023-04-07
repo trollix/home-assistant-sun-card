@@ -78,7 +78,7 @@ class SunCard extends LitElement {
 
 
     // tix - time hhHmm between sunset and sunrise
-    const timeBetweenDuskAndDown = this.convertMinutestoHoursAndMinutes(Math.max(eventsAt.sunset - eventsAt.sunrise, 0))
+    const timeBetweenDuskAndDown = this.convertMinutestoHoursAndMinutes(eventsAt.sunset - eventsAt.sunrise)
 
     return {
       dawnProgressPercent,
