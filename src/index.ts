@@ -12,6 +12,8 @@ class SunCard extends LitElement {
   static readonly cardName = 'Sun Card'
   static readonly cardDescription = 'Custom card that display a graph to track the sun position and related events'
 
+
+
   @state()
   private config: TSunCardConfig = {}
 
@@ -21,6 +23,10 @@ class SunCard extends LitElement {
   private hasRendered = false
   private lastHass!: HomeAssistant
 
+  static get styles () {
+    return cardStyles
+  }
+  
   set hass (hass: HomeAssistant) {
     this.lastHass = hass
 
@@ -200,9 +206,6 @@ class SunCard extends LitElement {
     }
   }
 
-  static get styles () {
-    return cardStyles
-  }
 }
 
 window.customCards = window.customCards || [] 
