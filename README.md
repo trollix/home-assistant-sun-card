@@ -4,8 +4,10 @@ Home assistant Sun card based on Google weather design
 
 ## Preview
 
-![Light mode preview](https://user-images.githubusercontent.com/6829526/118412152-54d93900-b690-11eb-8b2b-e87b4cbcca7f.png)
+![Light mode preview](https://user-images.githubusercontent.com/3890545/231159388-13ed9e31-da74-48d3-bf8f-6ccf3a9f2975.png)
 ![Dark mode preview](https://user-images.githubusercontent.com/6829526/118412162-64f11880-b690-11eb-9bd7-b8c6c7d8efd8.png)
+
+<img width="452" alt="screenshot_1226" src="">
 
 ## Requirements
 
