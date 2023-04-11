@@ -6,7 +6,7 @@
   "Noon": "Sončno poldne",
   "Sunrise": "Sončni vzhod",
   "Sunset": "Sončni zahod",
-  "Daylength": "Daylight Length",
+  "Daylength": "Daylight length",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

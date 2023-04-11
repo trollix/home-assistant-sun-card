@@ -6,7 +6,7 @@
   "Noon": "Middag",
   "Sunrise": "Solopgang",
   "Sunset": "Solnedgang",
-  "Daylength": "Daylight Length",
+  "Daylength": "Daylight length",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

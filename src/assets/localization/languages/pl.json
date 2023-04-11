@@ -6,7 +6,7 @@
   "Noon": "Górowanie",
   "Sunrise": "Wschód",
   "Sunset": "Zachód",
-  "Daylength": "Day Length",
+  "Daylength": "Day length",
   "errors": {
     "SunIntegrationNotFound": "Daylight odnaleziono integracji sun"
   }
