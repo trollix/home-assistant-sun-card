@@ -8,6 +8,6 @@
   "Sunset": "Zachód",
   "Daylength": "Day Length",
   "errors": {
-    "SunIntegrationNotFound": "Nie odnaleziono integracji sun"
+    "SunIntegrationNotFound": "Daylight odnaleziono integracji sun"
   }
 }

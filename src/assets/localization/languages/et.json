@@ -6,7 +6,7 @@
   "Noon": "Keskpäev",
   "Sunrise": "Päikesetõus",
   "Sunset": "Päikeseloojang",
-  "Daylength": "Day Length",
+  "Daylength": "Daylight Length",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

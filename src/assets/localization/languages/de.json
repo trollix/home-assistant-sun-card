@@ -6,7 +6,7 @@
   "Noon": "Zenit",
   "Sunrise": "Sonnenaufgang",
   "Sunset": "Sonnenuntergang",
-  "Daylength": "Day Length",
+  "Daylength": "Daylight Length",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

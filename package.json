@@ -1,6 +1,6 @@
 {
   "name": "homeassistant-sun-card",
-  "version": "0.2.1",
+  "version": "0.4.0",
   "description": "Home assistant sun card based on Google weather design",
   "main": "dist/index.js",
   "scripts": {

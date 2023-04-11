@@ -6,7 +6,7 @@
   "Noon": "Mediodía solar",
   "Sunrise": "Salida del sol",
   "Sunset": "Atardecer",
-  "Daylength": "Day Length",
+  "Daylength": "Daylight Length",
   "errors": {
     "SunIntegrationNotFound": "Sun integration not found"
   }

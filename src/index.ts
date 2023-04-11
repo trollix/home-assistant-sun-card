@@ -110,7 +110,7 @@ class SunCard extends LitElement {
   convertMinutestoHoursAndMinutes ( minutes: number):string {
     const cHours = Math.floor(minutes / 60)
     const cMinutes = minutes % 60
-    const total = cHours.toString() + "h" + cMinutes.toString()
+    const total = cHours.toString() + ":" + cMinutes.toString()
 
     return  total
   }
