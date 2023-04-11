@@ -135,7 +135,8 @@ export class SunCardContent {
           <span class="sun-card-text-subtitle">${localization.Daylength}</span>
           <span class="sun-card-dawn-time sun-card-text-time">
           ${data?.times.dusk ? this.generateTime(data.times.dusk) : ''}
-          ${data?.times.timeBetweenDuskAndDown ? data.times.timeBetweenDuskAndDown : ''}
+          ${data?.timeBetweenDuskAndDown ? data.timeBetweenDuskAndDown : ''}
+          - ${data?.times.dusk.time}
           </span>
         </div>
       ` : html`` 

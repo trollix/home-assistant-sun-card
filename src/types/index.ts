@@ -32,8 +32,8 @@ export type TSunCardData = {
     noon: TSunCardTime
     sunrise: TSunCardTime
     sunset: TSunCardTime
-    timeBetweenDuskAndDown: TSunCardTime // tix - day length
   }
+  timeBetweenDuskAndDown: string // tix - day length
 }
 
 export type TSunCardTexts = {

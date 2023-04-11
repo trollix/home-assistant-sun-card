@@ -6,6 +6,16 @@ import { Constants } from './constants'
 import { SunCardContent } from './cardContent'
 import { ESunCardErrors, TSunCardConfig, TSunCardData } from './types'
 
+
+const CARD_VERSION = '0.4.6'
+
+console.info(
+  `%c  HOME-ASSISTANT-SUN-CARD-2 \n%c  Version ${CARD_VERSION}    `,
+  'color: orange; font-weight: bold; background: black',
+  'color: white; font-weight: bold; background: dimgray'
+)
+
+
 @customElement('sun-card')
 class SunCard extends LitElement {
   static readonly cardType = 'sun-card'
@@ -78,7 +88,8 @@ class SunCard extends LitElement {
 
 
     // tix - time hhHmm between sunset and sunrise
-    const timeBetweenDuskAndDown = this.convertMinutestoHoursAndMinutes(eventsAt.sunset - eventsAt.sunrise)
+    const timeBetweenDuskAndDown = '10' //eventsAt.sunset - eventsAt.sunrise
+    
 
     return {
       dawnProgressPercent,
@@ -137,7 +148,6 @@ class SunCard extends LitElement {
       noon: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_noon),
       sunrise: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_rising),
       sunset: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_setting),
-      timeBetweenDuskAndDown: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_setting),
     }
 
     const {
@@ -145,7 +155,8 @@ class SunCard extends LitElement {
       dayProgressPercent,
       duskProgressPercent,
       sunPercentOverHorizon,
-      sunPosition
+      sunPosition,
+      timeBetweenDuskAndDown
     } = this.calculatePositionAndProgressesByTime(this.lastHass)
 
     const data: TSunCardData = {
@@ -156,7 +167,8 @@ class SunCard extends LitElement {
       elevation: this.lastHass.states['sun.sun'].attributes.elevation,
       sunPercentOverHorizon,
       sunPosition,
-      times
+      times,
+      timeBetweenDuskAndDown
     }
 
     this.data = data
