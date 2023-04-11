@@ -15,7 +15,7 @@ Home assistant Sun card based on Google weather design
 
 ### HACS
 
-Home assistant Sun card is available by default on HACS directory. More info [here](https://hacs.xyz/).
+Home assistant Sun card 2 is available by default on HACS directory. More info [here](https://hacs.xyz/).
 
 ### Manually
 

@@ -88,7 +88,7 @@ class SunCard extends LitElement {
 
 
     // tix - time hhHmm between sunset and sunrise
-    const timeBetweenDuskAndDown = '10' //eventsAt.sunset - eventsAt.sunrise
+    const timeBetweenDuskAndDown = this.convertMinutestoHoursAndMinutes(eventsAt.sunset - eventsAt.sunrise) // eventsAt.sunset - eventsAt.sunrise
     
 
     return {
@@ -107,12 +107,12 @@ class SunCard extends LitElement {
   }
 
   // Tix
-  convertMinutestoHoursAndMinutes ( minutes: number) {
+  convertMinutestoHoursAndMinutes ( minutes: number):string {
     const cHours = Math.floor(minutes / 60)
     const cMinutes = minutes % 60
-    const total = cHours.toString() + "H" + cMinutes.toString()
+    const total = cHours.toString() + "h" + cMinutes.toString()
 
-    return { total }
+    return  total
   }
 
   parseTime (timeText: string, locale?: string) {
