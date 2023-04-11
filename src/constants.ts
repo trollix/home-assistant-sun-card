@@ -22,7 +22,8 @@ export class Constants {
     showAzimuth: false,
     showElevation: false,
     timeFormat: '24h',
-    sunColor: '#f9d05e'
+    sunColor: '#f9d05e',
+    showDayLength: false,
   }
 
   static readonly EVENT_X_POSITIONS = {

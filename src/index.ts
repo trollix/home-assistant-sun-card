@@ -171,6 +171,7 @@ class SunCard extends LitElement {
     config.timeFormat = this.config.timeFormat ?? Constants.DEFAULT_CONFIG.timeFormat
     config.title = this.config.title
     config.sunColor = this.config.sunColor
+    config.showDayLength = this.config.showDayLength
 
     if (!Object.keys(Constants.LOCALIZATION_LANGUAGES).includes(config.language!)) {
       config.language = Constants.DEFAULT_CONFIG.language

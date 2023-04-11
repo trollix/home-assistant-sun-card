@@ -130,7 +130,7 @@ export class SunCardContent {
         </div>
       ` : html``
 
-      const daylength = html`
+      const daylength = config.showDayLength ? html`
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Daylength}</span>
           <span class="sun-card-dawn-time sun-card-text-time">
@@ -138,7 +138,7 @@ export class SunCardContent {
           ${data?.times.timeBetweenDuskAndDown ? data.times.timeBetweenDuskAndDown : ''}
           </span>
         </div>
-      `
+      ` : html`` 
   
       bottomRow = html`
         <div class="sun-card-footer-row">

@@ -6,6 +6,7 @@ export type TSunCardConfig = {
   timeFormat?: '12h' | '24h'
   title?: string
   sunColor?: string
+  showDayLength?: boolean // Tix - show day length
 }
 
 export type TSunCardTime = {
