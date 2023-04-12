@@ -11,7 +11,7 @@ Home assistant Sun card based on Google weather design
 
 ## Requirements
 
-- This card uses [Sun integration](https://www.home-assistant.io/integrations/sun/) so it needs to be enabled
+- This card uses [Sun integration](https://www.home-assistant.io/integrations/sun/) so it needs to be enabled.
 
 ## Install
 
