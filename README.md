@@ -9,7 +9,6 @@ Home assistant Sun card based on Google weather design
 <img width="423" alt="screenshot_1227" src="https://user-images.githubusercontent.com/3890545/231160852-c5673386-7949-420f-be0d-b47a2f479e26.png">
 
 
-
 ## Requirements
 
 - This card uses [Sun integration](https://www.home-assistant.io/integrations/sun/) so it needs to be enabled
