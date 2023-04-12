@@ -2,8 +2,7 @@
   "name": "homeassistant-sun-card",
   "version": "0.4.3",
   "description": "Home assistant sun card based on Google weather design",
-  "main": "home-assistant-sun-card.js",
-
+  "main": "dist/index.js",
   "scripts": {
     "start": "rollup -c rollup.config.dev.js --watch --bundleConfigAsCjs",
     "build": "rimraf dist && npm run lint && npm run rollup",
