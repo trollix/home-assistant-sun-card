@@ -7,7 +7,7 @@ import { SunCardContent } from './cardContent'
 import { ESunCardErrors, TSunCardConfig, TSunCardData } from './types'
 
 
-const CARD_VERSION = '0.5.2'
+const CARD_VERSION = '0.5.3'
 
 console.info(
   `%c  HOME-ASSISTANT-SUN-CARD-2 \n%c  Version ${CARD_VERSION}    `,
