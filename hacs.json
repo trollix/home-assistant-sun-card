@@ -1,10 +1,6 @@
 {
   "name": "Sun Card 2",
   "render_readme": true,
-<<<<<<< HEAD
   "filename": "home-assistant-sun-card.js",
   "zip_release": false
-=======
-  "filename": "homeassistant-sun-card.js"
->>>>>>> origin/main
 }
