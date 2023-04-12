@@ -2,6 +2,8 @@
 
 Home assistant Sun card based on Google weather design
 
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
+
 ## Preview
 
 <img width="423" alt="screenshot_1227" src="https://user-images.githubusercontent.com/3890545/231160852-c5673386-7949-420f-be0d-b47a2f479e26.png">
