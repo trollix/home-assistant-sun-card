@@ -2,5 +2,5 @@
   "name": "Sun Card 2",
   "render_readme": true,
   "filename": "homeassistant-sun-card.js",
-  "zip_release": true
+  "zip_release": false
 }
