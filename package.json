@@ -4,8 +4,7 @@
   "description": "Home assistant sun card based on Google weather design",
   "main": "dist/home-assistant-sun-card.js",
   "files": [
-    "/dist",
-    "/dist/icons"
+    "/dist"
   ],
 
   "scripts": {
