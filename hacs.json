@@ -2,5 +2,5 @@
   "name": "Sun Card 2",
   "render_readme": true,
   "filename": "home-assistant-sun-card.js",
-  "content_in_root": true
+  "content_in_root": no
 }
