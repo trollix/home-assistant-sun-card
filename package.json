@@ -5,13 +5,14 @@
   "main": "dist/home-assistant-sun-card.js",
   "files": [
     "/dist",
-    "/dist/assets"
+    "/dist/icons"
   ],
   "scripts": {
     "start": "rollup -c rollup.config.dev.js --watch --bundleConfigAsCjs",
     "build": "rimraf dist && npm run lint && npm run rollup",
     "lint": "eslint src/*.ts",
-    "rollup": "rollup -c --bundleConfigAsCjs"
+    "rollup": "rollup -c --bundleConfigAsCjs",
+    "copy": "copy-folder src/icons dist/icons"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,8 @@
   },
   "dependencies": {
     "@formatjs/ecma402-abstract": "^1.14.3",
+    "copy-file-util": "^1.0.0",
+    "copy-folder-util": "^1.0.0",
     "custom-card-helpers": "^1.9.0",
     "lit-element": "^3.3.1"
   }
