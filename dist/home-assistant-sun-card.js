@@ -1077,7 +1077,7 @@ var ESunCardErrors = /*#__PURE__*/function (ESunCardErrors) {
   return ESunCardErrors;
 }({});
 
-var CARD_VERSION = '0.5.1';
+var CARD_VERSION = '0.5.2';
 console.info("%c  HOME-ASSISTANT-SUN-CARD-2 \n%c  Version ".concat(CARD_VERSION, "    "), 'color: orange; font-weight: bold; background: black', 'color: white; font-weight: bold; background: dimgray');
 var SunCard = _decorate([e$1('sun-card')], function (_initialize, _LitElement) {
   var SunCard = /*#__PURE__*/function (_LitElement2) {
