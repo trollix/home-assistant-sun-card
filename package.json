@@ -6,7 +6,6 @@
   "files": [
     "/dist"
   ],
-
   "scripts": {
     "start": "rollup -c rollup.config.dev.js --watch --bundleConfigAsCjs",
     "build": "rimraf dist && npm run lint && npm run rollup",
@@ -52,6 +51,6 @@
     "copy-file-util": "^1.0.0",
     "copy-folder-util": "^1.0.0",
     "custom-card-helpers": "^1.9.0",
-    "lit-element": "^3.3.1"
+    "lit": "^2.7.2"
   }
 }
