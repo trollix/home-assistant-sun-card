@@ -1,4 +1,4 @@
-import babel from '@rollup/plugin-babel'
+import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import resolve from '@rollup/plugin-node-resolve'
@@ -16,7 +16,7 @@ export default {
     resolve({ extensions }),
     commonjs(),
     json(),
-    babel({extensions, include: ['src/**/*'], babelHelpers: 'bundled'}),
+    babel({ extensions, include: ['src/**/*'], babelHelpers: 'bundled' }),
     serve({
       contentBase: ['dev/', 'dist/'],
       host: '0.0.0.0',
