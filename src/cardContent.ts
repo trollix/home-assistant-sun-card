@@ -94,7 +94,6 @@ export class SunCardContent {
     `
     */
 
-
     return html`
       <div class="sun-card-body">
         <svg viewBox="0 0 550 150" xmlns="http://www.w3.org/2000/svg">
