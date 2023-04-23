@@ -53,6 +53,10 @@ export class SunCardContent {
       <div class="sun-card-body">
         <svg viewBox="0 0 550 150" xmlns="http://www.w3.org/2000/svg">
           <defs>
+            <style>
+              .p1j-1{fill:#eeeb61;opacity:0.51;isolation:isolate;}
+              .p1j-2{fill:#f5b21a;stroke:#fde901;stroke-miterlimit:10;}
+            </style>
             <linearGradient id="${sunID}" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" style="stop-color:${config.sunColor};stop-opacity:1" />
               <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:${config.sunColor};stop-opacity:1" />
