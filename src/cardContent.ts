@@ -136,7 +136,6 @@ export class SunCardContent {
           <line class="line-main" x1="5" y1="108" x2="545" y2="108"></line>
           <line class="line-main" x1="101" y1="25" x2="101" y2="100"></line>
           <line class="line-main" x1="449" y1="25" x2="449" y2="100"></line>
-          <circle cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="17" opacity="${data?.sunPercentOverHorizon ? 1 : 0}" stroke="none" fill="url(#${sunID})" shape-rendering="geometricPrecision" />
           <circle class="sun-ext ombre" stroke="none" shape-rendering="geometricPrecision" cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="21" opacity="1" fill="url(#${sunID})"/>
           <circle class="sun-int" stroke="none" shape-rendering="geometricPrecision" cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="16" opacity="1" fill="url(#${sunID})" />
 
