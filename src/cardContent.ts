@@ -114,14 +114,14 @@ export class SunCardContent {
           -->
             // aube - dawn
             <linearGradient id="${dawnID}" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="50%" style="stop-color:#393b78;stop-opacity:1" />
+              <stop offset="0%" style="stop-color:#393b78;stop-opacity:1" />
               <stop offset="${data?.dawnProgressPercent ?? 0}%" style="stop-color:#8ebeeb;stop-opacity:1" />
               <stop offset="${data?.dawnProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
             </linearGradient>
             
             // jour - day
             <linearGradient id="${dayID}" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="70%" style="stop-color:#8ebeeb;stop-opacity:1" />
+              <stop offset="0%" style="stop-color:#8ebeeb;stop-opacity:1" />
               <stop offset="${data?.dayProgressPercent ?? 0}%" style="stop-color:#393b78;stop-opacity:1"  />
               <stop offset="${data?.dayProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
             </linearGradient>
