@@ -105,20 +105,21 @@ export class SunCardContent {
             .ombre { filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5)); }
             .ombre2 { filter: drop-shadow(-4px -1px 2px rgba(0, 0, 0, 0.4)); }
           </style>
-            <linearGradient id="${sunID}" x1="0%" y1="0%" x2="100%" y2="100%">
+          <!--
+            <linearGradient id="${sunID}" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="20%" style="stop-color:#393b78;stop-opacity:1" />
               <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:#8ebeeb;stop-opacity:1" />
               <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
             </linearGradient>
-            
+          -->
             <linearGradient id="${dawnID}" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style="stop-color:#393b78;stop-opacity:1" />
+              <stop offset="50%" style="stop-color:#393b78;stop-opacity:1" />
               <stop offset="${data?.dawnProgressPercent ?? 0}%" style="stop-color:#393b78;stop-opacity:1" />
               <stop offset="${data?.dawnProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
             </linearGradient>
             
             <linearGradient id="${dayID}" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style="stop-color:#393b78;stop-opacity:1" />
+              <stop offset="70%" style="stop-color:#8ebeeb;stop-opacity:1" />
               <stop offset="${data?.dayProgressPercent ?? 0}%" style="stop-color:#393b78;stop-opacity:1"  />
               <stop offset="${data?.dayProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
             </linearGradient>
@@ -133,10 +134,10 @@ export class SunCardContent {
           <path d="M5,146 C29,153 73,128 101,108 L 5 108" fill="url(#${dawnID})" opacity="${data?.dawnProgressPercent ? 1 : 0}" stroke="url(#${dawnID})" shape-rendering="geometricPrecision" />
           <path d="M101,108 C276,-29 342,23 449,108 L 104,108" fill="url(#${dayID})" opacity="${data?.dayProgressPercent ? 1 : 0}" stroke="url(#${dayID})" shape-rendering="geometricPrecision" />
           <path d="M449,108 C473,123 509,150 545,146 L 545 108" fill="url(#${duskID})" opacity="${data?.duskProgressPercent ? 1 : 0}" stroke="url(#${duskID})" shape-rendering="geometricPrecision" />
-          <line class="line-main" x1="5" y1="108" x2="545" y2="108"></line>
-          <line class="line-main" x1="101" y1="25" x2="101" y2="100"></line>
-          <line class="line-main" x1="449" y1="25" x2="449" y2="100"></line>
-          <circle class="sun-ext ombre" stroke="none" shape-rendering="geometricPrecision" cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="21" opacity="1" fill="url(#${sunID})"/>
+          <line class="line-main" x1="5" y1="108" x2="545" y2="108" />
+          <line class="line-main" x1="101" y1="25" x2="101" y2="100" />
+          <line class="line-main" x1="449" y1="25" x2="449" y2="100" />
+          <circle class="sun-ext ombre" stroke="none" shape-rendering="geometricPrecision" cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="21" opacity="1" fill="url(#${sunID})" />
           <circle class="sun-int" stroke="none" shape-rendering="geometricPrecision" cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="16" opacity="1" fill="url(#${sunID})" />
 
         </svg>
