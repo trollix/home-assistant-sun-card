@@ -118,7 +118,9 @@ class SunCard extends LitElement {
   }
 
   colourNameToHex ( colour ) {
-    const reg=/^#([0-9a-f]{3}){1,2}$/i    
+
+    const reg = /^#([0-9a-f]{3}){1,2}$/i    // test if type of color is "#xxxxxx"
+
     const colours = { "aliceblue":"#f0f8ff","antiquewhite":"#faebd7","aqua":"#00ffff","aquamarine":"#7fffd4","azure":"#f0ffff",
       "beige":"#f5f5dc","bisque":"#ffe4c4","black":"#000000","blanchedalmond":"#ffebcd","blue":"#0000ff","blueviolet":"#8a2be2","brown":"#a52a2a","burlywood":"#deb887",
       "cadetblue":"#5f9ea0","chartreuse":"#7fff00","chocolate":"#d2691e","coral":"#ff7f50","cornflowerblue":"#6495ed","cornsilk":"#fff8dc","crimson":"#dc143c","cyan":"#00ffff",
@@ -150,7 +152,7 @@ class SunCard extends LitElement {
         return colours[colour.toLowerCase()]
     }
     
-    return false
+    return this.config.sunColor
   }
 
   parseTime (timeText: string, locale?: string) {
@@ -180,7 +182,7 @@ class SunCard extends LitElement {
     this.config.language = this.config.language ?? this.lastHass.locale?.language ?? this.lastHass.language
     this.config.timeFormat = this.config.timeFormat ?? this.getTimeFormatByLanguage(this.config.language)
     this.config.sunColor = this.colourNameToHex(this.config.sunColor)
-    
+
     const times = {
       dawn: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_dawn),
       dusk: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_dusk),

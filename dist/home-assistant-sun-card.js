@@ -1300,7 +1300,8 @@ var SunCard = _decorate([e$1('sun-card')], function (_initialize, _LitElement) {
       kind: "method",
       key: "colourNameToHex",
       value: function colourNameToHex(colour) {
-        var reg = /^#([0-9a-f]{3}){1,2}$/i;
+        var reg = /^#([0-9a-f]{3}){1,2}$/i; // test if type of color is "#xxxxxx"
+
         var colours = {
           "aliceblue": "#f0f8ff",
           "antiquewhite": "#faebd7",
@@ -1449,7 +1450,7 @@ var SunCard = _decorate([e$1('sun-card')], function (_initialize, _LitElement) {
         } else if (typeof colours[colour.toLowerCase()] != 'undefined') {
           return colours[colour.toLowerCase()];
         }
-        return false;
+        return this.config.sunColor;
       }
     }, {
       kind: "method",
