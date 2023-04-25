@@ -1450,7 +1450,7 @@ var SunCard = _decorate([e$1('sun-card')], function (_initialize, _LitElement) {
         } else if (typeof colours[colour.toLowerCase()] != 'undefined') {
           return colours[colour.toLowerCase()];
         }
-        return this.config.sunColor;
+        return '#f9d05e'; // default value
       }
     }, {
       kind: "method",

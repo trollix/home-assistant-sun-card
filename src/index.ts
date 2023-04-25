@@ -149,10 +149,10 @@ class SunCard extends LitElement {
     if (reg.test(colour)) {
       return colour
     } else if (typeof colours[colour.toLowerCase()] != 'undefined') {
-        return colours[colour.toLowerCase()]
+      return colours[colour.toLowerCase()]
     }
     
-    return this.config.sunColor
+    return '#f9d05e' // default value
   }
 
   parseTime (timeText: string, locale?: string) {
