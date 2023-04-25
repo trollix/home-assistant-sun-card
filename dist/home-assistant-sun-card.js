@@ -1054,8 +1054,7 @@ var SunCardContent = /*#__PURE__*/function () {
       var endColor = '#' + endRGB.map(function (c) {
         return c.toString(16).padStart(2, '0');
       }).join('');
-
-      //console.log(endColor); // #eeeb61
+      console.log(endColor); // #eeeb61
 
       /*
       return html`

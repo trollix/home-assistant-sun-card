@@ -60,7 +60,7 @@ export class SunCardContent {
     // Convert the end color back to hexadecimal
     const endColor = '#' + endRGB.map((c) => c.toString(16).padStart(2, '0')).join('')
 
-    //console.log(endColor); // #eeeb61
+    console.log(endColor) // #eeeb61
 
 
     /*
