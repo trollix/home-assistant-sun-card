@@ -65,24 +65,10 @@ export class SunCardContent {
     const dawnID = Math.random().toString(36).replace('0.', '')
     const dayID = Math.random().toString(36).replace('0.', '')
     const duskID = Math.random().toString(36).replace('0.', '')
-
-
-    const startColor = config.sunColor
-    const offset = 10
-
-    // Convert the start color to RGB
-    const startRGB = startColor.match(/\w\w/g).map((hex) => parseInt(hex, 16))
-    // Add the offset to each RGB component
-    const endRGB = startRGB.map((c) => c + offset)
-    // Convert the end color back to hexadecimal
-    const endColor = '#' + endRGB.map((c) => c.toString(16).padStart(2, '0')).join('')
-
-    console.log("endColor:",endColor) // #eeeb61
-
-   
+ 
     const lightenedColor = this.lightenColor(config.sunColor, 50) // éclaircir la couleur de 30 points
 
-    console.log(lightenedColor) // affiche '#ffe94a'
+    //console.log(lightenedColor) // affiche '#ffe94a'
 
     /*
     return html`
@@ -136,7 +122,7 @@ export class SunCardContent {
           <defs>
           <style>
             .sun-ext{fill:${endColor};opacity:0.51;isolation:isolate;}
-            .sun-int{fill:${config.sunColor};stroke:${endColor};stroke-miterlimit:10;}
+            .sun-int{fill:${config.sunColor};stroke:${lightenedColor};stroke-miterlimit:10;}
             .line-main{stroke:var(--sun-card-lines)}
             .ombre { filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5)); }
             .ombre2 { filter: drop-shadow(-4px -1px 2px rgba(0, 0, 0, 0.4)); }
