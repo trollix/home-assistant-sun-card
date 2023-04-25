@@ -48,6 +48,21 @@ export class SunCardContent {
     const dawnID = Math.random().toString(36).replace('0.', '')
     const dayID = Math.random().toString(36).replace('0.', '')
     const duskID = Math.random().toString(36).replace('0.', '')
+
+
+    const startColor = config.sunColor
+    const offset = 10
+
+    // Convert the start color to RGB
+    const startRGB = startColor.match(/\w\w/g).map((hex) => parseInt(hex, 16))
+    // Add the offset to each RGB component
+    const endRGB = startRGB.map((c) => c + offset)
+    // Convert the end color back to hexadecimal
+    const endColor = '#' + endRGB.map((c) => c.toString(16).padStart(2, '0')).join('')
+
+    //console.log(endColor); // #eeeb61
+
+
     /*
     return html`
       <div class="sun-card-body">
@@ -99,8 +114,8 @@ export class SunCardContent {
         <svg viewBox="0 0 550 150" xmlns="http://www.w3.org/2000/svg">
           <defs>
           <style>
-            .sun-ext{fill:#eeeb61;opacity:0.51;isolation:isolate;}
-            .sun-int{fill:#f5b21a;stroke:#fde901;stroke-miterlimit:10;}
+            .sun-ext{fill:${endColor};opacity:0.51;isolation:isolate;}
+            .sun-int{fill:${config.sunColor};stroke:${endColor};stroke-miterlimit:10;}
             .line-main{stroke:var(--sun-card-lines)}
             .ombre { filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5)); }
             .ombre2 { filter: drop-shadow(-4px -1px 2px rgba(0, 0, 0, 0.4)); }
@@ -140,8 +155,8 @@ export class SunCardContent {
           <line class="line-main" x1="5" y1="108" x2="545" y2="108" />
           <line class="line-main" x1="101" y1="25" x2="101" y2="100" />
           <line class="line-main" x1="449" y1="25" x2="449" y2="100" />
-          <circle class="sun-ext ombre" stroke="none" shape-rendering="geometricPrecision" cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="21" opacity="1" fill="url(#${sunID})" />
-          <circle class="sun-int" stroke="none" shape-rendering="geometricPrecision" cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="16" opacity="1" fill="url(#${sunID})" />
+          <circle class="sun-ext ombre" stroke="none" shape-rendering="geometricPrecision" cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="21" opacity="1" />
+          <circle class="sun-int" stroke="none" shape-rendering="geometricPrecision" cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="16" opacity="1" />
 
         </svg>
       </div>
