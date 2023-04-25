@@ -112,7 +112,10 @@ class SunCard extends LitElement {
     const cMinutes = minutes % 60
     const total = cHours.toString() + ":" + cMinutes.toString()
 
-    return  total
+    const HHMM = (cHours < 10 ? "0" : "") + cHours.toString() + ":" + (cMinutes < 10 ? "0" : "") + cMinutes.toString()
+
+    console.log(HHMM)
+    return  HHMM
   }
 
 

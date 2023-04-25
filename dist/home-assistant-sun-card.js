@@ -1291,8 +1291,10 @@ var SunCard = _decorate([e$1('sun-card')], function (_initialize, _LitElement) {
       value: function convertMinutestoHoursAndMinutes(minutes) {
         var cHours = Math.floor(minutes / 60);
         var cMinutes = minutes % 60;
-        var total = cHours.toString() + ":" + cMinutes.toString();
-        return total;
+        cHours.toString() + ":" + cMinutes.toString();
+        var HHMM = (cHours < 10 ? "0" : "") + cHours.toString() + ":" + (cMinutes < 10 ? "0" : "") + cMinutes.toString();
+        console.log(HHMM);
+        return HHMM;
       }
     }, {
       kind: "method",
