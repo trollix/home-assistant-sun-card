@@ -1072,7 +1072,7 @@ var SunCardContent = /*#__PURE__*/function () {
       }).join('');
       console.log("endColor:", endColor); // #eeeb61
 
-      var lightenedColor = this.lightenColor(config.sunColor, 30); // éclaircir la couleur de 30 points
+      var lightenedColor = this.lightenColor(config.sunColor, 50); // éclaircir la couleur de 30 points
 
       console.log(lightenedColor); // affiche '#ffe94a'
 

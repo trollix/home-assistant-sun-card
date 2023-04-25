@@ -80,7 +80,7 @@ export class SunCardContent {
     console.log("endColor:",endColor) // #eeeb61
 
    
-    const lightenedColor = this.lightenColor(config.sunColor, 30) // éclaircir la couleur de 30 points
+    const lightenedColor = this.lightenColor(config.sunColor, 50) // éclaircir la couleur de 30 points
 
     console.log(lightenedColor) // affiche '#ffe94a'
 
