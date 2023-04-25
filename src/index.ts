@@ -182,6 +182,7 @@ class SunCard extends LitElement {
     this.config.language = this.config.language ?? this.lastHass.locale?.language ?? this.lastHass.language
     this.config.timeFormat = this.config.timeFormat ?? this.getTimeFormatByLanguage(this.config.language)
     this.config.sunColor = this.colourNameToHex(this.config.sunColor)
+    
 
     const times = {
       dawn: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_dawn),
@@ -224,6 +225,7 @@ class SunCard extends LitElement {
     config.timeFormat = this.config.timeFormat ?? Constants.DEFAULT_CONFIG.timeFormat
     config.title = this.config.title
     config.sunColor = this.config.sunColor
+    config.sunRadius = this.config.sunRadius
     config.showDayLength = this.config.showDayLength
 
     if (!Object.keys(Constants.LOCALIZATION_LANGUAGES).includes(config.language!)) {

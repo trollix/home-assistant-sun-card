@@ -52,6 +52,7 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 | timeFormat        | `'12h'`/`'24h'`      | Displayed time format                | Locale based on Home assistant language             |
 | title             | `string`             | Card title                           | Doesn't display a title by default                  |
 | sunColor          | `string`             | Color of the sun                     | '#f9d05e' by default                                |
+| sunRadius         | `string`             | Radius of the sun                    | 14 by default                                       |
 | linesColor        | `string`             | Color of the lines                   | '#464646' by default                                |
 | darklinesColor    | `string`             | Color of the lines (dark)            | '#464646' by default                                |
 | dayProgressColor  | `string`             | Color of the day progress            | '#8ebeeb' by default                                |
@@ -63,4 +64,4 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 
 ## Known issues
 
-- Home assistant seems to provide next events instead today's one 
+- Home assistant seems to provide next events instead today's one  

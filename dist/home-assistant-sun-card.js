@@ -1531,6 +1531,7 @@ var SunCard = _decorate([e$1('sun-card')], function (_initialize, _LitElement) {
         config.timeFormat = (_this$config$timeForm2 = this.config.timeFormat) !== null && _this$config$timeForm2 !== void 0 ? _this$config$timeForm2 : Constants.DEFAULT_CONFIG.timeFormat;
         config.title = this.config.title;
         config.sunColor = this.config.sunColor;
+        config.sunRadius = this.config.sunRadius;
         config.showDayLength = this.config.showDayLength;
         if (!Object.keys(Constants.LOCALIZATION_LANGUAGES).includes(config.language)) {
           config.language = Constants.DEFAULT_CONFIG.language;
