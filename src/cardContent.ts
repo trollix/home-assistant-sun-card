@@ -121,7 +121,7 @@ export class SunCardContent {
         <svg viewBox="0 0 550 150" xmlns="http://www.w3.org/2000/svg">
           <defs>
           <style>
-            .sun-ext{fill:${endColor};opacity:0.51;isolation:isolate;}
+            .sun-ext{fill:${lightenedColor};opacity:0.51;isolation:isolate;}
             .sun-int{fill:${config.sunColor};stroke:${lightenedColor};stroke-miterlimit:10;}
             .line-main{stroke:var(--sun-card-lines)}
             .ombre { filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5)); }
