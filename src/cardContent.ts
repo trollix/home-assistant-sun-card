@@ -43,6 +43,23 @@ export class SunCardContent {
     `
   }
 
+  // Tix
+  private static lightenColor ( color, amount:number ) {
+      let r = parseInt(color.substring(1, 3), 16)
+      let g = parseInt(color.substring(3, 5), 16)
+      let b = parseInt(color.substring(5, 7), 16)
+    
+      r = Math.min(r + amount, 255)
+      g = Math.min(g + amount, 255)
+      b = Math.min(b + amount, 255)
+    
+      const rr = r.toString(16).length === 1 ? '0' + r.toString(16) : r.toString(16)
+      const gg = g.toString(16).length === 1 ? '0' + g.toString(16) : g.toString(16)
+      const bb = b.toString(16).length === 1 ? '0' + b.toString(16) : b.toString(16)
+    
+      return '#' + rr + gg + bb
+    }
+
   private static generateBody (data: TSunCardData, config: TSunCardConfig): TemplateResult {
     const sunID = Math.random().toString(36).replace('0.', '')
     const dawnID = Math.random().toString(36).replace('0.', '')
@@ -62,6 +79,10 @@ export class SunCardContent {
 
     console.log("endColor:",endColor) // #eeeb61
 
+   
+    const lightenedColor = this.lightenColor(config.sunColor, 30) // éclaircir la couleur de 30 points
+
+    console.log(lightenedColor) // affiche '#ffe94a'
 
     /*
     return html`

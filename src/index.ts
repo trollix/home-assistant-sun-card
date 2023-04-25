@@ -115,6 +115,8 @@ class SunCard extends LitElement {
     return  total
   }
 
+
+
   parseTime (timeText: string, locale?: string) {
     const regex = /\d{1,2}[:.]\d{1,2}|[AMP]+/g
     const date = new Date(timeText)

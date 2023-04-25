@@ -1031,6 +1031,22 @@ var SunCardContent = /*#__PURE__*/function () {
       var title = config.title !== undefined ? x(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n      <h1 class=\"sun-card-title\">", "</h1>\n    "])), config.title) : x(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral([""])));
       return x(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n      ", "\n      <div class=\"sun-card-header\">\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n\n        </div>\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n      </div>\n    "])), title, localization.Sunrise, data !== null && data !== void 0 && data.times.sunrise ? this.generateTime(data.times.sunrise) : '', localization.Sunset, data !== null && data !== void 0 && data.times.sunset ? this.generateTime(data.times.sunset) : '');
     }
+
+    // Tix
+  }, {
+    key: "lightenColor",
+    value: function lightenColor(color, amount) {
+      var r = parseInt(color.substring(1, 3), 16);
+      var g = parseInt(color.substring(3, 5), 16);
+      var b = parseInt(color.substring(5, 7), 16);
+      r = Math.min(r + amount, 255);
+      g = Math.min(g + amount, 255);
+      b = Math.min(b + amount, 255);
+      var rr = r.toString(16).length === 1 ? '0' + r.toString(16) : r.toString(16);
+      var gg = g.toString(16).length === 1 ? '0' + g.toString(16) : g.toString(16);
+      var bb = b.toString(16).length === 1 ? '0' + b.toString(16) : b.toString(16);
+      return '#' + rr + gg + bb;
+    }
   }, {
     key: "generateBody",
     value: function generateBody(data, config) {
@@ -1055,6 +1071,10 @@ var SunCardContent = /*#__PURE__*/function () {
         return c.toString(16).padStart(2, '0');
       }).join('');
       console.log("endColor:", endColor); // #eeeb61
+
+      var lightenedColor = this.lightenColor(config.sunColor, 30); // éclaircir la couleur de 30 points
+
+      console.log(lightenedColor); // affiche '#ffe94a'
 
       /*
       return html`
