@@ -163,7 +163,7 @@ export class SunCardContent {
           <line class="line-main" x1="101" y1="25" x2="101" y2="100" />
           <line class="line-main" x1="449" y1="25" x2="449" y2="100" />
           <!--circle class="sun-ext ombre" stroke="none" shape-rendering="geometricPrecision" cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="21" opacity="1" /> -->
-          <circle class="sun-int ombre" stroke="none" shape-rendering="geometricPrecision" cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="14" opacity="1" />
+          <circle class="sun-int ombre" stroke="none" shape-rendering="geometricPrecision" cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="${config.sunRadius}" opacity="1" />
 
         </svg>
       </div>

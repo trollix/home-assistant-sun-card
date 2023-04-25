@@ -23,6 +23,7 @@ export class Constants {
     showElevation: false,
     timeFormat: '24h',
     sunColor: '#f9d05e',
+    sunRadius: 14,
     showDayLength: false,
   }
 
