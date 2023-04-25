@@ -1,4 +1,4 @@
-import { html, TemplateResult } from 'lit-element'
+import { html, TemplateResult } from 'lit'
 import { TSunCardConfig, TSunCardData, TSunCardTexts, TSunCardTime } from './types'
 
 export class SunCardContent {
