@@ -1,10 +1,13 @@
 import { HomeAssistant } from 'custom-card-helpers'
-import { customElement, LitElement, state } from 'lit-element'
-
+import { LitElement } from 'lit'
+import { state, customElement } from 'lit/decorators.js'
 import cardStyles from './cardStyles'
 import { Constants } from './constants'
 import { SunCardContent } from './cardContent'
-import { ESunCardErrors, TSunCardConfig, TSunCardData } from './types'
+import { 
+  ESunCardErrors, 
+  TSunCardConfig, 
+  TSunCardData } from './types'
 
 
 const CARD_VERSION = '0.59.5'
