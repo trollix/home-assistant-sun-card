@@ -1,8 +1,8 @@
 {
   "name": "homeassistant-sun-card",
-  "version": "0.4.3",
-  "description": "Home assistant sun card based on Google weather design",
-  "main": "dist/home-assistant-sun-card.js",
+  "version": "0.70",
+  "description": "New version Home assistant sun card based on Google weather design with new features",
+  "main": "dist/home-assistant-sun-card2.js",
   "files": [
     "/dist"
   ],

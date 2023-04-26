@@ -1,6 +1,6 @@
-# Lovelace Sun card
+# Lovelace Sun card 2
 
-Home assistant Lovelace Sun card based on Google weather design
+New Home assistant Lovelace Sun card based on Google weather design
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
 
@@ -22,7 +22,7 @@ Home assistant Lovelace Sun card is available by default on HACS directory. More
 
 ### Manually
 
-1. Download the `home-assistant-sun-card.js` file from the [latest release available](https://github.com/trollix/home-assistant-sun-card/releases) and save it in your `configuration/www` folder.
+1. Download the `home-assistant-sun-card2.js` file from the [latest release available](https://github.com/trollix/home-assistant-sun-card/releases) and save it in your `configuration/www` folder.
 1. Go to `Configuration > Lovelace dashboard > Resources` in Home Assistant and click on `Add resource`.
     1. Add `/local/community/home-assistant-sun-card.js` to the URL.
     1. Choose `Javascript Module` as Resource type.
@@ -62,7 +62,7 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 
 **(1)** Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `hu`, `it`, `nl`, `pl`, `pt-BR`, `ru`, `sl`, `sv`
 
-## New features - new parameters
+## New features - New parameters
 
 ### New parameters
 
