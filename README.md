@@ -9,6 +9,7 @@ Home assistant Lovelace Sun card based on Google weather design
 ![Sun Card](img01.png?raw=true "Sun Card")
 
 ![Sun Card](img03.png?raw=true "Sun Card")
+
 ## Requirements
 
 - This card uses [Sun integration](https://www.home-assistant.io/integrations/sun/) so it needs to be enabled.
@@ -65,12 +66,12 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 
 ### New parameters
 
-  *Sun Radius: Radius of the sun
-  *Sun Color: Color of the sun
+- Sun Radius: Radius of the sun
+- Sun Color: Color of the sun
 
 ### New features
 
-  *Daylight length
+- Daylight length
 
 ### Previews
 
