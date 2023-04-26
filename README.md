@@ -6,9 +6,9 @@ New Home assistant Lovelace Sun card based on Google weather design
 
 ## Preview
 
-![Sun Card](img01.png?raw=true "Sun Card")
+![Sun Card](https://github.com/trollix/home-assistant-sun-card/blob/main/img01.png?raw=true "Sun Card")
 
-![Sun Card](img03.png?raw=true "Sun Card")
+![Sun Card](https://github.com/trollix/home-assistant-sun-card/blob/main/img03.png?raw=true "Sun Card")
 
 ## Requirements
 
@@ -75,4 +75,4 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 
 ### Previews
 
-![Sun Card Param](img02.png?raw=true "Sun Card Param")
+![Sun Card Param](https://github.com/trollix/home-assistant-sun-card/blob/main/img02.png?raw=true "Sun Card Param")
