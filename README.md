@@ -2,11 +2,10 @@
 
 New Home assistant Lovelace Sun card based on Google weather design
 
-![](https://img.shields.io/github/v/release/trollix/home-assistant-sun-card)
+![Sun Card 2](https://img.shields.io/github/v/release/trollix/home-assistant-sun-card)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=flat)](https://github.com/custom-components/hacs)
-
 
 ## Preview
 
