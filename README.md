@@ -63,8 +63,14 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 
 ## New features - new parameters
 
-Sun Radius: Radius of the sun
-Sun Color: Color of the sun
+### New parameters
+
+  *Sun Radius: Radius of the sun
+  *Sun Color: Color of the sun
+
+### New features
+
+  *Daylight length
 
 ### Previews
 
