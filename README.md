@@ -1,13 +1,12 @@
-# Home assistant Sun card 2
+# Lovelace Sun card
 
-Home assistant Sun card based on Google weather design
+Home assistant Lovelace Sun card based on Google weather design
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
 
 ## Preview
 
-<img width="423" alt="screenshot_1227" src="https://user-images.githubusercontent.com/3890545/231160852-c5673386-7949-420f-be0d-b47a2f479e26.png">
-
+![Sun Card](readme-img01.png?raw=true "Sun Card")
 
 ## Requirements
 
@@ -17,7 +16,7 @@ Home assistant Sun card based on Google weather design
 
 ### HACS
 
-Home assistant Sun card 2 is available by default on HACS directory. More info [here](https://hacs.xyz/).
+Home assistant Lovelace Sun card is available by default on HACS directory. More info [here](https://hacs.xyz/).
 
 ### Manually
 
@@ -46,7 +45,7 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 | Name              | Accepted values      | Description                          | Default                                             |
 |-------------------|----------------------|--------------------------------------|-----------------------------------------------------|
 | darkMode          | `boolean`            | Changes card colors to dark or light | Home assistant dark mode state                      |
-| language          | `string`<sup>1</sup> | Changes card language                | Home assistant language else english                |
+| language          | `string` **(1)**     | Changes card language                | Home assistant language else english                |
 | showAzimuth       | `boolean`            | Displays azimuth in the footer       | `false`                                             |
 | showElevation     | `boolean`            | Displays elevation in the footer     | `false`                                             |
 | timeFormat        | `'12h'`/`'24h'`      | Displayed time format                | Locale based on Home assistant language             |
@@ -59,8 +58,7 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 | duskProgressColor | `string`             | Color of the dusk progress           | '#393b78' by default                                |
 | showDayLength     | `boolean`            | Length of the day                    | `false`                                             |
 
-
-(<sup>1</sup>) Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `hu`, `it`, `nl`, `pl`, `pt-BR`, `ru`, `sl`, `sv`
+**(1)** Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `hu`, `it`, `nl`, `pl`, `pt-BR`, `ru`, `sl`, `sv`
 
 ## Known issues
 
