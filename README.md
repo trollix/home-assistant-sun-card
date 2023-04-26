@@ -6,8 +6,9 @@ Home assistant Lovelace Sun card based on Google weather design
 
 ## Preview
 
-![Sun Card](readme-img01.png?raw=true "Sun Card")
+![Sun Card](img01.png?raw=true "Sun Card")
 
+![Sun Card](img03.png?raw=true "Sun Card")
 ## Requirements
 
 - This card uses [Sun integration](https://www.home-assistant.io/integrations/sun/) so it needs to be enabled.
@@ -60,6 +61,11 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 
 **(1)** Supported languages: `da`, `de`, `en`, `es`, `et`, `fi`, `fr`, `hu`, `it`, `nl`, `pl`, `pt-BR`, `ru`, `sl`, `sv`
 
-## Known issues
+## New features - new parameters
 
-- Home assistant seems to provide next events instead today's one  
+Sun Radius: Radius of the sun
+Sun Color: Color of the sun
+
+### Previews
+
+![Sun Card Param](img02.png?raw=true "Sun Card Param")
