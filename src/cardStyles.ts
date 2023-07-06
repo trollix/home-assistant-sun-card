@@ -65,7 +65,7 @@ export default css`
 
   .sun-card-footer .sun-card-text-time {
     font-size: 1.25rem;
-    font-weight: 400;
+    font-weight: 500;
   }
 
   .sun-card-text-time-period {
