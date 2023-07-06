@@ -57,7 +57,7 @@ export default css`
   }
 
   .sun-card-footer .sun-card-text-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 400;
     padding-bottom: 0.5rem;
     color: var(--sun-card-subtitle-color);
@@ -65,7 +65,7 @@ export default css`
 
   .sun-card-footer .sun-card-text-time {
     font-size: 1.25rem;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .sun-card-text-time-period {
