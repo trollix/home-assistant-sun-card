@@ -18,7 +18,11 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["./src/types/custom", "node_modules/@types"]
+    "typeRoots": ["./src/types/custom", "node_modules/@types"],
+    "allowJs": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true
   },
   "include": ["./src"]
 }
