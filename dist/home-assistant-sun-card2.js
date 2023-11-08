@@ -613,8 +613,134 @@ const t=t=>(e,o)=>{void 0!==o?o.addInitializer((()=>{customElements.define(t,e);
  * SPDX-License-Identifier: BSD-3-Clause
  */function r(r){return n({...r,state:!0,attribute:!1})}
 
-var _templateObject$1;
-var cardStyles = i$2(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteral(["\n  .sun-card {\n    --sun-card-lines: #464646;\n    --sun-card-text-color: #fff;\n    --sun-card-subtitle-color: #fff;\n\n    color: var(--sun-card-text-color);\n    padding: 1rem;\n  }\n\n  .sun-card-body {\n    padding-top: 0.5rem;\n  }\n\n  .sun-card.sun-card-light {\n    --sun-card-lines: #ececec;\n    --sun-card-text-color: #000;\n    --sun-card-subtitle-color: #828282;\n  }\n\n  .sun-card-header {\n    display: flex;\n    justify-content: space-between;\n  }\n  \n  .sun-card-footer .sun-card-footer-row {\n    display: flex;\n    justify-content: space-around;\n    padding-top: 1.5rem;\n  }\n\n  .sun-card-title {\n    font-size: 1.5rem;\n    font-weight: 500;\n    padding-bottom: 2rem;\n    margin: 0;\n  }\n\n  .sun-card-text-container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  .sun-card-header .sun-card-text-subtitle {\n    font-size: 1.15rem;\n    font-weight: 400;\n    padding-bottom: 0.25rem;\n    color: var(--sun-card-subtitle-color);\n  }\n\n  .sun-card-header .sun-card-text-time {\n    font-size: 1.85rem;\n    font-weight: 400;\n  }\n\n  .sun-card-footer .sun-card-text-subtitle {\n    font-size: 1.15rem;\n    font-weight: 400;\n    padding-bottom: 0.5rem;\n    color: var(--sun-card-subtitle-color);\n  }\n\n  .sun-card-footer .sun-card-text-time {\n    font-size: 1.25rem;\n    font-weight: 500;\n  }\n\n  .sun-card-text-time-period {\n    font-size: 0.75rem;\n  }\n"])));
+var _templateObject$1, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19;
+var SunCardContent = /*#__PURE__*/function () {
+  function SunCardContent() {
+    _classCallCheck(this, SunCardContent);
+  }
+  _createClass(SunCardContent, null, [{
+    key: "generate",
+    value: function generate(data, localization, config) {
+      if (data !== null && data !== void 0 && data.error) {
+        return x(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteral(["\n        <ha-card>\n          ", "\n        </ha-card>\n      "])), this.generateError());
+      }
+      return x(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n      <ha-card>\n        <div class=\"sun-card ", "\">\n          ", "\n          ", "\n          ", "\n        </div>\n      </ha-card>\n    "])), config.darkMode ? '' : 'sun-card-light', this.generateHeader(data, localization, config), this.generateBody(data, config), this.generateFooter(data, localization, config));
+    }
+  }, {
+    key: "generateHeader",
+    value: function generateHeader(data, localization, config) {
+      var title = config.title !== undefined ? x(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n      <h1 class=\"sun-card-title\">", "</h1>\n    "])), config.title) : x(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral([""])));
+      return x(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n      ", "\n      <div class=\"sun-card-header\">\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n\n        </div>\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n      </div>\n    "])), title, localization.Sunrise, data !== null && data !== void 0 && data.times.sunrise ? this.generateTime(data.times.sunrise) : '', localization.Sunset, data !== null && data !== void 0 && data.times.sunset ? this.generateTime(data.times.sunset) : '');
+    }
+
+    // Tix
+  }, {
+    key: "lightenColor",
+    value: function lightenColor(color, amount) {
+      var r = parseInt(color.substring(1, 3), 16);
+      var g = parseInt(color.substring(3, 5), 16);
+      var b = parseInt(color.substring(5, 7), 16);
+      r = Math.min(r + amount, 255);
+      g = Math.min(g + amount, 255);
+      b = Math.min(b + amount, 255);
+      var rr = r.toString(16).length === 1 ? '0' + r.toString(16) : r.toString(16);
+      var gg = g.toString(16).length === 1 ? '0' + g.toString(16) : g.toString(16);
+      var bb = b.toString(16).length === 1 ? '0' + b.toString(16) : b.toString(16);
+      return '#' + rr + gg + bb;
+    }
+  }, {
+    key: "generateBody",
+    value: function generateBody(data, config) {
+      var _data$sunPercentOverH, _data$sunPercentOverH2, _data$dawnProgressPer, _data$dawnProgressPer2, _data$dayProgressPerc, _data$dayProgressPerc2, _data$duskProgressPer, _data$duskProgressPer2, _data$sunPosition$x, _data$sunPosition$y, _data$sunPosition$x2, _data$sunPosition$y2;
+      var sunID = Math.random().toString(36).replace('0.', '');
+      var dawnID = Math.random().toString(36).replace('0.', '');
+      var dayID = Math.random().toString(36).replace('0.', '');
+      var duskID = Math.random().toString(36).replace('0.', '');
+      var lightenedColor = this.lightenColor(config.sunColor, 50); // éclaircir la couleur de 30 points
+
+      //console.log(lightenedColor) // affiche '#ffe94a'
+
+      /*
+      return html`
+        <div class="sun-card-body">
+          <svg viewBox="0 0 550 150" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <style>
+                .p1j-1{fill:#eeeb61;opacity:0.51;isolation:isolate;}
+                .p1j-2{fill:#f5b21a;stroke:#fde901;stroke-miterlimit:10;}
+              </style>
+              <linearGradient id="${sunID}" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:${config.sunColor};stop-opacity:1" />
+                <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:${config.sunColor};stop-opacity:1" />
+                <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
+              </linearGradient>
+              
+              <linearGradient id="${dawnID}" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#393b78;stop-opacity:1" />
+                <stop offset="${data?.dawnProgressPercent ?? 0}%" style="stop-color:#393b78;stop-opacity:1" />
+                <stop offset="${data?.dawnProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
+              </linearGradient>
+              
+              <linearGradient id="${dayID}" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#8ebeeb;stop-opacity:1" />
+                <stop offset="${data?.dayProgressPercent ?? 0}%" style="stop-color:#8ebeeb;stop-opacity:1" />
+                <stop offset="${data?.dayProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
+              </linearGradient>
+              
+              <linearGradient id="${duskID}" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#393b78;stop-opacity:1" />
+                <stop offset="${data?.duskProgressPercent ?? 0}%" style="stop-color:#393b78;stop-opacity:1" />
+                <stop offset="${data?.duskProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <path class="sun-card-sun-line" d="M5,146 C29,153 73,128 101,108 C276,-29 342,23 449,108 C473,123 509,150 545,146" fill="none" stroke="var(--sun-card-lines)" shape-rendering="geometricPrecision" />
+            <path d="M5,146 C29,153 73,128 101,108 L 5 108" fill="url(#${dawnID})" opacity="${data?.dawnProgressPercent ? 1 : 0}" stroke="url(#${dawnID})" shape-rendering="geometricPrecision" />
+            <path d="M101,108 C276,-29 342,23 449,108 L 104,108" fill="url(#${dayID})" opacity="${data?.dayProgressPercent ? 1 : 0}" stroke="url(#${dayID})" shape-rendering="geometricPrecision" />
+            <path d="M449,108 C473,123 509,150 545,146 L 545 108" fill="url(#${duskID})" opacity="${data?.duskProgressPercent ? 1 : 0}" stroke="url(#${duskID})" shape-rendering="geometricPrecision" />
+            <line x1="5" y1="108" x2="545" y2="108" stroke="var(--sun-card-lines)" />
+            <line x1="101" y1="25" x2="101" y2="100" stroke="var(--sun-card-lines)" />
+            <line x1="449" y1="25" x2="449" y2="100" stroke="var(--sun-card-lines)" />
+            <circle cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="17" opacity="${data?.sunPercentOverHorizon ? 1 : 0}" stroke="none" fill="url(#${sunID})" shape-rendering="geometricPrecision" />
+          </svg>
+        </div>
+      `
+      */
+
+      return x(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n      <div class=\"sun-card-body\">\n        <svg viewBox=\"0 0 550 150\" xmlns=\"http://www.w3.org/2000/svg\">\n          <defs>\n          <style>\n            .sun-ext{fill:", ";opacity:0.51;isolation:isolate;}\n            .sun-int{fill:", ";stroke:", ";stroke-miterlimit:10;stroke-width:3px;stroke-opacity:0.51}\n            .line-main{stroke:var(--sun-card-lines)}\n            .ombre { filter: drop-shadow(-2px 2px 4px rgba(0, 0, 0, 0.2)); }\n            .ombre2 { filter: drop-shadow(-4px -1px 2px rgba(0, 0, 0, 0.4)); }\n          </style>\n          <!--\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"20%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#8ebeeb;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n          -->\n            // aube - dawn\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#8ebeeb;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n            \n            // jour - day\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" style=\"stop-color:#8ebeeb;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#8ebeeb;stop-opacity:1\"  />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n            \n            // cr\xE9puscule - dusk\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n          </defs>\n          <path class=\"sun-card-sun-line line-main ombre2\" d=\"M5,146 C29,153 73,128 101,108 C276,-29 342,23 449,108 C473,123 509,150 545,146\" fill=\"none\" stroke=\"var(--sun-card-lines)\" shape-rendering=\"geometricPrecision\" />\n          <path d=\"M5,146 C29,153 73,128 101,108 L 5 108\" fill=\"url(#", ")\" opacity=\"", "\" stroke=\"url(#", ")\" shape-rendering=\"geometricPrecision\" />\n          <path d=\"M101,108 C276,-29 342,23 449,108 L 104,108\" fill=\"url(#", ")\" opacity=\"", "\" stroke=\"url(#", ")\" shape-rendering=\"geometricPrecision\" />\n          <path d=\"M449,108 C473,123 509,150 545,146 L 545 108\" fill=\"url(#", ")\" opacity=\"", "\" stroke=\"url(#", ")\" shape-rendering=\"geometricPrecision\" />\n          <line class=\"line-main\" x1=\"5\" y1=\"108\" x2=\"545\" y2=\"108\" />\n          <line class=\"line-main\" x1=\"101\" y1=\"25\" x2=\"101\" y2=\"100\" />\n          <line class=\"line-main\" x1=\"449\" y1=\"25\" x2=\"449\" y2=\"100\" />\n          <!--circle class=\"sun-ext ombre\" stroke=\"none\" shape-rendering=\"geometricPrecision\" cx=\"", "\" cy=\"", "\" r=\"21\" opacity=\"1\" /> -->\n          <circle class=\"sun-int ombre\" stroke=\"none\" shape-rendering=\"geometricPrecision\" cx=\"", "\" cy=\"", "\" r=\"", "\" opacity=\"1\" />\n\n        </svg>\n      </div>\n    "])), lightenedColor, config.sunColor, lightenedColor, sunID, (_data$sunPercentOverH = data === null || data === void 0 ? void 0 : data.sunPercentOverHorizon) !== null && _data$sunPercentOverH !== void 0 ? _data$sunPercentOverH : 0, (_data$sunPercentOverH2 = data === null || data === void 0 ? void 0 : data.sunPercentOverHorizon) !== null && _data$sunPercentOverH2 !== void 0 ? _data$sunPercentOverH2 : 0, dawnID, (_data$dawnProgressPer = data === null || data === void 0 ? void 0 : data.dawnProgressPercent) !== null && _data$dawnProgressPer !== void 0 ? _data$dawnProgressPer : 0, (_data$dawnProgressPer2 = data === null || data === void 0 ? void 0 : data.dawnProgressPercent) !== null && _data$dawnProgressPer2 !== void 0 ? _data$dawnProgressPer2 : 0, dayID, (_data$dayProgressPerc = data === null || data === void 0 ? void 0 : data.dayProgressPercent) !== null && _data$dayProgressPerc !== void 0 ? _data$dayProgressPerc : 0, (_data$dayProgressPerc2 = data === null || data === void 0 ? void 0 : data.dayProgressPercent) !== null && _data$dayProgressPerc2 !== void 0 ? _data$dayProgressPerc2 : 0, duskID, (_data$duskProgressPer = data === null || data === void 0 ? void 0 : data.duskProgressPercent) !== null && _data$duskProgressPer !== void 0 ? _data$duskProgressPer : 0, (_data$duskProgressPer2 = data === null || data === void 0 ? void 0 : data.duskProgressPercent) !== null && _data$duskProgressPer2 !== void 0 ? _data$duskProgressPer2 : 0, dawnID, data !== null && data !== void 0 && data.dawnProgressPercent ? 1 : 0, dawnID, dayID, data !== null && data !== void 0 && data.dayProgressPercent ? 1 : 0, dayID, duskID, data !== null && data !== void 0 && data.duskProgressPercent ? 1 : 0, duskID, (_data$sunPosition$x = data === null || data === void 0 ? void 0 : data.sunPosition.x) !== null && _data$sunPosition$x !== void 0 ? _data$sunPosition$x : 0, (_data$sunPosition$y = data === null || data === void 0 ? void 0 : data.sunPosition.y) !== null && _data$sunPosition$y !== void 0 ? _data$sunPosition$y : 0, (_data$sunPosition$x2 = data === null || data === void 0 ? void 0 : data.sunPosition.x) !== null && _data$sunPosition$x2 !== void 0 ? _data$sunPosition$x2 : 0, (_data$sunPosition$y2 = data === null || data === void 0 ? void 0 : data.sunPosition.y) !== null && _data$sunPosition$y2 !== void 0 ? _data$sunPosition$y2 : 0, config.sunRadius);
+    }
+  }, {
+    key: "generateError",
+    value: function generateError() {
+      return x(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n      <hui-error-card></hui-error-card>\n    "])));
+    }
+  }, {
+    key: "generateFooter",
+    value: function generateFooter(data, localization, config) {
+      var upperRow = x(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n      <div class=\"sun-card-footer-row\">\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n      </div>\n    "])), localization.Dawn, data !== null && data !== void 0 && data.times.dawn ? this.generateTime(data.times.dawn) : '', localization.Noon, data !== null && data !== void 0 && data.times.noon ? this.generateTime(data.times.noon) : '', localization.Dusk, data !== null && data !== void 0 && data.times.dusk ? this.generateTime(data.times.dusk) : '');
+      var bottomRow = x(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral([""])));
+      if (config.showAzimuth || config.showElevation) {
+        var _data$azimuth, _data$elevation;
+        var azimuth = config.showAzimuth ? x(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          <span class=\"sun-card-dawn-time sun-card-text-time\">", "</span>\n        </div>\n      "])), localization.Azimuth, (_data$azimuth = data === null || data === void 0 ? void 0 : data.azimuth) !== null && _data$azimuth !== void 0 ? _data$azimuth : '') : x(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral([""])));
+        var elevation = config.showElevation ? x(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          <span class=\"sun-card-dawn-time sun-card-text-time\">", "</span>\n        </div>\n      "])), localization.Elevation, (_data$elevation = data === null || data === void 0 ? void 0 : data.elevation) !== null && _data$elevation !== void 0 ? _data$elevation : '') : x(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral([""])));
+        var daylength = config.showDayLength ? x(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          <span class=\"sun-card-dawn-time sun-card-text-time\">\n          ", "\n          </span>\n        </div>\n      "])), localization.Daylength, data !== null && data !== void 0 && data.timeBetweenDuskAndDown ? data.timeBetweenDuskAndDown : '') : x(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral([""])));
+        bottomRow = x(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-footer-row\">\n          ", "\n          ", "\n          ", "\n        </div>\n      "])), azimuth, elevation, daylength);
+      }
+      return x(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["\n      <div class=\"sun-card-footer\">\n        ", "\n        ", "\n      </div>\n    "])), upperRow, bottomRow);
+    }
+  }, {
+    key: "generateTime",
+    value: function generateTime(time) {
+      if (time.period) {
+        return x(_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["\n        <span class=\"sun-card-text-time\">\n          ", " <span class=\"sun-card-text-time-period\">", "</span>\n        </span>\n      "])), time.time, time.period);
+      }
+      return x(_templateObject19 || (_templateObject19 = _taggedTemplateLiteral(["\n      <span class=\"sun-card-text-time\">", "</span>\n    "])), time.time);
+    }
+  }]);
+  return SunCardContent;
+}();
+
+var _templateObject;
+var cardStyles = i$2(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  .sun-card {\n    --sun-card-lines: #464646;\n    --sun-card-text-color: #fff;\n    --sun-card-subtitle-color: #fff;\n\n    color: var(--sun-card-text-color);\n    padding: 1rem;\n  }\n\n  .sun-card-body {\n    padding-top: 0.5rem;\n  }\n\n  .sun-card.sun-card-light {\n    --sun-card-lines: #ececec;\n    --sun-card-text-color: #000;\n    --sun-card-subtitle-color: #828282;\n  }\n\n  .sun-card-header {\n    display: flex;\n    justify-content: space-between;\n  }\n  \n  .sun-card-footer .sun-card-footer-row {\n    display: flex;\n    justify-content: space-around;\n    padding-top: 1.5rem;\n  }\n\n  .sun-card-title {\n    font-size: 1.5rem;\n    font-weight: 500;\n    padding-bottom: 2rem;\n    margin: 0;\n  }\n\n  .sun-card-text-container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  .sun-card-header .sun-card-text-subtitle {\n    font-size: 1.15rem;\n    font-weight: 400;\n    padding-bottom: 0.25rem;\n    color: var(--sun-card-subtitle-color);\n  }\n\n  .sun-card-header .sun-card-text-time {\n    font-size: 1.85rem;\n    font-weight: 400;\n  }\n\n  .sun-card-footer .sun-card-text-subtitle {\n    font-size: 1.15rem;\n    font-weight: 400;\n    padding-bottom: 0.5rem;\n    color: var(--sun-card-subtitle-color);\n  }\n\n  .sun-card-footer .sun-card-text-time {\n    font-size: 1.25rem;\n    font-weight: 500;\n  }\n\n  .sun-card-text-time-period {\n    font-size: 0.75rem;\n  }\n"])));
 
 var Azimuth$e = "Azimut";
 var Dawn$e = "Daggry";
@@ -1000,138 +1126,14 @@ _defineProperty(Constants, "LOCALIZATION_LANGUAGES", {
 });
 _defineProperty(Constants, "SUN_RADIUS", 17);
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19;
-var SunCardContent = /*#__PURE__*/function () {
-  function SunCardContent() {
-    _classCallCheck(this, SunCardContent);
-  }
-  _createClass(SunCardContent, null, [{
-    key: "generate",
-    value: function generate(data, localization, config) {
-      if (data !== null && data !== void 0 && data.error) {
-        return x(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        <ha-card>\n          ", "\n        </ha-card>\n      "])), this.generateError());
-      }
-      return x(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n      <ha-card>\n        <div class=\"sun-card ", "\">\n          ", "\n          ", "\n          ", "\n        </div>\n      </ha-card>\n    "])), config.darkMode ? '' : 'sun-card-light', this.generateHeader(data, localization, config), this.generateBody(data, config), this.generateFooter(data, localization, config));
-    }
-  }, {
-    key: "generateHeader",
-    value: function generateHeader(data, localization, config) {
-      var title = config.title !== undefined ? x(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n      <h1 class=\"sun-card-title\">", "</h1>\n    "])), config.title) : x(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral([""])));
-      return x(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n      ", "\n      <div class=\"sun-card-header\">\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n\n        </div>\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n      </div>\n    "])), title, localization.Sunrise, data !== null && data !== void 0 && data.times.sunrise ? this.generateTime(data.times.sunrise) : '', localization.Sunset, data !== null && data !== void 0 && data.times.sunset ? this.generateTime(data.times.sunset) : '');
-    }
-
-    // Tix
-  }, {
-    key: "lightenColor",
-    value: function lightenColor(color, amount) {
-      var r = parseInt(color.substring(1, 3), 16);
-      var g = parseInt(color.substring(3, 5), 16);
-      var b = parseInt(color.substring(5, 7), 16);
-      r = Math.min(r + amount, 255);
-      g = Math.min(g + amount, 255);
-      b = Math.min(b + amount, 255);
-      var rr = r.toString(16).length === 1 ? '0' + r.toString(16) : r.toString(16);
-      var gg = g.toString(16).length === 1 ? '0' + g.toString(16) : g.toString(16);
-      var bb = b.toString(16).length === 1 ? '0' + b.toString(16) : b.toString(16);
-      return '#' + rr + gg + bb;
-    }
-  }, {
-    key: "generateBody",
-    value: function generateBody(data, config) {
-      var _data$sunPercentOverH, _data$sunPercentOverH2, _data$dawnProgressPer, _data$dawnProgressPer2, _data$dayProgressPerc, _data$dayProgressPerc2, _data$duskProgressPer, _data$duskProgressPer2, _data$sunPosition$x, _data$sunPosition$y, _data$sunPosition$x2, _data$sunPosition$y2;
-      var sunID = Math.random().toString(36).replace('0.', '');
-      var dawnID = Math.random().toString(36).replace('0.', '');
-      var dayID = Math.random().toString(36).replace('0.', '');
-      var duskID = Math.random().toString(36).replace('0.', '');
-      var lightenedColor = this.lightenColor(config.sunColor, 50); // éclaircir la couleur de 30 points
-
-      //console.log(lightenedColor) // affiche '#ffe94a'
-
-      /*
-      return html`
-        <div class="sun-card-body">
-          <svg viewBox="0 0 550 150" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <style>
-                .p1j-1{fill:#eeeb61;opacity:0.51;isolation:isolate;}
-                .p1j-2{fill:#f5b21a;stroke:#fde901;stroke-miterlimit:10;}
-              </style>
-              <linearGradient id="${sunID}" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:${config.sunColor};stop-opacity:1" />
-                <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:${config.sunColor};stop-opacity:1" />
-                <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
-              </linearGradient>
-              
-              <linearGradient id="${dawnID}" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#393b78;stop-opacity:1" />
-                <stop offset="${data?.dawnProgressPercent ?? 0}%" style="stop-color:#393b78;stop-opacity:1" />
-                <stop offset="${data?.dawnProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
-              </linearGradient>
-              
-              <linearGradient id="${dayID}" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#8ebeeb;stop-opacity:1" />
-                <stop offset="${data?.dayProgressPercent ?? 0}%" style="stop-color:#8ebeeb;stop-opacity:1" />
-                <stop offset="${data?.dayProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
-              </linearGradient>
-              
-              <linearGradient id="${duskID}" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#393b78;stop-opacity:1" />
-                <stop offset="${data?.duskProgressPercent ?? 0}%" style="stop-color:#393b78;stop-opacity:1" />
-                <stop offset="${data?.duskProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
-              </linearGradient>
-            </defs>
-            <path class="sun-card-sun-line" d="M5,146 C29,153 73,128 101,108 C276,-29 342,23 449,108 C473,123 509,150 545,146" fill="none" stroke="var(--sun-card-lines)" shape-rendering="geometricPrecision" />
-            <path d="M5,146 C29,153 73,128 101,108 L 5 108" fill="url(#${dawnID})" opacity="${data?.dawnProgressPercent ? 1 : 0}" stroke="url(#${dawnID})" shape-rendering="geometricPrecision" />
-            <path d="M101,108 C276,-29 342,23 449,108 L 104,108" fill="url(#${dayID})" opacity="${data?.dayProgressPercent ? 1 : 0}" stroke="url(#${dayID})" shape-rendering="geometricPrecision" />
-            <path d="M449,108 C473,123 509,150 545,146 L 545 108" fill="url(#${duskID})" opacity="${data?.duskProgressPercent ? 1 : 0}" stroke="url(#${duskID})" shape-rendering="geometricPrecision" />
-            <line x1="5" y1="108" x2="545" y2="108" stroke="var(--sun-card-lines)" />
-            <line x1="101" y1="25" x2="101" y2="100" stroke="var(--sun-card-lines)" />
-            <line x1="449" y1="25" x2="449" y2="100" stroke="var(--sun-card-lines)" />
-            <circle cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="17" opacity="${data?.sunPercentOverHorizon ? 1 : 0}" stroke="none" fill="url(#${sunID})" shape-rendering="geometricPrecision" />
-          </svg>
-        </div>
-      `
-      */
-
-      return x(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n      <div class=\"sun-card-body\">\n        <svg viewBox=\"0 0 550 150\" xmlns=\"http://www.w3.org/2000/svg\">\n          <defs>\n          <style>\n            .sun-ext{fill:", ";opacity:0.51;isolation:isolate;}\n            .sun-int{fill:", ";stroke:", ";stroke-miterlimit:10;stroke-width:3px;stroke-opacity:0.51}\n            .line-main{stroke:var(--sun-card-lines)}\n            .ombre { filter: drop-shadow(-2px 2px 4px rgba(0, 0, 0, 0.2)); }\n            .ombre2 { filter: drop-shadow(-4px -1px 2px rgba(0, 0, 0, 0.4)); }\n          </style>\n          <!--\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"20%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#8ebeeb;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n          -->\n            // aube - dawn\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#8ebeeb;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n            \n            // jour - day\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" style=\"stop-color:#8ebeeb;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#8ebeeb;stop-opacity:1\"  />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n            \n            // cr\xE9puscule - dusk\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n          </defs>\n          <path class=\"sun-card-sun-line line-main ombre2\" d=\"M5,146 C29,153 73,128 101,108 C276,-29 342,23 449,108 C473,123 509,150 545,146\" fill=\"none\" stroke=\"var(--sun-card-lines)\" shape-rendering=\"geometricPrecision\" />\n          <path d=\"M5,146 C29,153 73,128 101,108 L 5 108\" fill=\"url(#", ")\" opacity=\"", "\" stroke=\"url(#", ")\" shape-rendering=\"geometricPrecision\" />\n          <path d=\"M101,108 C276,-29 342,23 449,108 L 104,108\" fill=\"url(#", ")\" opacity=\"", "\" stroke=\"url(#", ")\" shape-rendering=\"geometricPrecision\" />\n          <path d=\"M449,108 C473,123 509,150 545,146 L 545 108\" fill=\"url(#", ")\" opacity=\"", "\" stroke=\"url(#", ")\" shape-rendering=\"geometricPrecision\" />\n          <line class=\"line-main\" x1=\"5\" y1=\"108\" x2=\"545\" y2=\"108\" />\n          <line class=\"line-main\" x1=\"101\" y1=\"25\" x2=\"101\" y2=\"100\" />\n          <line class=\"line-main\" x1=\"449\" y1=\"25\" x2=\"449\" y2=\"100\" />\n          <!--circle class=\"sun-ext ombre\" stroke=\"none\" shape-rendering=\"geometricPrecision\" cx=\"", "\" cy=\"", "\" r=\"21\" opacity=\"1\" /> -->\n          <circle class=\"sun-int ombre\" stroke=\"none\" shape-rendering=\"geometricPrecision\" cx=\"", "\" cy=\"", "\" r=\"", "\" opacity=\"1\" />\n\n        </svg>\n      </div>\n    "])), lightenedColor, config.sunColor, lightenedColor, sunID, (_data$sunPercentOverH = data === null || data === void 0 ? void 0 : data.sunPercentOverHorizon) !== null && _data$sunPercentOverH !== void 0 ? _data$sunPercentOverH : 0, (_data$sunPercentOverH2 = data === null || data === void 0 ? void 0 : data.sunPercentOverHorizon) !== null && _data$sunPercentOverH2 !== void 0 ? _data$sunPercentOverH2 : 0, dawnID, (_data$dawnProgressPer = data === null || data === void 0 ? void 0 : data.dawnProgressPercent) !== null && _data$dawnProgressPer !== void 0 ? _data$dawnProgressPer : 0, (_data$dawnProgressPer2 = data === null || data === void 0 ? void 0 : data.dawnProgressPercent) !== null && _data$dawnProgressPer2 !== void 0 ? _data$dawnProgressPer2 : 0, dayID, (_data$dayProgressPerc = data === null || data === void 0 ? void 0 : data.dayProgressPercent) !== null && _data$dayProgressPerc !== void 0 ? _data$dayProgressPerc : 0, (_data$dayProgressPerc2 = data === null || data === void 0 ? void 0 : data.dayProgressPercent) !== null && _data$dayProgressPerc2 !== void 0 ? _data$dayProgressPerc2 : 0, duskID, (_data$duskProgressPer = data === null || data === void 0 ? void 0 : data.duskProgressPercent) !== null && _data$duskProgressPer !== void 0 ? _data$duskProgressPer : 0, (_data$duskProgressPer2 = data === null || data === void 0 ? void 0 : data.duskProgressPercent) !== null && _data$duskProgressPer2 !== void 0 ? _data$duskProgressPer2 : 0, dawnID, data !== null && data !== void 0 && data.dawnProgressPercent ? 1 : 0, dawnID, dayID, data !== null && data !== void 0 && data.dayProgressPercent ? 1 : 0, dayID, duskID, data !== null && data !== void 0 && data.duskProgressPercent ? 1 : 0, duskID, (_data$sunPosition$x = data === null || data === void 0 ? void 0 : data.sunPosition.x) !== null && _data$sunPosition$x !== void 0 ? _data$sunPosition$x : 0, (_data$sunPosition$y = data === null || data === void 0 ? void 0 : data.sunPosition.y) !== null && _data$sunPosition$y !== void 0 ? _data$sunPosition$y : 0, (_data$sunPosition$x2 = data === null || data === void 0 ? void 0 : data.sunPosition.x) !== null && _data$sunPosition$x2 !== void 0 ? _data$sunPosition$x2 : 0, (_data$sunPosition$y2 = data === null || data === void 0 ? void 0 : data.sunPosition.y) !== null && _data$sunPosition$y2 !== void 0 ? _data$sunPosition$y2 : 0, config.sunRadius);
-    }
-  }, {
-    key: "generateError",
-    value: function generateError() {
-      return x(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n      <hui-error-card></hui-error-card>\n    "])));
-    }
-  }, {
-    key: "generateFooter",
-    value: function generateFooter(data, localization, config) {
-      var upperRow = x(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n      <div class=\"sun-card-footer-row\">\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n      </div>\n    "])), localization.Dawn, data !== null && data !== void 0 && data.times.dawn ? this.generateTime(data.times.dawn) : '', localization.Noon, data !== null && data !== void 0 && data.times.noon ? this.generateTime(data.times.noon) : '', localization.Dusk, data !== null && data !== void 0 && data.times.dusk ? this.generateTime(data.times.dusk) : '');
-      var bottomRow = x(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral([""])));
-      if (config.showAzimuth || config.showElevation) {
-        var _data$azimuth, _data$elevation;
-        var azimuth = config.showAzimuth ? x(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          <span class=\"sun-card-dawn-time sun-card-text-time\">", "</span>\n        </div>\n      "])), localization.Azimuth, (_data$azimuth = data === null || data === void 0 ? void 0 : data.azimuth) !== null && _data$azimuth !== void 0 ? _data$azimuth : '') : x(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral([""])));
-        var elevation = config.showElevation ? x(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          <span class=\"sun-card-dawn-time sun-card-text-time\">", "</span>\n        </div>\n      "])), localization.Elevation, (_data$elevation = data === null || data === void 0 ? void 0 : data.elevation) !== null && _data$elevation !== void 0 ? _data$elevation : '') : x(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral([""])));
-        var daylength = config.showDayLength ? x(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          <span class=\"sun-card-dawn-time sun-card-text-time\">\n          ", "\n          </span>\n        </div>\n      "])), localization.Daylength, data !== null && data !== void 0 && data.timeBetweenDuskAndDown ? data.timeBetweenDuskAndDown : '') : x(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral([""])));
-        bottomRow = x(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-footer-row\">\n          ", "\n          ", "\n          ", "\n        </div>\n      "])), azimuth, elevation, daylength);
-      }
-      return x(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["\n      <div class=\"sun-card-footer\">\n        ", "\n        ", "\n      </div>\n    "])), upperRow, bottomRow);
-    }
-  }, {
-    key: "generateTime",
-    value: function generateTime(time) {
-      if (time.period) {
-        return x(_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["\n        <span class=\"sun-card-text-time\">\n          ", " <span class=\"sun-card-text-time-period\">", "</span>\n        </span>\n      "])), time.time, time.period);
-      }
-      return x(_templateObject19 || (_templateObject19 = _taggedTemplateLiteral(["\n      <span class=\"sun-card-text-time\">", "</span>\n    "])), time.time);
-    }
-  }]);
-  return SunCardContent;
-}();
-
 var ESunCardErrors = /*#__PURE__*/function (ESunCardErrors) {
   ESunCardErrors["SunIntegrationNotFound"] = "SunIntegrationNotFound";
   return ESunCardErrors;
 }({});
 
-var CARD_VERSION = '0.72.14';
+var CARD_VERSION = '0.72.15';
+
+// eslint-disable-next-line no-console
 console.info("%c  HOME-ASSISTANT-SUN-CARD-2 \n%c  Version ".concat(CARD_VERSION, "    "), 'color: orange; font-weight: bold; background: black', 'color: white; font-weight: bold; background: dimgray');
 var SunCard = _decorate([t('sun-card')], function (_initialize, _LitElement) {
   var SunCard = /*#__PURE__*/function (_LitElement2) {
@@ -1279,159 +1281,159 @@ var SunCard = _decorate([t('sun-card')], function (_initialize, _LitElement) {
       value: function convertMinutestoHoursAndMinutes(minutes) {
         var cHours = Math.floor(minutes / 60);
         var cMinutes = minutes % 60;
-        //const total = cHours.toString() + ":" + cMinutes.toString()
+        //const total = cHours.toString() + ':' + cMinutes.toString()
 
-        var HHMM = cHours.toString() + ":" + (cMinutes < 10 ? "0" : "") + cMinutes.toString();
+        var HHMM = cHours.toString() + ':' + (cMinutes < 10 ? '0' : '') + cMinutes.toString();
         return HHMM;
       }
     }, {
       kind: "method",
       key: "colourNameToHex",
       value: function colourNameToHex(colour) {
-        var reg = /^#([0-9a-f]{3}){1,2}$/i; // test if type of color is "#xxxxxx"
+        var reg = /^#([0-9a-f]{3}){1,2}$/i; // test if type of color is '#xxxxxx'
 
         var colours = {
-          "aliceblue": "#f0f8ff",
-          "antiquewhite": "#faebd7",
-          "aqua": "#00ffff",
-          "aquamarine": "#7fffd4",
-          "azure": "#f0ffff",
-          "beige": "#f5f5dc",
-          "bisque": "#ffe4c4",
-          "black": "#000000",
-          "blanchedalmond": "#ffebcd",
-          "blue": "#0000ff",
-          "blueviolet": "#8a2be2",
-          "brown": "#a52a2a",
-          "burlywood": "#deb887",
-          "cadetblue": "#5f9ea0",
-          "chartreuse": "#7fff00",
-          "chocolate": "#d2691e",
-          "coral": "#ff7f50",
-          "cornflowerblue": "#6495ed",
-          "cornsilk": "#fff8dc",
-          "crimson": "#dc143c",
-          "cyan": "#00ffff",
-          "darkblue": "#00008b",
-          "darkcyan": "#008b8b",
-          "darkgoldenrod": "#b8860b",
-          "darkgray": "#a9a9a9",
-          "darkgreen": "#006400",
-          "darkkhaki": "#bdb76b",
-          "darkmagenta": "#8b008b",
-          "darkolivegreen": "#556b2f",
-          "darkorange": "#ff8c00",
-          "darkorchid": "#9932cc",
-          "darkred": "#8b0000",
-          "darksalmon": "#e9967a",
-          "darkseagreen": "#8fbc8f",
-          "darkslateblue": "#483d8b",
-          "darkslategray": "#2f4f4f",
-          "darkturquoise": "#00ced1",
-          "darkviolet": "#9400d3",
-          "deeppink": "#ff1493",
-          "deepskyblue": "#00bfff",
-          "dimgray": "#696969",
-          "dodgerblue": "#1e90ff",
-          "firebrick": "#b22222",
-          "floralwhite": "#fffaf0",
-          "forestgreen": "#228b22",
-          "fuchsia": "#ff00ff",
-          "gainsboro": "#dcdcdc",
-          "ghostwhite": "#f8f8ff",
-          "gold": "#ffd700",
-          "goldenrod": "#daa520",
-          "gray": "#808080",
-          "green": "#008000",
-          "greenyellow": "#adff2f",
-          "honeydew": "#f0fff0",
-          "hotpink": "#ff69b4",
-          "indianred ": "#cd5c5c",
-          "indigo": "#4b0082",
-          "ivory": "#fffff0",
-          "khaki": "#f0e68c",
-          "lavender": "#e6e6fa",
-          "lavenderblush": "#fff0f5",
-          "lawngreen": "#7cfc00",
-          "lemonchiffon": "#fffacd",
-          "lightblue": "#add8e6",
-          "lightcoral": "#f08080",
-          "lightcyan": "#e0ffff",
-          "lightgoldenrodyellow": "#fafad2",
-          "lightgrey": "#d3d3d3",
-          "lightgreen": "#90ee90",
-          "lightpink": "#ffb6c1",
-          "lightsalmon": "#ffa07a",
-          "lightseagreen": "#20b2aa",
-          "lightskyblue": "#87cefa",
-          "lightslategray": "#778899",
-          "lightsteelblue": "#b0c4de",
-          "lightyellow": "#ffffe0",
-          "lime": "#00ff00",
-          "limegreen": "#32cd32",
-          "linen": "#faf0e6",
-          "magenta": "#ff00ff",
-          "maroon": "#800000",
-          "mediumaquamarine": "#66cdaa",
-          "mediumblue": "#0000cd",
-          "mediumorchid": "#ba55d3",
-          "mediumpurple": "#9370d8",
-          "mediumseagreen": "#3cb371",
-          "mediumslateblue": "#7b68ee",
-          "mediumspringgreen": "#00fa9a",
-          "mediumturquoise": "#48d1cc",
-          "mediumvioletred": "#c71585",
-          "midnightblue": "#191970",
-          "mintcream": "#f5fffa",
-          "mistyrose": "#ffe4e1",
-          "moccasin": "#ffe4b5",
-          "navajowhite": "#ffdead",
-          "navy": "#000080",
-          "oldlace": "#fdf5e6",
-          "olive": "#808000",
-          "olivedrab": "#6b8e23",
-          "orange": "#ffa500",
-          "orangered": "#ff4500",
-          "orchid": "#da70d6",
-          "palegoldenrod": "#eee8aa",
-          "palegreen": "#98fb98",
-          "paleturquoise": "#afeeee",
-          "palevioletred": "#d87093",
-          "papayawhip": "#ffefd5",
-          "peachpuff": "#ffdab9",
-          "peru": "#cd853f",
-          "pink": "#ffc0cb",
-          "plum": "#dda0dd",
-          "powderblue": "#b0e0e6",
-          "purple": "#800080",
-          "rebeccapurple": "#663399",
-          "red": "#ff0000",
-          "rosybrown": "#bc8f8f",
-          "royalblue": "#4169e1",
-          "saddlebrown": "#8b4513",
-          "salmon": "#fa8072",
-          "sandybrown": "#f4a460",
-          "seagreen": "#2e8b57",
-          "seashell": "#fff5ee",
-          "sienna": "#a0522d",
-          "silver": "#c0c0c0",
-          "skyblue": "#87ceeb",
-          "slateblue": "#6a5acd",
-          "slategray": "#708090",
-          "snow": "#fffafa",
-          "springgreen": "#00ff7f",
-          "steelblue": "#4682b4",
-          "tan": "#d2b48c",
-          "teal": "#008080",
-          "thistle": "#d8bfd8",
-          "tomato": "#ff6347",
-          "turquoise": "#40e0d0",
-          "violet": "#ee82ee",
-          "wheat": "#f5deb3",
-          "white": "#ffffff",
-          "whitesmoke": "#f5f5f5",
-          "yellow": "#ffff00",
-          "yellowgreen": "#9acd32"
+          'aliceblue': '#f0f8ff',
+          'antiquewhite': '#faebd7',
+          'aqua': '#00ffff',
+          'aquamarine': '#7fffd4',
+          'azure': '#f0ffff',
+          'beige': '#f5f5dc',
+          'bisque': '#ffe4c4',
+          'black': '#000000',
+          'blanchedalmond': '#ffebcd',
+          'blue': '#0000ff',
+          'blueviolet': '#8a2be2',
+          'brown': '#a52a2a',
+          'burlywood': '#deb887',
+          'cadetblue': '#5f9ea0',
+          'chartreuse': '#7fff00',
+          'chocolate': '#d2691e',
+          'coral': '#ff7f50',
+          'cornflowerblue': '#6495ed',
+          'cornsilk': '#fff8dc',
+          'crimson': '#dc143c',
+          'cyan': '#00ffff',
+          'darkblue': '#00008b',
+          'darkcyan': '#008b8b',
+          'darkgoldenrod': '#b8860b',
+          'darkgray': '#a9a9a9',
+          'darkgreen': '#006400',
+          'darkkhaki': '#bdb76b',
+          'darkmagenta': '#8b008b',
+          'darkolivegreen': '#556b2f',
+          'darkorange': '#ff8c00',
+          'darkorchid': '#9932cc',
+          'darkred': '#8b0000',
+          'darksalmon': '#e9967a',
+          'darkseagreen': '#8fbc8f',
+          'darkslateblue': '#483d8b',
+          'darkslategray': '#2f4f4f',
+          'darkturquoise': '#00ced1',
+          'darkviolet': '#9400d3',
+          'deeppink': '#ff1493',
+          'deepskyblue': '#00bfff',
+          'dimgray': '#696969',
+          'dodgerblue': '#1e90ff',
+          'firebrick': '#b22222',
+          'floralwhite': '#fffaf0',
+          'forestgreen': '#228b22',
+          'fuchsia': '#ff00ff',
+          'gainsboro': '#dcdcdc',
+          'ghostwhite': '#f8f8ff',
+          'gold': '#ffd700',
+          'goldenrod': '#daa520',
+          'gray': '#808080',
+          'green': '#008000',
+          'greenyellow': '#adff2f',
+          'honeydew': '#f0fff0',
+          'hotpink': '#ff69b4',
+          'indianred ': '#cd5c5c',
+          'indigo': '#4b0082',
+          'ivory': '#fffff0',
+          'khaki': '#f0e68c',
+          'lavender': '#e6e6fa',
+          'lavenderblush': '#fff0f5',
+          'lawngreen': '#7cfc00',
+          'lemonchiffon': '#fffacd',
+          'lightblue': '#add8e6',
+          'lightcoral': '#f08080',
+          'lightcyan': '#e0ffff',
+          'lightgoldenrodyellow': '#fafad2',
+          'lightgrey': '#d3d3d3',
+          'lightgreen': '#90ee90',
+          'lightpink': '#ffb6c1',
+          'lightsalmon': '#ffa07a',
+          'lightseagreen': '#20b2aa',
+          'lightskyblue': '#87cefa',
+          'lightslategray': '#778899',
+          'lightsteelblue': '#b0c4de',
+          'lightyellow': '#ffffe0',
+          'lime': '#00ff00',
+          'limegreen': '#32cd32',
+          'linen': '#faf0e6',
+          'magenta': '#ff00ff',
+          'maroon': '#800000',
+          'mediumaquamarine': '#66cdaa',
+          'mediumblue': '#0000cd',
+          'mediumorchid': '#ba55d3',
+          'mediumpurple': '#9370d8',
+          'mediumseagreen': '#3cb371',
+          'mediumslateblue': '#7b68ee',
+          'mediumspringgreen': '#00fa9a',
+          'mediumturquoise': '#48d1cc',
+          'mediumvioletred': '#c71585',
+          'midnightblue': '#191970',
+          'mintcream': '#f5fffa',
+          'mistyrose': '#ffe4e1',
+          'moccasin': '#ffe4b5',
+          'navajowhite': '#ffdead',
+          'navy': '#000080',
+          'oldlace': '#fdf5e6',
+          'olive': '#808000',
+          'olivedrab': '#6b8e23',
+          'orange': '#ffa500',
+          'orangered': '#ff4500',
+          'orchid': '#da70d6',
+          'palegoldenrod': '#eee8aa',
+          'palegreen': '#98fb98',
+          'paleturquoise': '#afeeee',
+          'palevioletred': '#d87093',
+          'papayawhip': '#ffefd5',
+          'peachpuff': '#ffdab9',
+          'peru': '#cd853f',
+          'pink': '#ffc0cb',
+          'plum': '#dda0dd',
+          'powderblue': '#b0e0e6',
+          'purple': '#800080',
+          'rebeccapurple': '#663399',
+          'red': '#ff0000',
+          'rosybrown': '#bc8f8f',
+          'royalblue': '#4169e1',
+          'saddlebrown': '#8b4513',
+          'salmon': '#fa8072',
+          'sandybrown': '#f4a460',
+          'seagreen': '#2e8b57',
+          'seashell': '#fff5ee',
+          'sienna': '#a0522d',
+          'silver': '#c0c0c0',
+          'skyblue': '#87ceeb',
+          'slateblue': '#6a5acd',
+          'slategray': '#708090',
+          'snow': '#fffafa',
+          'springgreen': '#00ff7f',
+          'steelblue': '#4682b4',
+          'tan': '#d2b48c',
+          'teal': '#008080',
+          'thistle': '#d8bfd8',
+          'tomato': '#ff6347',
+          'turquoise': '#40e0d0',
+          'violet': '#ee82ee',
+          'wheat': '#f5deb3',
+          'white': '#ffffff',
+          'whitesmoke': '#f5f5f5',
+          'yellow': '#ffff00',
+          'yellowgreen': '#9acd32'
         };
         if (reg.test(colour)) {
           return colour;
@@ -1578,6 +1580,7 @@ var SunCard = _decorate([t('sun-card')], function (_initialize, _LitElement) {
             (_errorElement$setConf = errorElement.setConfig) === null || _errorElement$setConf === void 0 || _errorElement$setConf.call(errorElement, {
               error: error
             });
+            // eslint-disable-next-line no-console
             console.error(error);
           }
         }
