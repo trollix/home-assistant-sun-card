@@ -10,7 +10,7 @@ import {
   TSunCardData } from './types'
 
 
-const CARD_VERSION = '0.72.15'
+const CARD_VERSION = '0.73.1'
 
 // eslint-disable-next-line no-console
 console.info(
