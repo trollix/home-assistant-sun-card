@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "module": "esnext",
+    "target": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "lib": [
-      "es2017",
-      "dom",
-      "dom.iterable"
+      "ES2018",
+      "DOM"
     ],
     "noEmit": true,
     "noUnusedParameters": true,
