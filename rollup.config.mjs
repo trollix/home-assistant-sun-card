@@ -9,7 +9,7 @@ export default {
   input: './src/index.ts',
   output: {
     file: './dist/home-assistant-sun-card2.js',
-    format: 'cjs'
+    format: 'es'
   },
   plugins: [
     resolve({ extensions }),

@@ -1,5 +1,3 @@
-'use strict';
-
 function _iterableToArrayLimit(r, l) {
   var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
   if (null != t) {
@@ -1602,4 +1600,4 @@ window.customCards.push({
   description: SunCard.cardDescription
 });
 
-exports.SunCard = SunCard;
+export { SunCard };
