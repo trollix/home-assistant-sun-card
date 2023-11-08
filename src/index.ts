@@ -1,5 +1,5 @@
 import { HomeAssistant } from 'custom-card-helpers'
-import { LitElement } from 'lit'
+import { LitElement, TemplateResult } from 'lit'
 import { customElement,state } from 'lit/decorators.js'
 import { SunCardContent } from './cardContent'
 import cardStyles from './cardStyles'
@@ -7,10 +7,11 @@ import { Constants } from './constants'
 import { 
   ESunCardErrors, 
   TSunCardConfig, 
-  TSunCardData } from './types'
+  TSunCardData 
+} from './types'
 
 
-const CARD_VERSION = '0.73.8'
+const CARD_VERSION = '0.73.9'
 
 console.info(
   `%c  HOME-ASSISTANT-SUN-CARD-2 \n%c  Version ${CARD_VERSION}    `,
@@ -20,7 +21,7 @@ console.info(
 
 
 @customElement('sun-card')
-class SunCard extends LitElement {
+export class SunCard extends LitElement {
   static readonly cardType = 'sun-card'
   static readonly cardName = 'Sun Card'
   static readonly cardDescription = 'Custom card that display a graph to track the sun position and related events'
@@ -244,7 +245,7 @@ class SunCard extends LitElement {
     return time.includes('pm') || time.includes('am') ? '12h' : '24h'
   }
 
-  setConfig (config: TSunCardConfig) {
+  public setConfig (config: TSunCardConfig): void {
     this.config = { ...config }
   }
 
@@ -252,14 +253,15 @@ class SunCard extends LitElement {
     this.data = { error } as TSunCardData
   }
   
-  protected render () {
+  public override render (): TemplateResult {
     const config = this.getConfig()
     const language = config.language!
     const localization = Constants.LOCALIZATION_LANGUAGES[language]
+
     return SunCardContent.generate(this.data, localization, config)
   }
 
-  protected updated (changedProperties) {
+  protected override updated (changedProperties: Map<string | number | symbol, unknown>): void {
     super.updated(changedProperties)
 
     if (!this.hasRendered) {

@@ -1134,7 +1134,7 @@ ESunCardErrors = /*#__PURE__*/function (ESunCardErrors) {
   return ESunCardErrors;
 }(ESunCardErrors || {});
 
-var CARD_VERSION = '0.73.8';
+var CARD_VERSION = '0.73.9';
 console.info("%c  HOME-ASSISTANT-SUN-CARD-2 \n%c  Version ".concat(CARD_VERSION, "    "), 'color: orange; font-weight: bold; background: black', 'color: white; font-weight: bold; background: dimgray');
 var SunCard = _decorate([t('sun-card')], function (_initialize, _LitElement) {
   var SunCard = /*#__PURE__*/function (_LitElement2) {
@@ -1594,3 +1594,5 @@ window.customCards.push({
   name: SunCard.cardName,
   description: SunCard.cardDescription
 });
+
+exports.SunCard = SunCard;

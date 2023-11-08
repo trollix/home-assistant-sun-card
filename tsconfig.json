@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
+    "target": "es2017",
+    "module": "esnext",
     "moduleResolution": "node",
     "lib": [
-      "ES6",
-      "dom"
+      "es2017",
+      "dom",
+      "dom.iterable"
     ],
     "noEmit": true,
     "noUnusedParameters": true,
@@ -23,7 +24,7 @@
     "esModuleInterop": true,
     "emitDecoratorMetadata": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*.ts"],
   "exclude": [
     "node_modules"
   ]
