@@ -10,9 +10,8 @@ import {
   TSunCardData } from './types'
 
 
-const CARD_VERSION = '0.73.5'
+const CARD_VERSION = '0.73.6'
 
-// eslint-disable-next-line no-console
 console.info(
   `%c  HOME-ASSISTANT-SUN-CARD-2 \n%c  Version ${CARD_VERSION}    `,
   'color: orange; font-weight: bold; background: black',
@@ -277,7 +276,6 @@ class SunCard extends LitElement {
         const localization = Constants.LOCALIZATION_LANGUAGES[language]
         const error = localization.errors[this.data.error]
         errorElement.setConfig?.({ error })
-        // eslint-disable-next-line no-console
         console.error(error)
       }
     }
