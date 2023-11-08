@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "ES6",
     "module": "commonjs",
     "moduleResolution": "node",
     "lib": [
-      "es2018",
+      "ES6",
       "dom"
     ],
     "noEmit": true,
