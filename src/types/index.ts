@@ -37,6 +37,9 @@ export type TSunCardData = {
   timeBetweenDuskAndDown: string // tix - day length
 }
 
+export enum ESunCardErrors {
+}
+
 export type TSunCardTexts = {
   Azimuth: string
   Dawn: string

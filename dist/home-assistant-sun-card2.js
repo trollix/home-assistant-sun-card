@@ -579,20 +579,20 @@ const t$2=globalThis,e$2=t$2.ShadowRoot&&(void 0===t$2.ShadyCSS||t$2.ShadyCSS.na
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const{is:i$1,defineProperty:e$1,getOwnPropertyDescriptor:r$4,getOwnPropertyNames:h$1,getOwnPropertySymbols:o$2,getPrototypeOf:n$2}=Object,a$1=globalThis,c$1=a$1.trustedTypes,l$1=c$1?c$1.emptyScript:"",p$1=a$1.reactiveElementPolyfillSupport,d$1=(t,s)=>t,u$1={toAttribute(t,s){switch(s){case Boolean:t=t?l$1:null;break;case Object:case Array:t=null==t?t:JSON.stringify(t);}return t},fromAttribute(t,s){let i=t;switch(s){case Boolean:i=null!==t;break;case Number:i=null===t?null:Number(t);break;case Object:case Array:try{i=JSON.parse(t);}catch(t){i=null;}}return i}},f$1=(t,s)=>!i$1(t,s),y$1={attribute:!0,type:String,converter:u$1,reflect:!1,hasChanged:f$1};Symbol.metadata??=Symbol("metadata"),a$1.litPropertyMetadata??=new WeakMap;class b extends HTMLElement{static addInitializer(t){this._$Ei(),(this.l??=[]).push(t);}static get observedAttributes(){return this.finalize(),this._$Eh&&[...this._$Eh.keys()]}static createProperty(t,s=y$1){if(s.state&&(s.attribute=!1),this._$Ei(),this.elementProperties.set(t,s),!s.noAccessor){const i=Symbol(),r=this.getPropertyDescriptor(t,i,s);void 0!==r&&e$1(this.prototype,t,r);}}static getPropertyDescriptor(t,s,i){const{get:e,set:h}=r$4(this.prototype,t)??{get(){return this[s]},set(t){this[s]=t;}};return {get(){return e?.call(this)},set(s){const r=e?.call(this);h.call(this,s),this.requestUpdate(t,r,i);},configurable:!0,enumerable:!0}}static getPropertyOptions(t){return this.elementProperties.get(t)??y$1}static _$Ei(){if(this.hasOwnProperty(d$1("elementProperties")))return;const t=n$2(this);t.finalize(),void 0!==t.l&&(this.l=[...t.l]),this.elementProperties=new Map(t.elementProperties);}static finalize(){if(this.hasOwnProperty(d$1("finalized")))return;if(this.finalized=!0,this._$Ei(),this.hasOwnProperty(d$1("properties"))){const t=this.properties,s=[...h$1(t),...o$2(t)];for(const i of s)this.createProperty(i,t[i]);}const t=this[Symbol.metadata];if(null!==t){const s=litPropertyMetadata.get(t);if(void 0!==s)for(const[t,i]of s)this.elementProperties.set(t,i);}this._$Eh=new Map;for(const[t,s]of this.elementProperties){const i=this._$Eu(t,s);void 0!==i&&this._$Eh.set(i,t);}this.elementStyles=this.finalizeStyles(this.styles);}static finalizeStyles(s){const i=[];if(Array.isArray(s)){const e=new Set(s.flat(1/0).reverse());for(const s of e)i.unshift(c$2(s));}else void 0!==s&&i.push(c$2(s));return i}static _$Eu(t,s){const i=s.attribute;return !1===i?void 0:"string"==typeof i?i:"string"==typeof t?t.toLowerCase():void 0}constructor(){super(),this._$Ep=void 0,this.isUpdatePending=!1,this.hasUpdated=!1,this._$Em=null,this._$Ev();}_$Ev(){this._$Eg=new Promise((t=>this.enableUpdating=t)),this._$AL=new Map,this._$E_(),this.requestUpdate(),this.constructor.l?.forEach((t=>t(this)));}addController(t){(this._$ES??=[]).push(t),void 0!==this.renderRoot&&this.isConnected&&t.hostConnected?.();}removeController(t){this._$ES?.splice(this._$ES.indexOf(t)>>>0,1);}_$E_(){const t=new Map,s=this.constructor.elementProperties;for(const i of s.keys())this.hasOwnProperty(i)&&(t.set(i,this[i]),delete this[i]);t.size>0&&(this._$Ep=t);}createRenderRoot(){const t=this.shadowRoot??this.attachShadow(this.constructor.shadowRootOptions);return S$1(t,this.constructor.elementStyles),t}connectedCallback(){this.renderRoot??=this.createRenderRoot(),this.enableUpdating(!0),this._$ES?.forEach((t=>t.hostConnected?.()));}enableUpdating(t){}disconnectedCallback(){this._$ES?.forEach((t=>t.hostDisconnected?.()));}attributeChangedCallback(t,s,i){this._$AK(t,i);}_$EO(t,s){const i=this.constructor.elementProperties.get(t),e=this.constructor._$Eu(t,i);if(void 0!==e&&!0===i.reflect){const r=(void 0!==i.converter?.toAttribute?i.converter:u$1).toAttribute(s,i.type);this._$Em=t,null==r?this.removeAttribute(e):this.setAttribute(e,r),this._$Em=null;}}_$AK(t,s){const i=this.constructor,e=i._$Eh.get(t);if(void 0!==e&&this._$Em!==e){const t=i.getPropertyOptions(e),r="function"==typeof t.converter?{fromAttribute:t.converter}:void 0!==t.converter?.fromAttribute?t.converter:u$1;this._$Em=e,this[e]=r.fromAttribute(s,t.type),this._$Em=null;}}requestUpdate(t,s,i,e=!1,r){if(void 0!==t){if(i??=this.constructor.getPropertyOptions(t),!(i.hasChanged??f$1)(e?r:this[t],s))return;this.C(t,s,i);}!1===this.isUpdatePending&&(this._$Eg=this._$EP());}C(t,s,i){this._$AL.has(t)||this._$AL.set(t,s),!0===i.reflect&&this._$Em!==t&&(this._$Ej??=new Set).add(t);}async _$EP(){this.isUpdatePending=!0;try{await this._$Eg;}catch(t){Promise.reject(t);}const t=this.scheduleUpdate();return null!=t&&await t,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){if(!this.isUpdatePending)return;if(!this.hasUpdated){if(this._$Ep){for(const[t,s]of this._$Ep)this[t]=s;this._$Ep=void 0;}const t=this.constructor.elementProperties;if(t.size>0)for(const[s,i]of t)!0!==i.wrapped||this._$AL.has(s)||void 0===this[s]||this.C(s,this[s],i);}let t=!1;const s=this._$AL;try{t=this.shouldUpdate(s),t?(this.willUpdate(s),this._$ES?.forEach((t=>t.hostUpdate?.())),this.update(s)):this._$ET();}catch(s){throw t=!1,this._$ET(),s}t&&this._$AE(s);}willUpdate(t){}_$AE(t){this._$ES?.forEach((t=>t.hostUpdated?.())),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(t)),this.updated(t);}_$ET(){this._$AL=new Map,this.isUpdatePending=!1;}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$Eg}shouldUpdate(t){return !0}update(t){this._$Ej&&=this._$Ej.forEach((t=>this._$EO(t,this[t]))),this._$ET();}updated(t){}firstUpdated(t){}}b.elementStyles=[],b.shadowRootOptions={mode:"open"},b[d$1("elementProperties")]=new Map,b[d$1("finalized")]=new Map,p$1?.({ReactiveElement:b}),(a$1.reactiveElementVersions??=[]).push("2.0.0");
+ */const{is:i$1,defineProperty:e$1,getOwnPropertyDescriptor:r$4,getOwnPropertyNames:h$1,getOwnPropertySymbols:o$2,getPrototypeOf:n$2}=Object,a$1=globalThis,c$1=a$1.trustedTypes,l$1=c$1?c$1.emptyScript:"",p$1=a$1.reactiveElementPolyfillSupport,d$1=(t,s)=>t,u$1={toAttribute(t,s){switch(s){case Boolean:t=t?l$1:null;break;case Object:case Array:t=null==t?t:JSON.stringify(t);}return t},fromAttribute(t,s){let i=t;switch(s){case Boolean:i=null!==t;break;case Number:i=null===t?null:Number(t);break;case Object:case Array:try{i=JSON.parse(t);}catch(t){i=null;}}return i}},f$1=(t,s)=>!i$1(t,s),y$1={attribute:!0,type:String,converter:u$1,reflect:!1,hasChanged:f$1};Symbol.metadata??=Symbol("metadata"),a$1.litPropertyMetadata??=new WeakMap;class b extends HTMLElement{static addInitializer(t){this._$Ei(),(this.l??=[]).push(t);}static get observedAttributes(){return this.finalize(),this._$Eh&&[...this._$Eh.keys()]}static createProperty(t,s=y$1){if(s.state&&(s.attribute=!1),this._$Ei(),this.elementProperties.set(t,s),!s.noAccessor){const i=Symbol(),r=this.getPropertyDescriptor(t,i,s);void 0!==r&&e$1(this.prototype,t,r);}}static getPropertyDescriptor(t,s,i){const{get:e,set:h}=r$4(this.prototype,t)??{get(){return this[s]},set(t){this[s]=t;}};return {get(){return e?.call(this)},set(s){const r=e?.call(this);h.call(this,s),this.requestUpdate(t,r,i);},configurable:!0,enumerable:!0}}static getPropertyOptions(t){return this.elementProperties.get(t)??y$1}static _$Ei(){if(this.hasOwnProperty(d$1("elementProperties")))return;const t=n$2(this);t.finalize(),void 0!==t.l&&(this.l=[...t.l]),this.elementProperties=new Map(t.elementProperties);}static finalize(){if(this.hasOwnProperty(d$1("finalized")))return;if(this.finalized=!0,this._$Ei(),this.hasOwnProperty(d$1("properties"))){const t=this.properties,s=[...h$1(t),...o$2(t)];for(const i of s)this.createProperty(i,t[i]);}const t=this[Symbol.metadata];if(null!==t){const s=litPropertyMetadata.get(t);if(void 0!==s)for(const[t,i]of s)this.elementProperties.set(t,i);}this._$Eh=new Map;for(const[t,s]of this.elementProperties){const i=this._$Eu(t,s);void 0!==i&&this._$Eh.set(i,t);}this.elementStyles=this.finalizeStyles(this.styles);}static finalizeStyles(s){const i=[];if(Array.isArray(s)){const e=new Set(s.flat(1/0).reverse());for(const s of e)i.unshift(c$2(s));}else void 0!==s&&i.push(c$2(s));return i}static _$Eu(t,s){const i=s.attribute;return !1===i?void 0:"string"==typeof i?i:"string"==typeof t?t.toLowerCase():void 0}constructor(){super(),this._$Ep=void 0,this.isUpdatePending=!1,this.hasUpdated=!1,this._$Em=null,this._$Ev();}_$Ev(){this._$Eg=new Promise((t=>this.enableUpdating=t)),this._$AL=new Map,this._$E_(),this.requestUpdate(),this.constructor.l?.forEach((t=>t(this)));}addController(t){(this._$ES??=[]).push(t),void 0!==this.renderRoot&&this.isConnected&&t.hostConnected?.();}removeController(t){this._$ES?.splice(this._$ES.indexOf(t)>>>0,1);}_$E_(){const t=new Map,s=this.constructor.elementProperties;for(const i of s.keys())this.hasOwnProperty(i)&&(t.set(i,this[i]),delete this[i]);t.size>0&&(this._$Ep=t);}createRenderRoot(){const t=this.shadowRoot??this.attachShadow(this.constructor.shadowRootOptions);return S$1(t,this.constructor.elementStyles),t}connectedCallback(){this.renderRoot??=this.createRenderRoot(),this.enableUpdating(!0),this._$ES?.forEach((t=>t.hostConnected?.()));}enableUpdating(t){}disconnectedCallback(){this._$ES?.forEach((t=>t.hostDisconnected?.()));}attributeChangedCallback(t,s,i){this._$AK(t,i);}_$EO(t,s){const i=this.constructor.elementProperties.get(t),e=this.constructor._$Eu(t,i);if(void 0!==e&&!0===i.reflect){const r=(void 0!==i.converter?.toAttribute?i.converter:u$1).toAttribute(s,i.type);this._$Em=t,null==r?this.removeAttribute(e):this.setAttribute(e,r),this._$Em=null;}}_$AK(t,s){const i=this.constructor,e=i._$Eh.get(t);if(void 0!==e&&this._$Em!==e){const t=i.getPropertyOptions(e),r="function"==typeof t.converter?{fromAttribute:t.converter}:void 0!==t.converter?.fromAttribute?t.converter:u$1;this._$Em=e,this[e]=r.fromAttribute(s,t.type),this._$Em=null;}}requestUpdate(t,s,i,e=!1,r){if(void 0!==t){if(i??=this.constructor.getPropertyOptions(t),!(i.hasChanged??f$1)(e?r:this[t],s))return;this.C(t,s,i);}!1===this.isUpdatePending&&(this._$Eg=this._$EP());}C(t,s,i){this._$AL.has(t)||this._$AL.set(t,s),!0===i.reflect&&this._$Em!==t&&(this._$Ej??=new Set).add(t);}async _$EP(){this.isUpdatePending=!0;try{await this._$Eg;}catch(t){Promise.reject(t);}const t=this.scheduleUpdate();return null!=t&&await t,!this.isUpdatePending}scheduleUpdate(){return this.performUpdate()}performUpdate(){if(!this.isUpdatePending)return;if(!this.hasUpdated){if(this._$Ep){for(const[t,s]of this._$Ep)this[t]=s;this._$Ep=void 0;}const t=this.constructor.elementProperties;if(t.size>0)for(const[s,i]of t)!0!==i.wrapped||this._$AL.has(s)||void 0===this[s]||this.C(s,this[s],i);}let t=!1;const s=this._$AL;try{t=this.shouldUpdate(s),t?(this.willUpdate(s),this._$ES?.forEach((t=>t.hostUpdate?.())),this.update(s)):this._$ET();}catch(s){throw t=!1,this._$ET(),s}t&&this._$AE(s);}willUpdate(t){}_$AE(t){this._$ES?.forEach((t=>t.hostUpdated?.())),this.hasUpdated||(this.hasUpdated=!0,this.firstUpdated(t)),this.updated(t);}_$ET(){this._$AL=new Map,this.isUpdatePending=!1;}get updateComplete(){return this.getUpdateComplete()}getUpdateComplete(){return this._$Eg}shouldUpdate(t){return !0}update(t){this._$Ej&&=this._$Ej.forEach((t=>this._$EO(t,this[t]))),this._$ET();}updated(t){}firstUpdated(t){}}b.elementStyles=[],b.shadowRootOptions={mode:"open"},b[d$1("elementProperties")]=new Map,b[d$1("finalized")]=new Map,p$1?.({ReactiveElement:b}),(a$1.reactiveElementVersions??=[]).push("2.0.1");
 
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const t$1=globalThis,i=t$1.trustedTypes,s$1=i?i.createPolicy("lit-html",{createHTML:t=>t}):void 0,e="$lit$",h=`lit$${(Math.random()+"").slice(9)}$`,o$1="?"+h,n$1=`<${o$1}>`,r$3=document,l=()=>r$3.createComment(""),c=t=>null===t||"object"!=typeof t&&"function"!=typeof t,a=Array.isArray,u=t=>a(t)||"function"==typeof t?.[Symbol.iterator],d="[ \t\n\f\r]",f=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,v=/-->/g,_=/>/g,m=RegExp(`>|${d}(?:([^\\s"'>=/]+)(${d}*=${d}*(?:[^ \t\n\f\r"'\`<>=]|("|')|))|$)`,"g"),p=/'/g,g=/"/g,$=/^(?:script|style|textarea|title)$/i,y=t=>(i,...s)=>({_$litType$:t,strings:i,values:s}),x=y(1),w=Symbol.for("lit-noChange"),T=Symbol.for("lit-nothing"),A=new WeakMap,E=r$3.createTreeWalker(r$3,129);function C(t,i){if(!Array.isArray(t)||!t.hasOwnProperty("raw"))throw Error("invalid template strings array");return void 0!==s$1?s$1.createHTML(i):i}const P=(t,i)=>{const s=t.length-1,o=[];let r,l=2===i?"<svg>":"",c=f;for(let i=0;i<s;i++){const s=t[i];let a,u,d=-1,y=0;for(;y<s.length&&(c.lastIndex=y,u=c.exec(s),null!==u);)y=c.lastIndex,c===f?"!--"===u[1]?c=v:void 0!==u[1]?c=_:void 0!==u[2]?($.test(u[2])&&(r=RegExp("</"+u[2],"g")),c=m):void 0!==u[3]&&(c=m):c===m?">"===u[0]?(c=r??f,d=-1):void 0===u[1]?d=-2:(d=c.lastIndex-u[2].length,a=u[1],c=void 0===u[3]?m:'"'===u[3]?g:p):c===g||c===p?c=m:c===v||c===_?c=f:(c=m,r=void 0);const x=c===m&&t[i+1].startsWith("/>")?" ":"";l+=c===f?s+n$1:d>=0?(o.push(a),s.slice(0,d)+e+s.slice(d)+h+x):s+h+(-2===d?i:x);}return [C(t,l+(t[s]||"<?>")+(2===i?"</svg>":"")),o]};class V{constructor({strings:t,_$litType$:s},n){let r;this.parts=[];let c=0,a=0;const u=t.length-1,d=this.parts,[f,v]=P(t,s);if(this.el=V.createElement(f,n),E.currentNode=this.el.content,2===s){const t=this.el.content.firstChild;t.replaceWith(...t.childNodes);}for(;null!==(r=E.nextNode())&&d.length<u;){if(1===r.nodeType){if(r.hasAttributes())for(const t of r.getAttributeNames())if(t.endsWith(e)){const i=v[a++],s=r.getAttribute(t).split(h),e=/([.?@])?(.*)/.exec(i);d.push({type:1,index:c,name:e[2],strings:s,ctor:"."===e[1]?k:"?"===e[1]?H:"@"===e[1]?I:R}),r.removeAttribute(t);}else t.startsWith(h)&&(d.push({type:6,index:c}),r.removeAttribute(t));if($.test(r.tagName)){const t=r.textContent.split(h),s=t.length-1;if(s>0){r.textContent=i?i.emptyScript:"";for(let i=0;i<s;i++)r.append(t[i],l()),E.nextNode(),d.push({type:2,index:++c});r.append(t[s],l());}}}else if(8===r.nodeType)if(r.data===o$1)d.push({type:2,index:c});else {let t=-1;for(;-1!==(t=r.data.indexOf(h,t+1));)d.push({type:7,index:c}),t+=h.length-1;}c++;}}static createElement(t,i){const s=r$3.createElement("template");return s.innerHTML=t,s}}function N(t,i,s=t,e){if(i===w)return i;let h=void 0!==e?s._$Co?.[e]:s._$Cl;const o=c(i)?void 0:i._$litDirective$;return h?.constructor!==o&&(h?._$AO?.(!1),void 0===o?h=void 0:(h=new o(t),h._$AT(t,s,e)),void 0!==e?(s._$Co??=[])[e]=h:s._$Cl=h),void 0!==h&&(i=N(t,h._$AS(t,i.values),h,e)),i}class S{constructor(t,i){this._$AV=[],this._$AN=void 0,this._$AD=t,this._$AM=i;}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(t){const{el:{content:i},parts:s}=this._$AD,e=(t?.creationScope??r$3).importNode(i,!0);E.currentNode=e;let h=E.nextNode(),o=0,n=0,l=s[0];for(;void 0!==l;){if(o===l.index){let i;2===l.type?i=new M(h,h.nextSibling,this,t):1===l.type?i=new l.ctor(h,l.name,l.strings,this,t):6===l.type&&(i=new L(h,this,t)),this._$AV.push(i),l=s[++n];}o!==l?.index&&(h=E.nextNode(),o++);}return E.currentNode=r$3,e}p(t){let i=0;for(const s of this._$AV)void 0!==s&&(void 0!==s.strings?(s._$AI(t,s,i),i+=s.strings.length-2):s._$AI(t[i])),i++;}}class M{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(t,i,s,e){this.type=2,this._$AH=T,this._$AN=void 0,this._$AA=t,this._$AB=i,this._$AM=s,this.options=e,this._$Cv=e?.isConnected??!0;}get parentNode(){let t=this._$AA.parentNode;const i=this._$AM;return void 0!==i&&11===t?.nodeType&&(t=i.parentNode),t}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(t,i=this){t=N(this,t,i),c(t)?t===T||null==t||""===t?(this._$AH!==T&&this._$AR(),this._$AH=T):t!==this._$AH&&t!==w&&this._(t):void 0!==t._$litType$?this.g(t):void 0!==t.nodeType?this.$(t):u(t)?this.T(t):this._(t);}k(t){return this._$AA.parentNode.insertBefore(t,this._$AB)}$(t){this._$AH!==t&&(this._$AR(),this._$AH=this.k(t));}_(t){this._$AH!==T&&c(this._$AH)?this._$AA.nextSibling.data=t:this.$(r$3.createTextNode(t)),this._$AH=t;}g(t){const{values:i,_$litType$:s}=t,e="number"==typeof s?this._$AC(t):(void 0===s.el&&(s.el=V.createElement(C(s.h,s.h[0]),this.options)),s);if(this._$AH?._$AD===e)this._$AH.p(i);else {const t=new S(e,this),s=t.u(this.options);t.p(i),this.$(s),this._$AH=t;}}_$AC(t){let i=A.get(t.strings);return void 0===i&&A.set(t.strings,i=new V(t)),i}T(t){a(this._$AH)||(this._$AH=[],this._$AR());const i=this._$AH;let s,e=0;for(const h of t)e===i.length?i.push(s=new M(this.k(l()),this.k(l()),this,this.options)):s=i[e],s._$AI(h),e++;e<i.length&&(this._$AR(s&&s._$AB.nextSibling,e),i.length=e);}_$AR(t=this._$AA.nextSibling,i){for(this._$AP?.(!1,!0,i);t&&t!==this._$AB;){const i=t.nextSibling;t.remove(),t=i;}}setConnected(t){void 0===this._$AM&&(this._$Cv=t,this._$AP?.(t));}}class R{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(t,i,s,e,h){this.type=1,this._$AH=T,this._$AN=void 0,this.element=t,this.name=i,this._$AM=e,this.options=h,s.length>2||""!==s[0]||""!==s[1]?(this._$AH=Array(s.length-1).fill(new String),this.strings=s):this._$AH=T;}_$AI(t,i=this,s,e){const h=this.strings;let o=!1;if(void 0===h)t=N(this,t,i,0),o=!c(t)||t!==this._$AH&&t!==w,o&&(this._$AH=t);else {const e=t;let n,r;for(t=h[0],n=0;n<h.length-1;n++)r=N(this,e[s+n],i,n),r===w&&(r=this._$AH[n]),o||=!c(r)||r!==this._$AH[n],r===T?t=T:t!==T&&(t+=(r??"")+h[n+1]),this._$AH[n]=r;}o&&!e&&this.j(t);}j(t){t===T?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,t??"");}}class k extends R{constructor(){super(...arguments),this.type=3;}j(t){this.element[this.name]=t===T?void 0:t;}}class H extends R{constructor(){super(...arguments),this.type=4;}j(t){this.element.toggleAttribute(this.name,!!t&&t!==T);}}class I extends R{constructor(t,i,s,e,h){super(t,i,s,e,h),this.type=5;}_$AI(t,i=this){if((t=N(this,t,i,0)??T)===w)return;const s=this._$AH,e=t===T&&s!==T||t.capture!==s.capture||t.once!==s.once||t.passive!==s.passive,h=t!==T&&(s===T||e);e&&this.element.removeEventListener(this.name,this,s),h&&this.element.addEventListener(this.name,this,t),this._$AH=t;}handleEvent(t){"function"==typeof this._$AH?this._$AH.call(this.options?.host??this.element,t):this._$AH.handleEvent(t);}}class L{constructor(t,i,s){this.element=t,this.type=6,this._$AN=void 0,this._$AM=i,this.options=s;}get _$AU(){return this._$AM._$AU}_$AI(t){N(this,t);}}const Z=t$1.litHtmlPolyfillSupport;Z?.(V,M),(t$1.litHtmlVersions??=[]).push("3.0.0");const j=(t,i,s)=>{const e=s?.renderBefore??i;let h=e._$litPart$;if(void 0===h){const t=s?.renderBefore??null;e._$litPart$=h=new M(i.insertBefore(l(),t),t,void 0,s??{});}return h._$AI(t),h};
+const t$1=globalThis,i=t$1.trustedTypes,s$1=i?i.createPolicy("lit-html",{createHTML:t=>t}):void 0,e="$lit$",h=`lit$${(Math.random()+"").slice(9)}$`,o$1="?"+h,n$1=`<${o$1}>`,r$3=document,l=()=>r$3.createComment(""),c=t=>null===t||"object"!=typeof t&&"function"!=typeof t,a=Array.isArray,u=t=>a(t)||"function"==typeof t?.[Symbol.iterator],d="[ \t\n\f\r]",f=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,v=/-->/g,_=/>/g,m=RegExp(`>|${d}(?:([^\\s"'>=/]+)(${d}*=${d}*(?:[^ \t\n\f\r"'\`<>=]|("|')|))|$)`,"g"),p=/'/g,g=/"/g,$=/^(?:script|style|textarea|title)$/i,y=t=>(i,...s)=>({_$litType$:t,strings:i,values:s}),x=y(1),w=Symbol.for("lit-noChange"),T=Symbol.for("lit-nothing"),A=new WeakMap,E=r$3.createTreeWalker(r$3,129);function C(t,i){if(!Array.isArray(t)||!t.hasOwnProperty("raw"))throw Error("invalid template strings array");return void 0!==s$1?s$1.createHTML(i):i}const P=(t,i)=>{const s=t.length-1,o=[];let r,l=2===i?"<svg>":"",c=f;for(let i=0;i<s;i++){const s=t[i];let a,u,d=-1,y=0;for(;y<s.length&&(c.lastIndex=y,u=c.exec(s),null!==u);)y=c.lastIndex,c===f?"!--"===u[1]?c=v:void 0!==u[1]?c=_:void 0!==u[2]?($.test(u[2])&&(r=RegExp("</"+u[2],"g")),c=m):void 0!==u[3]&&(c=m):c===m?">"===u[0]?(c=r??f,d=-1):void 0===u[1]?d=-2:(d=c.lastIndex-u[2].length,a=u[1],c=void 0===u[3]?m:'"'===u[3]?g:p):c===g||c===p?c=m:c===v||c===_?c=f:(c=m,r=void 0);const x=c===m&&t[i+1].startsWith("/>")?" ":"";l+=c===f?s+n$1:d>=0?(o.push(a),s.slice(0,d)+e+s.slice(d)+h+x):s+h+(-2===d?i:x);}return [C(t,l+(t[s]||"<?>")+(2===i?"</svg>":"")),o]};class V{constructor({strings:t,_$litType$:s},n){let r;this.parts=[];let c=0,a=0;const u=t.length-1,d=this.parts,[f,v]=P(t,s);if(this.el=V.createElement(f,n),E.currentNode=this.el.content,2===s){const t=this.el.content.firstChild;t.replaceWith(...t.childNodes);}for(;null!==(r=E.nextNode())&&d.length<u;){if(1===r.nodeType){if(r.hasAttributes())for(const t of r.getAttributeNames())if(t.endsWith(e)){const i=v[a++],s=r.getAttribute(t).split(h),e=/([.?@])?(.*)/.exec(i);d.push({type:1,index:c,name:e[2],strings:s,ctor:"."===e[1]?k:"?"===e[1]?H:"@"===e[1]?I:R}),r.removeAttribute(t);}else t.startsWith(h)&&(d.push({type:6,index:c}),r.removeAttribute(t));if($.test(r.tagName)){const t=r.textContent.split(h),s=t.length-1;if(s>0){r.textContent=i?i.emptyScript:"";for(let i=0;i<s;i++)r.append(t[i],l()),E.nextNode(),d.push({type:2,index:++c});r.append(t[s],l());}}}else if(8===r.nodeType)if(r.data===o$1)d.push({type:2,index:c});else {let t=-1;for(;-1!==(t=r.data.indexOf(h,t+1));)d.push({type:7,index:c}),t+=h.length-1;}c++;}}static createElement(t,i){const s=r$3.createElement("template");return s.innerHTML=t,s}}function N(t,i,s=t,e){if(i===w)return i;let h=void 0!==e?s._$Co?.[e]:s._$Cl;const o=c(i)?void 0:i._$litDirective$;return h?.constructor!==o&&(h?._$AO?.(!1),void 0===o?h=void 0:(h=new o(t),h._$AT(t,s,e)),void 0!==e?(s._$Co??=[])[e]=h:s._$Cl=h),void 0!==h&&(i=N(t,h._$AS(t,i.values),h,e)),i}class S{constructor(t,i){this._$AV=[],this._$AN=void 0,this._$AD=t,this._$AM=i;}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(t){const{el:{content:i},parts:s}=this._$AD,e=(t?.creationScope??r$3).importNode(i,!0);E.currentNode=e;let h=E.nextNode(),o=0,n=0,l=s[0];for(;void 0!==l;){if(o===l.index){let i;2===l.type?i=new M(h,h.nextSibling,this,t):1===l.type?i=new l.ctor(h,l.name,l.strings,this,t):6===l.type&&(i=new L(h,this,t)),this._$AV.push(i),l=s[++n];}o!==l?.index&&(h=E.nextNode(),o++);}return E.currentNode=r$3,e}p(t){let i=0;for(const s of this._$AV)void 0!==s&&(void 0!==s.strings?(s._$AI(t,s,i),i+=s.strings.length-2):s._$AI(t[i])),i++;}}class M{get _$AU(){return this._$AM?._$AU??this._$Cv}constructor(t,i,s,e){this.type=2,this._$AH=T,this._$AN=void 0,this._$AA=t,this._$AB=i,this._$AM=s,this.options=e,this._$Cv=e?.isConnected??!0;}get parentNode(){let t=this._$AA.parentNode;const i=this._$AM;return void 0!==i&&11===t?.nodeType&&(t=i.parentNode),t}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(t,i=this){t=N(this,t,i),c(t)?t===T||null==t||""===t?(this._$AH!==T&&this._$AR(),this._$AH=T):t!==this._$AH&&t!==w&&this._(t):void 0!==t._$litType$?this.g(t):void 0!==t.nodeType?this.$(t):u(t)?this.T(t):this._(t);}k(t){return this._$AA.parentNode.insertBefore(t,this._$AB)}$(t){this._$AH!==t&&(this._$AR(),this._$AH=this.k(t));}_(t){this._$AH!==T&&c(this._$AH)?this._$AA.nextSibling.data=t:this.$(r$3.createTextNode(t)),this._$AH=t;}g(t){const{values:i,_$litType$:s}=t,e="number"==typeof s?this._$AC(t):(void 0===s.el&&(s.el=V.createElement(C(s.h,s.h[0]),this.options)),s);if(this._$AH?._$AD===e)this._$AH.p(i);else {const t=new S(e,this),s=t.u(this.options);t.p(i),this.$(s),this._$AH=t;}}_$AC(t){let i=A.get(t.strings);return void 0===i&&A.set(t.strings,i=new V(t)),i}T(t){a(this._$AH)||(this._$AH=[],this._$AR());const i=this._$AH;let s,e=0;for(const h of t)e===i.length?i.push(s=new M(this.k(l()),this.k(l()),this,this.options)):s=i[e],s._$AI(h),e++;e<i.length&&(this._$AR(s&&s._$AB.nextSibling,e),i.length=e);}_$AR(t=this._$AA.nextSibling,i){for(this._$AP?.(!1,!0,i);t&&t!==this._$AB;){const i=t.nextSibling;t.remove(),t=i;}}setConnected(t){void 0===this._$AM&&(this._$Cv=t,this._$AP?.(t));}}class R{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(t,i,s,e,h){this.type=1,this._$AH=T,this._$AN=void 0,this.element=t,this.name=i,this._$AM=e,this.options=h,s.length>2||""!==s[0]||""!==s[1]?(this._$AH=Array(s.length-1).fill(new String),this.strings=s):this._$AH=T;}_$AI(t,i=this,s,e){const h=this.strings;let o=!1;if(void 0===h)t=N(this,t,i,0),o=!c(t)||t!==this._$AH&&t!==w,o&&(this._$AH=t);else {const e=t;let n,r;for(t=h[0],n=0;n<h.length-1;n++)r=N(this,e[s+n],i,n),r===w&&(r=this._$AH[n]),o||=!c(r)||r!==this._$AH[n],r===T?t=T:t!==T&&(t+=(r??"")+h[n+1]),this._$AH[n]=r;}o&&!e&&this.O(t);}O(t){t===T?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,t??"");}}class k extends R{constructor(){super(...arguments),this.type=3;}O(t){this.element[this.name]=t===T?void 0:t;}}class H extends R{constructor(){super(...arguments),this.type=4;}O(t){this.element.toggleAttribute(this.name,!!t&&t!==T);}}class I extends R{constructor(t,i,s,e,h){super(t,i,s,e,h),this.type=5;}_$AI(t,i=this){if((t=N(this,t,i,0)??T)===w)return;const s=this._$AH,e=t===T&&s!==T||t.capture!==s.capture||t.once!==s.once||t.passive!==s.passive,h=t!==T&&(s===T||e);e&&this.element.removeEventListener(this.name,this,s),h&&this.element.addEventListener(this.name,this,t),this._$AH=t;}handleEvent(t){"function"==typeof this._$AH?this._$AH.call(this.options?.host??this.element,t):this._$AH.handleEvent(t);}}class L{constructor(t,i,s){this.element=t,this.type=6,this._$AN=void 0,this._$AM=i,this.options=s;}get _$AU(){return this._$AM._$AU}_$AI(t){N(this,t);}}const Z=t$1.litHtmlPolyfillSupport;Z?.(V,M),(t$1.litHtmlVersions??=[]).push("3.0.2");const j=(t,i,s)=>{const e=s?.renderBefore??i;let h=e._$litPart$;if(void 0===h){const t=s?.renderBefore??null;e._$litPart$=h=new M(i.insertBefore(l(),t),t,void 0,s??{});}return h._$AI(t),h};
 
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */class s extends b{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0;}createRenderRoot(){const t=super.createRenderRoot();return this.renderOptions.renderBefore??=t.firstChild,t}update(t){const i=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(t),this._$Do=j(i,this.renderRoot,this.renderOptions);}connectedCallback(){super.connectedCallback(),this._$Do?.setConnected(!0);}disconnectedCallback(){super.disconnectedCallback(),this._$Do?.setConnected(!1);}render(){return w}}s._$litElement$=!0,s[("finalized")]=!0,globalThis.litElementHydrateSupport?.({LitElement:s});const r$2=globalThis.litElementPolyfillSupport;r$2?.({LitElement:s});(globalThis.litElementVersions??=[]).push("4.0.0");
+ */class s extends b{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0;}createRenderRoot(){const t=super.createRenderRoot();return this.renderOptions.renderBefore??=t.firstChild,t}update(t){const i=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(t),this._$Do=j(i,this.renderRoot,this.renderOptions);}connectedCallback(){super.connectedCallback(),this._$Do?.setConnected(!0);}disconnectedCallback(){super.disconnectedCallback(),this._$Do?.setConnected(!1);}render(){return w}}s._$litElement$=!0,s[("finalized")]=!0,globalThis.litElementHydrateSupport?.({LitElement:s});const r$2=globalThis.litElementPolyfillSupport;r$2?.({LitElement:s});(globalThis.litElementVersions??=[]).push("4.0.1");
 
 /**
  * @license
@@ -613,8 +613,134 @@ const t=t=>(e,o)=>{void 0!==o?o.addInitializer((()=>{customElements.define(t,e);
  * SPDX-License-Identifier: BSD-3-Clause
  */function r(r){return n({...r,state:!0,attribute:!1})}
 
-var _templateObject$1;
-var cardStyles = i$2(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteral(["\n  .sun-card {\n    --sun-card-lines: #464646;\n    --sun-card-text-color: #fff;\n    --sun-card-subtitle-color: #fff;\n\n    color: var(--sun-card-text-color);\n    padding: 1rem;\n  }\n\n  .sun-card-body {\n    padding-top: 0.5rem;\n  }\n\n  .sun-card.sun-card-light {\n    --sun-card-lines: #ececec;\n    --sun-card-text-color: #000;\n    --sun-card-subtitle-color: #828282;\n  }\n\n  .sun-card-header {\n    display: flex;\n    justify-content: space-between;\n  }\n  \n  .sun-card-footer .sun-card-footer-row {\n    display: flex;\n    justify-content: space-around;\n    padding-top: 1.5rem;\n  }\n\n  .sun-card-title {\n    font-size: 1.5rem;\n    font-weight: 500;\n    padding-bottom: 2rem;\n    margin: 0;\n  }\n\n  .sun-card-text-container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  .sun-card-header .sun-card-text-subtitle {\n    font-size: 1.15rem;\n    font-weight: 400;\n    padding-bottom: 0.25rem;\n    color: var(--sun-card-subtitle-color);\n  }\n\n  .sun-card-header .sun-card-text-time {\n    font-size: 1.85rem;\n    font-weight: 400;\n  }\n\n  .sun-card-footer .sun-card-text-subtitle {\n    font-size: 1.15rem;\n    font-weight: 400;\n    padding-bottom: 0.5rem;\n    color: var(--sun-card-subtitle-color);\n  }\n\n  .sun-card-footer .sun-card-text-time {\n    font-size: 1.25rem;\n    font-weight: 500;\n  }\n\n  .sun-card-text-time-period {\n    font-size: 0.75rem;\n  }\n"])));
+var _templateObject$1, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19;
+var SunCardContent = /*#__PURE__*/function () {
+  function SunCardContent() {
+    _classCallCheck(this, SunCardContent);
+  }
+  _createClass(SunCardContent, null, [{
+    key: "generate",
+    value: function generate(data, localization, config) {
+      if (data !== null && data !== void 0 && data.error) {
+        return x(_templateObject$1 || (_templateObject$1 = _taggedTemplateLiteral(["\n        <ha-card>\n          ", "\n        </ha-card>\n      "])), this.generateError());
+      }
+      return x(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n      <ha-card>\n        <div class=\"sun-card ", "\">\n          ", "\n          ", "\n          ", "\n        </div>\n      </ha-card>\n    "])), config.darkMode ? '' : 'sun-card-light', this.generateHeader(data, localization, config), this.generateBody(data, config), this.generateFooter(data, localization, config));
+    }
+  }, {
+    key: "generateHeader",
+    value: function generateHeader(data, localization, config) {
+      var title = config.title !== undefined ? x(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n      <h1 class=\"sun-card-title\">", "</h1>\n    "])), config.title) : x(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral([""])));
+      return x(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n      ", "\n      <div class=\"sun-card-header\">\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n\n        </div>\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n      </div>\n    "])), title, localization.Sunrise, data !== null && data !== void 0 && data.times.sunrise ? this.generateTime(data.times.sunrise) : '', localization.Sunset, data !== null && data !== void 0 && data.times.sunset ? this.generateTime(data.times.sunset) : '');
+    }
+
+    // Tix
+  }, {
+    key: "lightenColor",
+    value: function lightenColor(color, amount) {
+      var r = parseInt(color.substring(1, 3), 16);
+      var g = parseInt(color.substring(3, 5), 16);
+      var b = parseInt(color.substring(5, 7), 16);
+      r = Math.min(r + amount, 255);
+      g = Math.min(g + amount, 255);
+      b = Math.min(b + amount, 255);
+      var rr = r.toString(16).length === 1 ? '0' + r.toString(16) : r.toString(16);
+      var gg = g.toString(16).length === 1 ? '0' + g.toString(16) : g.toString(16);
+      var bb = b.toString(16).length === 1 ? '0' + b.toString(16) : b.toString(16);
+      return '#' + rr + gg + bb;
+    }
+  }, {
+    key: "generateBody",
+    value: function generateBody(data, config) {
+      var _data$sunPercentOverH, _data$sunPercentOverH2, _data$dawnProgressPer, _data$dawnProgressPer2, _data$dayProgressPerc, _data$dayProgressPerc2, _data$duskProgressPer, _data$duskProgressPer2, _data$sunPosition$x, _data$sunPosition$y, _data$sunPosition$x2, _data$sunPosition$y2;
+      var sunID = Math.random().toString(36).replace('0.', '');
+      var dawnID = Math.random().toString(36).replace('0.', '');
+      var dayID = Math.random().toString(36).replace('0.', '');
+      var duskID = Math.random().toString(36).replace('0.', '');
+      var lightenedColor = this.lightenColor(config.sunColor, 50); // éclaircir la couleur de 30 points
+
+      //console.log(lightenedColor) // affiche '#ffe94a'
+
+      /*
+      return html`
+        <div class="sun-card-body">
+          <svg viewBox="0 0 550 150" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <style>
+                .p1j-1{fill:#eeeb61;opacity:0.51;isolation:isolate;}
+                .p1j-2{fill:#f5b21a;stroke:#fde901;stroke-miterlimit:10;}
+              </style>
+              <linearGradient id="${sunID}" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:${config.sunColor};stop-opacity:1" />
+                <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:${config.sunColor};stop-opacity:1" />
+                <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
+              </linearGradient>
+              
+              <linearGradient id="${dawnID}" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#393b78;stop-opacity:1" />
+                <stop offset="${data?.dawnProgressPercent ?? 0}%" style="stop-color:#393b78;stop-opacity:1" />
+                <stop offset="${data?.dawnProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
+              </linearGradient>
+              
+              <linearGradient id="${dayID}" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#8ebeeb;stop-opacity:1" />
+                <stop offset="${data?.dayProgressPercent ?? 0}%" style="stop-color:#8ebeeb;stop-opacity:1" />
+                <stop offset="${data?.dayProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
+              </linearGradient>
+              
+              <linearGradient id="${duskID}" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#393b78;stop-opacity:1" />
+                <stop offset="${data?.duskProgressPercent ?? 0}%" style="stop-color:#393b78;stop-opacity:1" />
+                <stop offset="${data?.duskProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <path class="sun-card-sun-line" d="M5,146 C29,153 73,128 101,108 C276,-29 342,23 449,108 C473,123 509,150 545,146" fill="none" stroke="var(--sun-card-lines)" shape-rendering="geometricPrecision" />
+            <path d="M5,146 C29,153 73,128 101,108 L 5 108" fill="url(#${dawnID})" opacity="${data?.dawnProgressPercent ? 1 : 0}" stroke="url(#${dawnID})" shape-rendering="geometricPrecision" />
+            <path d="M101,108 C276,-29 342,23 449,108 L 104,108" fill="url(#${dayID})" opacity="${data?.dayProgressPercent ? 1 : 0}" stroke="url(#${dayID})" shape-rendering="geometricPrecision" />
+            <path d="M449,108 C473,123 509,150 545,146 L 545 108" fill="url(#${duskID})" opacity="${data?.duskProgressPercent ? 1 : 0}" stroke="url(#${duskID})" shape-rendering="geometricPrecision" />
+            <line x1="5" y1="108" x2="545" y2="108" stroke="var(--sun-card-lines)" />
+            <line x1="101" y1="25" x2="101" y2="100" stroke="var(--sun-card-lines)" />
+            <line x1="449" y1="25" x2="449" y2="100" stroke="var(--sun-card-lines)" />
+            <circle cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="17" opacity="${data?.sunPercentOverHorizon ? 1 : 0}" stroke="none" fill="url(#${sunID})" shape-rendering="geometricPrecision" />
+          </svg>
+        </div>
+      `
+      */
+
+      return x(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n      <div class=\"sun-card-body\">\n        <svg viewBox=\"0 0 550 150\" xmlns=\"http://www.w3.org/2000/svg\">\n          <defs>\n          <style>\n            .sun-ext{fill:", ";opacity:0.51;isolation:isolate;}\n            .sun-int{fill:", ";stroke:", ";stroke-miterlimit:10;stroke-width:3px;stroke-opacity:0.51}\n            .line-main{stroke:var(--sun-card-lines)}\n            .ombre { filter: drop-shadow(-2px 2px 4px rgba(0, 0, 0, 0.2)); }\n            .ombre2 { filter: drop-shadow(-4px -1px 2px rgba(0, 0, 0, 0.4)); }\n          </style>\n          <!--\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"20%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#8ebeeb;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n          -->\n            // aube - dawn\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#8ebeeb;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n            \n            // jour - day\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" style=\"stop-color:#8ebeeb;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#8ebeeb;stop-opacity:1\"  />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n            \n            // cr\xE9puscule - dusk\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n          </defs>\n          <path class=\"sun-card-sun-line line-main ombre2\" d=\"M5,146 C29,153 73,128 101,108 C276,-29 342,23 449,108 C473,123 509,150 545,146\" fill=\"none\" stroke=\"var(--sun-card-lines)\" shape-rendering=\"geometricPrecision\" />\n          <path d=\"M5,146 C29,153 73,128 101,108 L 5 108\" fill=\"url(#", ")\" opacity=\"", "\" stroke=\"url(#", ")\" shape-rendering=\"geometricPrecision\" />\n          <path d=\"M101,108 C276,-29 342,23 449,108 L 104,108\" fill=\"url(#", ")\" opacity=\"", "\" stroke=\"url(#", ")\" shape-rendering=\"geometricPrecision\" />\n          <path d=\"M449,108 C473,123 509,150 545,146 L 545 108\" fill=\"url(#", ")\" opacity=\"", "\" stroke=\"url(#", ")\" shape-rendering=\"geometricPrecision\" />\n          <line class=\"line-main\" x1=\"5\" y1=\"108\" x2=\"545\" y2=\"108\" />\n          <line class=\"line-main\" x1=\"101\" y1=\"25\" x2=\"101\" y2=\"100\" />\n          <line class=\"line-main\" x1=\"449\" y1=\"25\" x2=\"449\" y2=\"100\" />\n          <!--circle class=\"sun-ext ombre\" stroke=\"none\" shape-rendering=\"geometricPrecision\" cx=\"", "\" cy=\"", "\" r=\"21\" opacity=\"1\" /> -->\n          <circle class=\"sun-int ombre\" stroke=\"none\" shape-rendering=\"geometricPrecision\" cx=\"", "\" cy=\"", "\" r=\"", "\" opacity=\"1\" />\n\n        </svg>\n      </div>\n    "])), lightenedColor, config.sunColor, lightenedColor, sunID, (_data$sunPercentOverH = data === null || data === void 0 ? void 0 : data.sunPercentOverHorizon) !== null && _data$sunPercentOverH !== void 0 ? _data$sunPercentOverH : 0, (_data$sunPercentOverH2 = data === null || data === void 0 ? void 0 : data.sunPercentOverHorizon) !== null && _data$sunPercentOverH2 !== void 0 ? _data$sunPercentOverH2 : 0, dawnID, (_data$dawnProgressPer = data === null || data === void 0 ? void 0 : data.dawnProgressPercent) !== null && _data$dawnProgressPer !== void 0 ? _data$dawnProgressPer : 0, (_data$dawnProgressPer2 = data === null || data === void 0 ? void 0 : data.dawnProgressPercent) !== null && _data$dawnProgressPer2 !== void 0 ? _data$dawnProgressPer2 : 0, dayID, (_data$dayProgressPerc = data === null || data === void 0 ? void 0 : data.dayProgressPercent) !== null && _data$dayProgressPerc !== void 0 ? _data$dayProgressPerc : 0, (_data$dayProgressPerc2 = data === null || data === void 0 ? void 0 : data.dayProgressPercent) !== null && _data$dayProgressPerc2 !== void 0 ? _data$dayProgressPerc2 : 0, duskID, (_data$duskProgressPer = data === null || data === void 0 ? void 0 : data.duskProgressPercent) !== null && _data$duskProgressPer !== void 0 ? _data$duskProgressPer : 0, (_data$duskProgressPer2 = data === null || data === void 0 ? void 0 : data.duskProgressPercent) !== null && _data$duskProgressPer2 !== void 0 ? _data$duskProgressPer2 : 0, dawnID, data !== null && data !== void 0 && data.dawnProgressPercent ? 1 : 0, dawnID, dayID, data !== null && data !== void 0 && data.dayProgressPercent ? 1 : 0, dayID, duskID, data !== null && data !== void 0 && data.duskProgressPercent ? 1 : 0, duskID, (_data$sunPosition$x = data === null || data === void 0 ? void 0 : data.sunPosition.x) !== null && _data$sunPosition$x !== void 0 ? _data$sunPosition$x : 0, (_data$sunPosition$y = data === null || data === void 0 ? void 0 : data.sunPosition.y) !== null && _data$sunPosition$y !== void 0 ? _data$sunPosition$y : 0, (_data$sunPosition$x2 = data === null || data === void 0 ? void 0 : data.sunPosition.x) !== null && _data$sunPosition$x2 !== void 0 ? _data$sunPosition$x2 : 0, (_data$sunPosition$y2 = data === null || data === void 0 ? void 0 : data.sunPosition.y) !== null && _data$sunPosition$y2 !== void 0 ? _data$sunPosition$y2 : 0, config.sunRadius);
+    }
+  }, {
+    key: "generateError",
+    value: function generateError() {
+      return x(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n      <hui-error-card></hui-error-card>\n    "])));
+    }
+  }, {
+    key: "generateFooter",
+    value: function generateFooter(data, localization, config) {
+      var upperRow = x(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n      <div class=\"sun-card-footer-row\">\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n      </div>\n    "])), localization.Dawn, data !== null && data !== void 0 && data.times.dawn ? this.generateTime(data.times.dawn) : '', localization.Noon, data !== null && data !== void 0 && data.times.noon ? this.generateTime(data.times.noon) : '', localization.Dusk, data !== null && data !== void 0 && data.times.dusk ? this.generateTime(data.times.dusk) : '');
+      var bottomRow = x(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral([""])));
+      if (config.showAzimuth || config.showElevation) {
+        var _data$azimuth, _data$elevation;
+        var azimuth = config.showAzimuth ? x(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          <span class=\"sun-card-dawn-time sun-card-text-time\">", "</span>\n        </div>\n      "])), localization.Azimuth, (_data$azimuth = data === null || data === void 0 ? void 0 : data.azimuth) !== null && _data$azimuth !== void 0 ? _data$azimuth : '') : x(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral([""])));
+        var elevation = config.showElevation ? x(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          <span class=\"sun-card-dawn-time sun-card-text-time\">", "</span>\n        </div>\n      "])), localization.Elevation, (_data$elevation = data === null || data === void 0 ? void 0 : data.elevation) !== null && _data$elevation !== void 0 ? _data$elevation : '') : x(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral([""])));
+        var daylength = config.showDayLength ? x(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          <span class=\"sun-card-dawn-time sun-card-text-time\">\n          ", "\n          </span>\n        </div>\n      "])), localization.Daylength, data !== null && data !== void 0 && data.timeBetweenDuskAndDown ? data.timeBetweenDuskAndDown : '') : x(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral([""])));
+        bottomRow = x(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-footer-row\">\n          ", "\n          ", "\n          ", "\n        </div>\n      "])), azimuth, elevation, daylength);
+      }
+      return x(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["\n      <div class=\"sun-card-footer\">\n        ", "\n        ", "\n      </div>\n    "])), upperRow, bottomRow);
+    }
+  }, {
+    key: "generateTime",
+    value: function generateTime(time) {
+      if (time.period) {
+        return x(_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["\n        <span class=\"sun-card-text-time\">\n          ", " <span class=\"sun-card-text-time-period\">", "</span>\n        </span>\n      "])), time.time, time.period);
+      }
+      return x(_templateObject19 || (_templateObject19 = _taggedTemplateLiteral(["\n      <span class=\"sun-card-text-time\">", "</span>\n    "])), time.time);
+    }
+  }]);
+  return SunCardContent;
+}();
+
+var _templateObject;
+var cardStyles = i$2(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  .sun-card {\n    --sun-card-lines: #464646;\n    --sun-card-text-color: #fff;\n    --sun-card-subtitle-color: #fff;\n\n    color: var(--sun-card-text-color);\n    padding: 1rem;\n  }\n\n  .sun-card-body {\n    padding-top: 0.5rem;\n  }\n\n  .sun-card.sun-card-light {\n    --sun-card-lines: #ececec;\n    --sun-card-text-color: #000;\n    --sun-card-subtitle-color: #828282;\n  }\n\n  .sun-card-header {\n    display: flex;\n    justify-content: space-between;\n  }\n  \n  .sun-card-footer .sun-card-footer-row {\n    display: flex;\n    justify-content: space-around;\n    padding-top: 1.5rem;\n  }\n\n  .sun-card-title {\n    font-size: 1.5rem;\n    font-weight: 500;\n    padding-bottom: 2rem;\n    margin: 0;\n  }\n\n  .sun-card-text-container {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  .sun-card-header .sun-card-text-subtitle {\n    font-size: 1.15rem;\n    font-weight: 400;\n    padding-bottom: 0.25rem;\n    color: var(--sun-card-subtitle-color);\n  }\n\n  .sun-card-header .sun-card-text-time {\n    font-size: 1.85rem;\n    font-weight: 400;\n  }\n\n  .sun-card-footer .sun-card-text-subtitle {\n    font-size: 1.15rem;\n    font-weight: 400;\n    padding-bottom: 0.5rem;\n    color: var(--sun-card-subtitle-color);\n  }\n\n  .sun-card-footer .sun-card-text-time {\n    font-size: 1.25rem;\n    font-weight: 500;\n  }\n\n  .sun-card-text-time-period {\n    font-size: 0.75rem;\n  }\n"])));
 
 var Azimuth$e = "Azimut";
 var Dawn$e = "Daggry";
@@ -1000,138 +1126,15 @@ _defineProperty(Constants, "LOCALIZATION_LANGUAGES", {
 });
 _defineProperty(Constants, "SUN_RADIUS", 17);
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17, _templateObject18, _templateObject19;
-var SunCardContent = /*#__PURE__*/function () {
-  function SunCardContent() {
-    _classCallCheck(this, SunCardContent);
-  }
-  _createClass(SunCardContent, null, [{
-    key: "generate",
-    value: function generate(data, localization, config) {
-      if (data !== null && data !== void 0 && data.error) {
-        return x(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n        <ha-card>\n          ", "\n        </ha-card>\n      "])), this.generateError());
-      }
-      return x(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n      <ha-card>\n        <div class=\"sun-card ", "\">\n          ", "\n          ", "\n          ", "\n        </div>\n      </ha-card>\n    "])), config.darkMode ? '' : 'sun-card-light', this.generateHeader(data, localization, config), this.generateBody(data, config), this.generateFooter(data, localization, config));
-    }
-  }, {
-    key: "generateHeader",
-    value: function generateHeader(data, localization, config) {
-      var title = config.title !== undefined ? x(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n      <h1 class=\"sun-card-title\">", "</h1>\n    "])), config.title) : x(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral([""])));
-      return x(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n      ", "\n      <div class=\"sun-card-header\">\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n\n        </div>\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n      </div>\n    "])), title, localization.Sunrise, data !== null && data !== void 0 && data.times.sunrise ? this.generateTime(data.times.sunrise) : '', localization.Sunset, data !== null && data !== void 0 && data.times.sunset ? this.generateTime(data.times.sunset) : '');
-    }
-
-    // Tix
-  }, {
-    key: "lightenColor",
-    value: function lightenColor(color, amount) {
-      var r = parseInt(color.substring(1, 3), 16);
-      var g = parseInt(color.substring(3, 5), 16);
-      var b = parseInt(color.substring(5, 7), 16);
-      r = Math.min(r + amount, 255);
-      g = Math.min(g + amount, 255);
-      b = Math.min(b + amount, 255);
-      var rr = r.toString(16).length === 1 ? '0' + r.toString(16) : r.toString(16);
-      var gg = g.toString(16).length === 1 ? '0' + g.toString(16) : g.toString(16);
-      var bb = b.toString(16).length === 1 ? '0' + b.toString(16) : b.toString(16);
-      return '#' + rr + gg + bb;
-    }
-  }, {
-    key: "generateBody",
-    value: function generateBody(data, config) {
-      var _data$sunPercentOverH, _data$sunPercentOverH2, _data$dawnProgressPer, _data$dawnProgressPer2, _data$dayProgressPerc, _data$dayProgressPerc2, _data$duskProgressPer, _data$duskProgressPer2, _data$sunPosition$x, _data$sunPosition$y, _data$sunPosition$x2, _data$sunPosition$y2;
-      var sunID = Math.random().toString(36).replace('0.', '');
-      var dawnID = Math.random().toString(36).replace('0.', '');
-      var dayID = Math.random().toString(36).replace('0.', '');
-      var duskID = Math.random().toString(36).replace('0.', '');
-      var lightenedColor = this.lightenColor(config.sunColor, 50); // éclaircir la couleur de 30 points
-
-      //console.log(lightenedColor) // affiche '#ffe94a'
-
-      /*
-      return html`
-        <div class="sun-card-body">
-          <svg viewBox="0 0 550 150" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <style>
-                .p1j-1{fill:#eeeb61;opacity:0.51;isolation:isolate;}
-                .p1j-2{fill:#f5b21a;stroke:#fde901;stroke-miterlimit:10;}
-              </style>
-              <linearGradient id="${sunID}" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:${config.sunColor};stop-opacity:1" />
-                <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:${config.sunColor};stop-opacity:1" />
-                <stop offset="${data?.sunPercentOverHorizon ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
-              </linearGradient>
-              
-              <linearGradient id="${dawnID}" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#393b78;stop-opacity:1" />
-                <stop offset="${data?.dawnProgressPercent ?? 0}%" style="stop-color:#393b78;stop-opacity:1" />
-                <stop offset="${data?.dawnProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
-              </linearGradient>
-              
-              <linearGradient id="${dayID}" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#8ebeeb;stop-opacity:1" />
-                <stop offset="${data?.dayProgressPercent ?? 0}%" style="stop-color:#8ebeeb;stop-opacity:1" />
-                <stop offset="${data?.dayProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
-              </linearGradient>
-              
-              <linearGradient id="${duskID}" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style="stop-color:#393b78;stop-opacity:1" />
-                <stop offset="${data?.duskProgressPercent ?? 0}%" style="stop-color:#393b78;stop-opacity:1" />
-                <stop offset="${data?.duskProgressPercent ?? 0}%" style="stop-color:rgb(0,0,0,0);stop-opacity:1" />
-              </linearGradient>
-            </defs>
-            <path class="sun-card-sun-line" d="M5,146 C29,153 73,128 101,108 C276,-29 342,23 449,108 C473,123 509,150 545,146" fill="none" stroke="var(--sun-card-lines)" shape-rendering="geometricPrecision" />
-            <path d="M5,146 C29,153 73,128 101,108 L 5 108" fill="url(#${dawnID})" opacity="${data?.dawnProgressPercent ? 1 : 0}" stroke="url(#${dawnID})" shape-rendering="geometricPrecision" />
-            <path d="M101,108 C276,-29 342,23 449,108 L 104,108" fill="url(#${dayID})" opacity="${data?.dayProgressPercent ? 1 : 0}" stroke="url(#${dayID})" shape-rendering="geometricPrecision" />
-            <path d="M449,108 C473,123 509,150 545,146 L 545 108" fill="url(#${duskID})" opacity="${data?.duskProgressPercent ? 1 : 0}" stroke="url(#${duskID})" shape-rendering="geometricPrecision" />
-            <line x1="5" y1="108" x2="545" y2="108" stroke="var(--sun-card-lines)" />
-            <line x1="101" y1="25" x2="101" y2="100" stroke="var(--sun-card-lines)" />
-            <line x1="449" y1="25" x2="449" y2="100" stroke="var(--sun-card-lines)" />
-            <circle cx="${data?.sunPosition.x ?? 0}" cy="${data?.sunPosition.y ?? 0}" r="17" opacity="${data?.sunPercentOverHorizon ? 1 : 0}" stroke="none" fill="url(#${sunID})" shape-rendering="geometricPrecision" />
-          </svg>
-        </div>
-      `
-      */
-
-      return x(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n      <div class=\"sun-card-body\">\n        <svg viewBox=\"0 0 550 150\" xmlns=\"http://www.w3.org/2000/svg\">\n          <defs>\n          <style>\n            .sun-ext{fill:", ";opacity:0.51;isolation:isolate;}\n            .sun-int{fill:", ";stroke:", ";stroke-miterlimit:10;stroke-width:3px;stroke-opacity:0.51}\n            .line-main{stroke:var(--sun-card-lines)}\n            .ombre { filter: drop-shadow(-2px 2px 4px rgba(0, 0, 0, 0.2)); }\n            .ombre2 { filter: drop-shadow(-4px -1px 2px rgba(0, 0, 0, 0.4)); }\n          </style>\n          <!--\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"20%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#8ebeeb;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n          -->\n            // aube - dawn\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#8ebeeb;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n            \n            // jour - day\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" style=\"stop-color:#8ebeeb;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#8ebeeb;stop-opacity:1\"  />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n            \n            // cr\xE9puscule - dusk\n            <linearGradient id=\"", "\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"0%\">\n              <stop offset=\"0%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:#393b78;stop-opacity:1\" />\n              <stop offset=\"", "%\" style=\"stop-color:rgb(0,0,0,0);stop-opacity:1\" />\n            </linearGradient>\n          </defs>\n          <path class=\"sun-card-sun-line line-main ombre2\" d=\"M5,146 C29,153 73,128 101,108 C276,-29 342,23 449,108 C473,123 509,150 545,146\" fill=\"none\" stroke=\"var(--sun-card-lines)\" shape-rendering=\"geometricPrecision\" />\n          <path d=\"M5,146 C29,153 73,128 101,108 L 5 108\" fill=\"url(#", ")\" opacity=\"", "\" stroke=\"url(#", ")\" shape-rendering=\"geometricPrecision\" />\n          <path d=\"M101,108 C276,-29 342,23 449,108 L 104,108\" fill=\"url(#", ")\" opacity=\"", "\" stroke=\"url(#", ")\" shape-rendering=\"geometricPrecision\" />\n          <path d=\"M449,108 C473,123 509,150 545,146 L 545 108\" fill=\"url(#", ")\" opacity=\"", "\" stroke=\"url(#", ")\" shape-rendering=\"geometricPrecision\" />\n          <line class=\"line-main\" x1=\"5\" y1=\"108\" x2=\"545\" y2=\"108\" />\n          <line class=\"line-main\" x1=\"101\" y1=\"25\" x2=\"101\" y2=\"100\" />\n          <line class=\"line-main\" x1=\"449\" y1=\"25\" x2=\"449\" y2=\"100\" />\n          <!--circle class=\"sun-ext ombre\" stroke=\"none\" shape-rendering=\"geometricPrecision\" cx=\"", "\" cy=\"", "\" r=\"21\" opacity=\"1\" /> -->\n          <circle class=\"sun-int ombre\" stroke=\"none\" shape-rendering=\"geometricPrecision\" cx=\"", "\" cy=\"", "\" r=\"", "\" opacity=\"1\" />\n\n        </svg>\n      </div>\n    "])), lightenedColor, config.sunColor, lightenedColor, sunID, (_data$sunPercentOverH = data === null || data === void 0 ? void 0 : data.sunPercentOverHorizon) !== null && _data$sunPercentOverH !== void 0 ? _data$sunPercentOverH : 0, (_data$sunPercentOverH2 = data === null || data === void 0 ? void 0 : data.sunPercentOverHorizon) !== null && _data$sunPercentOverH2 !== void 0 ? _data$sunPercentOverH2 : 0, dawnID, (_data$dawnProgressPer = data === null || data === void 0 ? void 0 : data.dawnProgressPercent) !== null && _data$dawnProgressPer !== void 0 ? _data$dawnProgressPer : 0, (_data$dawnProgressPer2 = data === null || data === void 0 ? void 0 : data.dawnProgressPercent) !== null && _data$dawnProgressPer2 !== void 0 ? _data$dawnProgressPer2 : 0, dayID, (_data$dayProgressPerc = data === null || data === void 0 ? void 0 : data.dayProgressPercent) !== null && _data$dayProgressPerc !== void 0 ? _data$dayProgressPerc : 0, (_data$dayProgressPerc2 = data === null || data === void 0 ? void 0 : data.dayProgressPercent) !== null && _data$dayProgressPerc2 !== void 0 ? _data$dayProgressPerc2 : 0, duskID, (_data$duskProgressPer = data === null || data === void 0 ? void 0 : data.duskProgressPercent) !== null && _data$duskProgressPer !== void 0 ? _data$duskProgressPer : 0, (_data$duskProgressPer2 = data === null || data === void 0 ? void 0 : data.duskProgressPercent) !== null && _data$duskProgressPer2 !== void 0 ? _data$duskProgressPer2 : 0, dawnID, data !== null && data !== void 0 && data.dawnProgressPercent ? 1 : 0, dawnID, dayID, data !== null && data !== void 0 && data.dayProgressPercent ? 1 : 0, dayID, duskID, data !== null && data !== void 0 && data.duskProgressPercent ? 1 : 0, duskID, (_data$sunPosition$x = data === null || data === void 0 ? void 0 : data.sunPosition.x) !== null && _data$sunPosition$x !== void 0 ? _data$sunPosition$x : 0, (_data$sunPosition$y = data === null || data === void 0 ? void 0 : data.sunPosition.y) !== null && _data$sunPosition$y !== void 0 ? _data$sunPosition$y : 0, (_data$sunPosition$x2 = data === null || data === void 0 ? void 0 : data.sunPosition.x) !== null && _data$sunPosition$x2 !== void 0 ? _data$sunPosition$x2 : 0, (_data$sunPosition$y2 = data === null || data === void 0 ? void 0 : data.sunPosition.y) !== null && _data$sunPosition$y2 !== void 0 ? _data$sunPosition$y2 : 0, config.sunRadius);
-    }
-  }, {
-    key: "generateError",
-    value: function generateError() {
-      return x(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n      <hui-error-card></hui-error-card>\n    "])));
-    }
-  }, {
-    key: "generateFooter",
-    value: function generateFooter(data, localization, config) {
-      var upperRow = x(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n      <div class=\"sun-card-footer-row\">\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          ", "\n        </div>\n      </div>\n    "])), localization.Dawn, data !== null && data !== void 0 && data.times.dawn ? this.generateTime(data.times.dawn) : '', localization.Noon, data !== null && data !== void 0 && data.times.noon ? this.generateTime(data.times.noon) : '', localization.Dusk, data !== null && data !== void 0 && data.times.dusk ? this.generateTime(data.times.dusk) : '');
-      var bottomRow = x(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral([""])));
-      if (config.showAzimuth || config.showElevation) {
-        var _data$azimuth, _data$elevation;
-        var azimuth = config.showAzimuth ? x(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          <span class=\"sun-card-dawn-time sun-card-text-time\">", "</span>\n        </div>\n      "])), localization.Azimuth, (_data$azimuth = data === null || data === void 0 ? void 0 : data.azimuth) !== null && _data$azimuth !== void 0 ? _data$azimuth : '') : x(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral([""])));
-        var elevation = config.showElevation ? x(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          <span class=\"sun-card-dawn-time sun-card-text-time\">", "</span>\n        </div>\n      "])), localization.Elevation, (_data$elevation = data === null || data === void 0 ? void 0 : data.elevation) !== null && _data$elevation !== void 0 ? _data$elevation : '') : x(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral([""])));
-        var daylength = config.showDayLength ? x(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-text-container\">\n          <span class=\"sun-card-text-subtitle\">", "</span>\n          <span class=\"sun-card-dawn-time sun-card-text-time\">\n          ", "\n          </span>\n        </div>\n      "])), localization.Daylength, data !== null && data !== void 0 && data.timeBetweenDuskAndDown ? data.timeBetweenDuskAndDown : '') : x(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral([""])));
-        bottomRow = x(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["\n        <div class=\"sun-card-footer-row\">\n          ", "\n          ", "\n          ", "\n        </div>\n      "])), azimuth, elevation, daylength);
-      }
-      return x(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["\n      <div class=\"sun-card-footer\">\n        ", "\n        ", "\n      </div>\n    "])), upperRow, bottomRow);
-    }
-  }, {
-    key: "generateTime",
-    value: function generateTime(time) {
-      if (time.period) {
-        return x(_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["\n        <span class=\"sun-card-text-time\">\n          ", " <span class=\"sun-card-text-time-period\">", "</span>\n        </span>\n      "])), time.time, time.period);
-      }
-      return x(_templateObject19 || (_templateObject19 = _taggedTemplateLiteral(["\n      <span class=\"sun-card-text-time\">", "</span>\n    "])), time.time);
-    }
-  }]);
-  return SunCardContent;
-}();
-
 var ESunCardErrors = /*#__PURE__*/function (ESunCardErrors) {
-  ESunCardErrors["SunIntegrationNotFound"] = "SunIntegrationNotFound";
   return ESunCardErrors;
 }({});
+ESunCardErrors = /*#__PURE__*/function (ESunCardErrors) {
+  ESunCardErrors["SunIntegrationNotFound"] = "SunIntegrationNotFound";
+  return ESunCardErrors;
+}(ESunCardErrors || {});
 
-var CARD_VERSION = '0.72.11';
+var CARD_VERSION = '0.73.7';
 console.info("%c  HOME-ASSISTANT-SUN-CARD-2 \n%c  Version ".concat(CARD_VERSION, "    "), 'color: orange; font-weight: bold; background: black', 'color: white; font-weight: bold; background: dimgray');
 var SunCard = _decorate([t('sun-card')], function (_initialize, _LitElement) {
   var SunCard = /*#__PURE__*/function (_LitElement2) {
@@ -1279,159 +1282,159 @@ var SunCard = _decorate([t('sun-card')], function (_initialize, _LitElement) {
       value: function convertMinutestoHoursAndMinutes(minutes) {
         var cHours = Math.floor(minutes / 60);
         var cMinutes = minutes % 60;
-        //const total = cHours.toString() + ":" + cMinutes.toString()
+        //const total = cHours.toString() + ':' + cMinutes.toString()
 
-        var HHMM = cHours.toString() + ":" + (cMinutes < 10 ? "0" : "") + cMinutes.toString();
+        var HHMM = cHours.toString() + ':' + (cMinutes < 10 ? '0' : '') + cMinutes.toString();
         return HHMM;
       }
     }, {
       kind: "method",
       key: "colourNameToHex",
       value: function colourNameToHex(colour) {
-        var reg = /^#([0-9a-f]{3}){1,2}$/i; // test if type of color is "#xxxxxx"
+        var reg = /^#([0-9a-f]{3}){1,2}$/i; // test if type of color is '#xxxxxx'
 
         var colours = {
-          "aliceblue": "#f0f8ff",
-          "antiquewhite": "#faebd7",
-          "aqua": "#00ffff",
-          "aquamarine": "#7fffd4",
-          "azure": "#f0ffff",
-          "beige": "#f5f5dc",
-          "bisque": "#ffe4c4",
-          "black": "#000000",
-          "blanchedalmond": "#ffebcd",
-          "blue": "#0000ff",
-          "blueviolet": "#8a2be2",
-          "brown": "#a52a2a",
-          "burlywood": "#deb887",
-          "cadetblue": "#5f9ea0",
-          "chartreuse": "#7fff00",
-          "chocolate": "#d2691e",
-          "coral": "#ff7f50",
-          "cornflowerblue": "#6495ed",
-          "cornsilk": "#fff8dc",
-          "crimson": "#dc143c",
-          "cyan": "#00ffff",
-          "darkblue": "#00008b",
-          "darkcyan": "#008b8b",
-          "darkgoldenrod": "#b8860b",
-          "darkgray": "#a9a9a9",
-          "darkgreen": "#006400",
-          "darkkhaki": "#bdb76b",
-          "darkmagenta": "#8b008b",
-          "darkolivegreen": "#556b2f",
-          "darkorange": "#ff8c00",
-          "darkorchid": "#9932cc",
-          "darkred": "#8b0000",
-          "darksalmon": "#e9967a",
-          "darkseagreen": "#8fbc8f",
-          "darkslateblue": "#483d8b",
-          "darkslategray": "#2f4f4f",
-          "darkturquoise": "#00ced1",
-          "darkviolet": "#9400d3",
-          "deeppink": "#ff1493",
-          "deepskyblue": "#00bfff",
-          "dimgray": "#696969",
-          "dodgerblue": "#1e90ff",
-          "firebrick": "#b22222",
-          "floralwhite": "#fffaf0",
-          "forestgreen": "#228b22",
-          "fuchsia": "#ff00ff",
-          "gainsboro": "#dcdcdc",
-          "ghostwhite": "#f8f8ff",
-          "gold": "#ffd700",
-          "goldenrod": "#daa520",
-          "gray": "#808080",
-          "green": "#008000",
-          "greenyellow": "#adff2f",
-          "honeydew": "#f0fff0",
-          "hotpink": "#ff69b4",
-          "indianred ": "#cd5c5c",
-          "indigo": "#4b0082",
-          "ivory": "#fffff0",
-          "khaki": "#f0e68c",
-          "lavender": "#e6e6fa",
-          "lavenderblush": "#fff0f5",
-          "lawngreen": "#7cfc00",
-          "lemonchiffon": "#fffacd",
-          "lightblue": "#add8e6",
-          "lightcoral": "#f08080",
-          "lightcyan": "#e0ffff",
-          "lightgoldenrodyellow": "#fafad2",
-          "lightgrey": "#d3d3d3",
-          "lightgreen": "#90ee90",
-          "lightpink": "#ffb6c1",
-          "lightsalmon": "#ffa07a",
-          "lightseagreen": "#20b2aa",
-          "lightskyblue": "#87cefa",
-          "lightslategray": "#778899",
-          "lightsteelblue": "#b0c4de",
-          "lightyellow": "#ffffe0",
-          "lime": "#00ff00",
-          "limegreen": "#32cd32",
-          "linen": "#faf0e6",
-          "magenta": "#ff00ff",
-          "maroon": "#800000",
-          "mediumaquamarine": "#66cdaa",
-          "mediumblue": "#0000cd",
-          "mediumorchid": "#ba55d3",
-          "mediumpurple": "#9370d8",
-          "mediumseagreen": "#3cb371",
-          "mediumslateblue": "#7b68ee",
-          "mediumspringgreen": "#00fa9a",
-          "mediumturquoise": "#48d1cc",
-          "mediumvioletred": "#c71585",
-          "midnightblue": "#191970",
-          "mintcream": "#f5fffa",
-          "mistyrose": "#ffe4e1",
-          "moccasin": "#ffe4b5",
-          "navajowhite": "#ffdead",
-          "navy": "#000080",
-          "oldlace": "#fdf5e6",
-          "olive": "#808000",
-          "olivedrab": "#6b8e23",
-          "orange": "#ffa500",
-          "orangered": "#ff4500",
-          "orchid": "#da70d6",
-          "palegoldenrod": "#eee8aa",
-          "palegreen": "#98fb98",
-          "paleturquoise": "#afeeee",
-          "palevioletred": "#d87093",
-          "papayawhip": "#ffefd5",
-          "peachpuff": "#ffdab9",
-          "peru": "#cd853f",
-          "pink": "#ffc0cb",
-          "plum": "#dda0dd",
-          "powderblue": "#b0e0e6",
-          "purple": "#800080",
-          "rebeccapurple": "#663399",
-          "red": "#ff0000",
-          "rosybrown": "#bc8f8f",
-          "royalblue": "#4169e1",
-          "saddlebrown": "#8b4513",
-          "salmon": "#fa8072",
-          "sandybrown": "#f4a460",
-          "seagreen": "#2e8b57",
-          "seashell": "#fff5ee",
-          "sienna": "#a0522d",
-          "silver": "#c0c0c0",
-          "skyblue": "#87ceeb",
-          "slateblue": "#6a5acd",
-          "slategray": "#708090",
-          "snow": "#fffafa",
-          "springgreen": "#00ff7f",
-          "steelblue": "#4682b4",
-          "tan": "#d2b48c",
-          "teal": "#008080",
-          "thistle": "#d8bfd8",
-          "tomato": "#ff6347",
-          "turquoise": "#40e0d0",
-          "violet": "#ee82ee",
-          "wheat": "#f5deb3",
-          "white": "#ffffff",
-          "whitesmoke": "#f5f5f5",
-          "yellow": "#ffff00",
-          "yellowgreen": "#9acd32"
+          'aliceblue': '#f0f8ff',
+          'antiquewhite': '#faebd7',
+          'aqua': '#00ffff',
+          'aquamarine': '#7fffd4',
+          'azure': '#f0ffff',
+          'beige': '#f5f5dc',
+          'bisque': '#ffe4c4',
+          'black': '#000000',
+          'blanchedalmond': '#ffebcd',
+          'blue': '#0000ff',
+          'blueviolet': '#8a2be2',
+          'brown': '#a52a2a',
+          'burlywood': '#deb887',
+          'cadetblue': '#5f9ea0',
+          'chartreuse': '#7fff00',
+          'chocolate': '#d2691e',
+          'coral': '#ff7f50',
+          'cornflowerblue': '#6495ed',
+          'cornsilk': '#fff8dc',
+          'crimson': '#dc143c',
+          'cyan': '#00ffff',
+          'darkblue': '#00008b',
+          'darkcyan': '#008b8b',
+          'darkgoldenrod': '#b8860b',
+          'darkgray': '#a9a9a9',
+          'darkgreen': '#006400',
+          'darkkhaki': '#bdb76b',
+          'darkmagenta': '#8b008b',
+          'darkolivegreen': '#556b2f',
+          'darkorange': '#ff8c00',
+          'darkorchid': '#9932cc',
+          'darkred': '#8b0000',
+          'darksalmon': '#e9967a',
+          'darkseagreen': '#8fbc8f',
+          'darkslateblue': '#483d8b',
+          'darkslategray': '#2f4f4f',
+          'darkturquoise': '#00ced1',
+          'darkviolet': '#9400d3',
+          'deeppink': '#ff1493',
+          'deepskyblue': '#00bfff',
+          'dimgray': '#696969',
+          'dodgerblue': '#1e90ff',
+          'firebrick': '#b22222',
+          'floralwhite': '#fffaf0',
+          'forestgreen': '#228b22',
+          'fuchsia': '#ff00ff',
+          'gainsboro': '#dcdcdc',
+          'ghostwhite': '#f8f8ff',
+          'gold': '#ffd700',
+          'goldenrod': '#daa520',
+          'gray': '#808080',
+          'green': '#008000',
+          'greenyellow': '#adff2f',
+          'honeydew': '#f0fff0',
+          'hotpink': '#ff69b4',
+          'indianred ': '#cd5c5c',
+          'indigo': '#4b0082',
+          'ivory': '#fffff0',
+          'khaki': '#f0e68c',
+          'lavender': '#e6e6fa',
+          'lavenderblush': '#fff0f5',
+          'lawngreen': '#7cfc00',
+          'lemonchiffon': '#fffacd',
+          'lightblue': '#add8e6',
+          'lightcoral': '#f08080',
+          'lightcyan': '#e0ffff',
+          'lightgoldenrodyellow': '#fafad2',
+          'lightgrey': '#d3d3d3',
+          'lightgreen': '#90ee90',
+          'lightpink': '#ffb6c1',
+          'lightsalmon': '#ffa07a',
+          'lightseagreen': '#20b2aa',
+          'lightskyblue': '#87cefa',
+          'lightslategray': '#778899',
+          'lightsteelblue': '#b0c4de',
+          'lightyellow': '#ffffe0',
+          'lime': '#00ff00',
+          'limegreen': '#32cd32',
+          'linen': '#faf0e6',
+          'magenta': '#ff00ff',
+          'maroon': '#800000',
+          'mediumaquamarine': '#66cdaa',
+          'mediumblue': '#0000cd',
+          'mediumorchid': '#ba55d3',
+          'mediumpurple': '#9370d8',
+          'mediumseagreen': '#3cb371',
+          'mediumslateblue': '#7b68ee',
+          'mediumspringgreen': '#00fa9a',
+          'mediumturquoise': '#48d1cc',
+          'mediumvioletred': '#c71585',
+          'midnightblue': '#191970',
+          'mintcream': '#f5fffa',
+          'mistyrose': '#ffe4e1',
+          'moccasin': '#ffe4b5',
+          'navajowhite': '#ffdead',
+          'navy': '#000080',
+          'oldlace': '#fdf5e6',
+          'olive': '#808000',
+          'olivedrab': '#6b8e23',
+          'orange': '#ffa500',
+          'orangered': '#ff4500',
+          'orchid': '#da70d6',
+          'palegoldenrod': '#eee8aa',
+          'palegreen': '#98fb98',
+          'paleturquoise': '#afeeee',
+          'palevioletred': '#d87093',
+          'papayawhip': '#ffefd5',
+          'peachpuff': '#ffdab9',
+          'peru': '#cd853f',
+          'pink': '#ffc0cb',
+          'plum': '#dda0dd',
+          'powderblue': '#b0e0e6',
+          'purple': '#800080',
+          'rebeccapurple': '#663399',
+          'red': '#ff0000',
+          'rosybrown': '#bc8f8f',
+          'royalblue': '#4169e1',
+          'saddlebrown': '#8b4513',
+          'salmon': '#fa8072',
+          'sandybrown': '#f4a460',
+          'seagreen': '#2e8b57',
+          'seashell': '#fff5ee',
+          'sienna': '#a0522d',
+          'silver': '#c0c0c0',
+          'skyblue': '#87ceeb',
+          'slateblue': '#6a5acd',
+          'slategray': '#708090',
+          'snow': '#fffafa',
+          'springgreen': '#00ff7f',
+          'steelblue': '#4682b4',
+          'tan': '#d2b48c',
+          'teal': '#008080',
+          'thistle': '#d8bfd8',
+          'tomato': '#ff6347',
+          'turquoise': '#40e0d0',
+          'violet': '#ee82ee',
+          'wheat': '#f5deb3',
+          'white': '#ffffff',
+          'whitesmoke': '#f5f5f5',
+          'yellow': '#ffff00',
+          'yellowgreen': '#9acd32'
         };
         if (reg.test(colour)) {
           return colour;

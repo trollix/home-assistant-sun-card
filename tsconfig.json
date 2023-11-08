@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "esnext",
+    "target": "ES6",
+    "module": "commonjs",
     "moduleResolution": "node",
     "lib": [
-      "es2017",
-      "dom",
-      "dom.iterable"
+      "ES6",
+      "dom"
     ],
     "noEmit": true,
     "noUnusedParameters": true,
@@ -18,7 +17,14 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["./src/types/custom", "node_modules/@types"]
+    "typeRoots": ["./src/types/custom", "node_modules/@types"],
+    "allowJs": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true
   },
-  "include": ["./src"]
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules"
+  ]
 }

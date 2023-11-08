@@ -1,7 +1,8 @@
 {
   "name": "homeassistant-sun-card",
-  "version": "0.72.11",
+  "version": "0.73.7",
   "description": "New version Home assistant sun card based on Google weather design with new features",
+  "type": "commonjs",
   "main": "dist/home-assistant-sun-card2.js",
   "files": [
     "/dist"
@@ -26,31 +27,30 @@
   "homepage": "https://github.com/trollix/homeassistant-sun-card#readme",
   "devDependencies": {
     "@babel/core": "^7.23.2",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/plugin-proposal-decorators": "^7.23.2",
-    "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@babel/plugin-syntax-decorators": "^7.22.10",
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-typescript": "^7.23.2",
     "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^25.0.5",
+    "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.5",
-    "@typescript-eslint/eslint-plugin": "^6.7.5",
-    "@typescript-eslint/parser": "^6.7.5",
-    "eslint": "^8.51.0",
-    "eslint-plugin-import": "^2.28.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.53.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-simple-import-sort": "10.0.0",
     "npm-build-zip": "^1.0.4",
-    "rollup": "^4.0.2",
+    "rollup": "^4.3.0",
     "rollup-plugin-serve": "^2.0.2",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@formatjs/ecma402-abstract": "^1.17.2",
+    "@formatjs/ecma402-abstract": "^1.17.3",
     "copy-file-util": "^1.1.2",
-    "copy-folder-util": "^1.1.1",
+    "copy-folder-util": "^1.1.2",
     "custom-card-helpers": "^1.9.0",
-    "lit": "^3.0.0"
+    "lit": "^3.0.2"
   }
 }
