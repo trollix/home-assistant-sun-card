@@ -10,7 +10,7 @@ import {
   TSunCardData } from './types'
 
 
-const CARD_VERSION = '0.73.7'
+const CARD_VERSION = '0.73.8'
 
 console.info(
   `%c  HOME-ASSISTANT-SUN-CARD-2 \n%c  Version ${CARD_VERSION}    `,
