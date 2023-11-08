@@ -1134,7 +1134,7 @@ ESunCardErrors = /*#__PURE__*/function (ESunCardErrors) {
   return ESunCardErrors;
 }(ESunCardErrors || {});
 
-var CARD_VERSION = '0.73.2';
+var CARD_VERSION = '0.73.3';
 
 // eslint-disable-next-line no-console
 console.info("%c  HOME-ASSISTANT-SUN-CARD-2 \n%c  Version ".concat(CARD_VERSION, "    "), 'color: orange; font-weight: bold; background: black', 'color: white; font-weight: bold; background: dimgray');
