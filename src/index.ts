@@ -1,3 +1,4 @@
+import * as packageJson from '../package.json'
 import { HomeAssistant } from 'custom-card-helpers'
 import { LitElement, TemplateResult } from 'lit'
 import { customElement,state } from 'lit/decorators.js'
@@ -11,10 +12,9 @@ import {
 } from './types'
 
 
-const CARD_VERSION = '0.74.4'
 
 console.info(
-  `%c  HOME-ASSISTANT-SUN-CARD-2 \n%c  Version ${CARD_VERSION}    `,
+  `%c  HOME-ASSISTANT-SUN-CARD-2 \n%c  Version ${packageJson.version}    `,
   'color: orange; font-weight: bold; background: black',
   'color: white; font-weight: bold; background: dimgray'
 )
@@ -22,20 +22,22 @@ console.info(
 
 @customElement('sun-card')
 export class SunCard extends LitElement {
+
   static readonly cardType = 'sun-card'
   static readonly cardName = 'Sun Card'
   static readonly cardDescription = 'Custom card that display a graph to track the sun position and related events'
-
-
-
-  @state()
-  private config: TSunCardConfig = {}
-
-  @state()
-  private data!: TSunCardData
+  
+  @state() private config: TSunCardConfig = {}
+  @state() private data: TSunCardData
 
   private hasRendered = false
   private lastHass!: HomeAssistant
+  
+  constructor () {
+    super()
+
+  }
+
 
   static get styles () {
     return cardStyles
