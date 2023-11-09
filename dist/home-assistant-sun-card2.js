@@ -456,7 +456,7 @@ function _identity(x) {
   return x;
 }
 
-var version = "0.74.5";
+var version = "0.74.6";
 
 /**
  * @license
