@@ -11,7 +11,7 @@ import {
 } from './types'
 
 
-const CARD_VERSION = '0.74.3'
+const CARD_VERSION = '0.74.4'
 
 console.info(
   `%c  HOME-ASSISTANT-SUN-CARD-2 \n%c  Version ${CARD_VERSION}    `,
