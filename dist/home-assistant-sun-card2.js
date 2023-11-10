@@ -1282,9 +1282,8 @@ ESunCardErrors = /*#__PURE__*/function (ESunCardErrors) {
   return ESunCardErrors;
 }(ESunCardErrors || {});
 
-var version = "0.74.8";
-
-var name = "Sun Card 2";
+var name = "homeassistant-sun-card-2";
+var version = "0.74.9";
 
 console.info("%c  ".concat(name.toUpperCase(), " \n%c  Version ").concat(version, "    "), 'color: orange; font-weight: bold; background: black', 'color: white; font-weight: bold; background: dimgray');
 var SunCard = _decorate([e$1('sun-card')], function (_initialize, _LitElement) {

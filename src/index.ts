@@ -10,8 +10,7 @@ import {
   TSunCardData 
 } from './types'
 
-import { version } from '../package.json'
-import { name } from '../hacs.json'
+import { version, name } from '../package.json'
 
 console.info(
   `%c  ${name.toUpperCase()} \n%c  Version ${version}    `,
