@@ -13,8 +13,8 @@ import {
 import { version, name } from '../package.json'
 
 console.info(
-  `%c  ${name.toUpperCase()} \n%c  Version ${version}    `,
-  'color: orange; font-weight: bold; background: black',
+  `%c  ${name.toUpperCase()}  %c  Version ${version}    `,
+  'color: white; font-weight: bold; background: crimson',
   'color: white; font-weight: bold; background: dimgray'
 )
 

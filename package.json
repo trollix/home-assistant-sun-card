@@ -1,6 +1,6 @@
 {
   "name": "homeassistant-sun-card-2",
-  "version": "0.74.10",
+  "version": "0.74.11",
   "description": "New version Home assistant sun card based on Google weather design with new features",
   "main": "dist/home-assistant-sun-card2.js",
   "files": [
@@ -41,12 +41,12 @@
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-simple-import-sort": "10.0.0",
     "npm-build-zip": "^1.0.4",
-    "rollup": "^4.3.0",
+    "rollup": "^4.4.0",
     "rollup-plugin-serve": "^2.0.2",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@formatjs/ecma402-abstract": "^1.17.3",
+    "@formatjs/ecma402-abstract": "^1.17.4",
     "copy-file-util": "^1.1.2",
     "copy-folder-util": "^1.1.2",
     "custom-card-helpers": "^1.9.0",
