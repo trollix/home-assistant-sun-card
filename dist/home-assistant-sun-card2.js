@@ -889,7 +889,7 @@ var Azimuth$8 = "Azimut";
 var Dawn$8 = "Aube";
 var Dusk$8 = "Crépuscule";
 var Elevation$8 = "Élévation";
-var Noon$8 = "Zénith";
+var Noon$8 = "Midi Solaire";
 var Sunrise$8 = "Lever du soleil";
 var Sunset$8 = "Coucher du soleil";
 var Daylength$8 = "Durée du Jour";
@@ -1283,9 +1283,9 @@ ESunCardErrors = /*#__PURE__*/function (ESunCardErrors) {
 }(ESunCardErrors || {});
 
 var name = "homeassistant-sun-card-2";
-var version = "0.74.11";
+var version = "0.74.12";
 
-console.info("%c  ".concat(name.toUpperCase(), "  %c  Version ").concat(version, "    "), 'color: white; font-weight: bold; background: crimson', 'color: white; font-weight: bold; background: dimgray');
+console.info("%c  ".concat(name.toUpperCase(), "  %c  Version ").concat(version, "    "), 'color: white; font-weight: bold; background: crimson', 'color: #000; font-weight: bold; background: #ddd');
 var SunCard = _decorate([e$1('sun-card')], function (_initialize, _LitElement) {
   var SunCard = /*#__PURE__*/function (_LitElement2) {
     _inherits(SunCard, _LitElement2);

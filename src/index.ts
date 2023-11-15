@@ -15,7 +15,7 @@ import { version, name } from '../package.json'
 console.info(
   `%c  ${name.toUpperCase()}  %c  Version ${version}    `,
   'color: white; font-weight: bold; background: crimson',
-  'color: white; font-weight: bold; background: dimgray'
+  'color: #000; font-weight: bold; background: #ddd',
 )
 
 
