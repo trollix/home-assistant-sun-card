@@ -79,3 +79,6 @@ Note: If you get an error similar to this `Custom element doesn't exist` you wil
 ### Previews
 
 ![Sun Card Param](https://github.com/trollix/home-assistant-sun-card/blob/main/img02.png?raw=true "Sun Card Param")
+
+[![releases-shield](https://img.shields.io/github/release-date/trollix/home-assistant-sun-card)](https://img.shields.io/github/release-date/trollix/home-assistant-sun-card)
+[![License-schield](https://img.shields.io/github/license/trollix/home-assistant-sun-card)](https://img.shields.io/github/license/trollix/home-assistant-sun-card)
