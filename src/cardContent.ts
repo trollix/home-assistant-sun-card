@@ -180,25 +180,48 @@ export class SunCardContent {
   }
 
   private static generateFooter (data: TSunCardData, localization: TSunCardTexts, config: TSunCardConfig): TemplateResult {
-    const upperRow = html`
-      <div class="sun-card-footer-row">
+    
+    let upperRow = html``
+    let bottomRow = html``
+    
+    const ldawn = html`
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Dawn}</span>
           ${data?.times.dawn ? this.generateTime(data.times.dawn) : ''}
         </div>
+    `
+    const lnoon = html`
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Noon}</span>
           ${data?.times.noon ? this.generateTime(data.times.noon) : ''}
         </div>
+    `
+    const ldusk = html`
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Dusk}</span>
           ${data?.times.dusk ? this.generateTime(data.times.dusk) : ''}
         </div>
       </div>
     `
+    const daylength = config.showDayLength ? html`
+    <div class="sun-card-text-container">
+      <span class="sun-card-text-subtitle">${localization.Daylength}</span>
+      <span class="sun-card-dawn-time sun-card-text-time">
+      ${data?.timeBetweenDuskAndDown ? data.timeBetweenDuskAndDown : ''}
+      </span>
+    </div>
+    ` : html`` 
 
-    let bottomRow = html``
-    if (config.showAzimuth || config.showElevation) {
+    upperRow = html`
+      <div class="sun-card-footer-row">
+        ${ldawn}
+        ${lnoon}
+        ${ldusk}
+        ${daylength}
+      </div>
+    `
+    
+    if (config.showAzimuth || config.showElevation || config.showDayLength) {
       const azimuth = config.showAzimuth ? html`
         <div class="sun-card-text-container">
           <span class="sun-card-text-subtitle">${localization.Azimuth}</span>
@@ -213,20 +236,10 @@ export class SunCardContent {
         </div>
       ` : html``
 
-      const daylength = config.showDayLength ? html`
-        <div class="sun-card-text-container">
-          <span class="sun-card-text-subtitle">${localization.Daylength}</span>
-          <span class="sun-card-dawn-time sun-card-text-time">
-          ${data?.timeBetweenDuskAndDown ? data.timeBetweenDuskAndDown : ''}
-          </span>
-        </div>
-      ` : html`` 
-  
       bottomRow = html`
         <div class="sun-card-footer-row">
           ${azimuth}
           ${elevation}
-          ${daylength}
         </div>
       `
     }
