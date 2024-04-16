@@ -69,7 +69,7 @@ function _toPrimitive(t, r) {
 }
 function _toPropertyKey(t) {
   var i = _toPrimitive(t, "string");
-  return "symbol" == typeof i ? i : String(i);
+  return "symbol" == typeof i ? i : i + "";
 }
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -609,7 +609,7 @@ var SunCardContent = /*#__PURE__*/function () {
   function SunCardContent() {
     _classCallCheck(this, SunCardContent);
   }
-  _createClass(SunCardContent, null, [{
+  return _createClass(SunCardContent, null, [{
     key: "generate",
     value: function generate(data, localization, config) {
       if (data !== null && data !== void 0 && data.error) {
@@ -731,7 +731,6 @@ var SunCardContent = /*#__PURE__*/function () {
       return x(_templateObject23 || (_templateObject23 = _taggedTemplateLiteral(["\n      <span class=\"sun-card-text-time\">", "</span>\n    "])), time.time);
     }
   }]);
-  return SunCardContent;
 }();
 
 var _templateObject;
@@ -1273,21 +1272,21 @@ ESunCardErrors = /*#__PURE__*/function (ESunCardErrors) {
 }(ESunCardErrors || {});
 
 var name = "homeassistant-sun-card-2";
-var version = "0.75.5";
+var version = "0.75.6";
 
 console.info("%c  ".concat(name.toUpperCase(), "  %c  Version ").concat(version, "  "), 'color: white; font-weight: bold; background: crimson', 'color: #000; font-weight: bold; background: #ddd');
 var SunCard = _decorate([e$1('sun-card')], function (_initialize, _LitElement) {
   var SunCard = /*#__PURE__*/function (_LitElement2) {
-    _inherits(SunCard, _LitElement2);
     function SunCard() {
       var _this;
       _classCallCheck(this, SunCard);
       _this = _callSuper(this, SunCard);
-      _initialize(_assertThisInitialized(_this));
+      _initialize(_this);
       return _this;
     }
 
     // Tix
+    _inherits(SunCard, _LitElement2);
     return _createClass(SunCard);
   }(_LitElement);
   return {
