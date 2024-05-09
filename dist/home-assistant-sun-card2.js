@@ -1,5 +1,5 @@
 function _callSuper(t, o, e) {
-  return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e));
+  return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, [], _getPrototypeOf(t).constructor) : o.apply(t, e));
 }
 function _isNativeReflectConstruct() {
   try {
@@ -20,10 +20,7 @@ function _iterableToArrayLimit(r, l) {
       f = !0,
       o = !1;
     try {
-      if (i = (t = t.call(r)).next, 0 === l) {
-        if (Object(t) !== t) return;
-        f = !1;
-      } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
+      if (i = (t = t.call(r)).next, 0 === l) ; else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0);
     } catch (r) {
       o = !0, n = r;
     } finally {
@@ -213,11 +210,6 @@ function _nonIterableRest() {
 }
 function _decorate(decorators, factory, superClass, mixins) {
   var api = _getDecoratorsApi();
-  if (mixins) {
-    for (var i = 0; i < mixins.length; i++) {
-      api = mixins[i](api);
-    }
-  }
   var r = factory(function initialize(O) {
     api.initializeInstanceElements(O, decorated.elements);
   }, superClass);
@@ -1272,7 +1264,7 @@ ESunCardErrors = /*#__PURE__*/function (ESunCardErrors) {
 }(ESunCardErrors || {});
 
 var name = "homeassistant-sun-card-2";
-var version = "0.75.6";
+var version = "0.75.7";
 
 console.info("%c  ".concat(name.toUpperCase(), "  %c  Version ").concat(version, "  "), 'color: white; font-weight: bold; background: crimson', 'color: #000; font-weight: bold; background: #ddd');
 var SunCard = _decorate([e$1('sun-card')], function (_initialize, _LitElement) {
