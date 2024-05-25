@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "target": "ES2017",
     "moduleResolution": "node",
     "noEmit": true,
@@ -17,7 +18,7 @@
     "esModuleInterop": true,
     "useDefineForClassFields": false
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*"],
   "exclude": [
     "node_modules"
   ]
