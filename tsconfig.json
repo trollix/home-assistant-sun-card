@@ -15,7 +15,6 @@
     "allowJs": true,
     "removeComments": true,
     "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
     "useDefineForClassFields": false
   },
   "include": ["src/**/*.ts"],
