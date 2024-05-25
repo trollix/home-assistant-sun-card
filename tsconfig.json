@@ -10,7 +10,6 @@
     "noImplicitAny": false,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "typeRoots": ["./src/types/custom", "node_modules/@types"],
     "allowJs": true,
