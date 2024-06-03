@@ -26,10 +26,16 @@ export class SunCard extends LitElement {
   static readonly cardName = 'Sun Card'
   static readonly cardDescription = 'Custom card that display a graph to track the sun position and related events'
   
-  @state() private config: TSunCardConfig = {}
-  @state() private data!: TSunCardData
+  @state() 
+  private config: TSunCardConfig = {}
+  
+  @state() 
+  private data!: TSunCardData
 
+  @property({ attribute: false })
   private hasRendered = false
+
+  @property({ attribute: false })
   private lastHass!: HomeAssistant
   
   constructor () {
