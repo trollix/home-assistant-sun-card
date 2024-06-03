@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true,
+    "declaration": false,
     "target": "ES2017",
+    "module": "ESNext",
     "moduleResolution": "node",
+    "lib": ["es2017", "dom", "dom.iterable"],
     "noEmit": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
@@ -11,12 +13,13 @@
     "noImplicitAny": false,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    //"allowSyntheticDefaultImports": true,
     "typeRoots": ["./src/types/custom", "node_modules/@types"],
     "allowJs": true,
     "removeComments": true,
-    "esModuleInterop": true,
-    "useDefineForClassFields": false
+    //"esModuleInterop": true,
+    //"useDefineForClassFields": false
   },
   "include": ["src/**/*.ts"],
   "exclude": [
