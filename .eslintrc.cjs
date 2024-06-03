@@ -16,7 +16,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
-      "quotes": ["warn", "single", { "allowTemplateLiterals": true }],
+      "quotes": ["warn", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
       "semi": ["warn", "never"],
       "space-before-function-paren": ["warn", "always"],
       "comma-dangle": "off",

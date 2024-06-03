@@ -13,14 +13,19 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
-    //"allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true,
     "typeRoots": ["./src/types/custom", "node_modules/@types"],
     "allowJs": true,
     "removeComments": true,
     //"esModuleInterop": true,
     //"useDefineForClassFields": false
   },
-  "include": ["src/**/*.ts"],
+  "include": [
+    ".eslintrc.cjs",
+    "rollup.config.dev.mjs",
+    "rollup.config.mjs",
+    "src/**/*.ts",
+  ],
   "exclude": [
     "node_modules"
   ]
