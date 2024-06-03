@@ -1128,7 +1128,7 @@ ESunCardErrors = /*#__PURE__*/function (ESunCardErrors) {
 }(ESunCardErrors || {});
 
 var name = "homeassistant-sun-card-2";
-var version = "0.75.21";
+var version = "0.75.22";
 
 console.info("%c  ".concat(name.toUpperCase(), "  %c  Version ").concat(version, "  "), 'color: white; font-weight: bold; background: crimson', 'color: #000; font-weight: bold; background: #ddd');
 var SunCard = _decorate([t('sun-card')], function (_initialize, _LitElement) {
@@ -1149,6 +1149,9 @@ var SunCard = _decorate([t('sun-card')], function (_initialize, _LitElement) {
     F: SunCard,
     d: [{
       kind: "field",
+      decorators: [n({
+        attribute: false
+      })],
       "static": true,
       key: "cardType",
       value: function value() {
@@ -1156,6 +1159,9 @@ var SunCard = _decorate([t('sun-card')], function (_initialize, _LitElement) {
       }
     }, {
       kind: "field",
+      decorators: [n({
+        attribute: false
+      })],
       "static": true,
       key: "cardName",
       value: function value() {
@@ -1163,6 +1169,9 @@ var SunCard = _decorate([t('sun-card')], function (_initialize, _LitElement) {
       }
     }, {
       kind: "field",
+      decorators: [n({
+        attribute: false
+      })],
       "static": true,
       key: "cardDescription",
       value: function value() {
@@ -1182,7 +1191,7 @@ var SunCard = _decorate([t('sun-card')], function (_initialize, _LitElement) {
       value: void 0
     }, {
       kind: "field",
-      decorators: [property({
+      decorators: [n({
         attribute: false
       })],
       key: "hasRendered",
@@ -1191,7 +1200,7 @@ var SunCard = _decorate([t('sun-card')], function (_initialize, _LitElement) {
       }
     }, {
       kind: "field",
-      decorators: [property({
+      decorators: [n({
         attribute: false
       })],
       key: "lastHass",

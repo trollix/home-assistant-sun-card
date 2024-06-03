@@ -1,6 +1,6 @@
 import { HomeAssistant } from 'custom-card-helpers'
 import { LitElement, TemplateResult } from 'lit'
-import { customElement,state } from 'lit/decorators.js'
+import { customElement, property, state } from 'lit/decorators.js'
 import { SunCardContent } from './cardContent'
 import cardStyles from './cardStyles'
 import { Constants, COLOURS_TXT_HEX } from './constants'
@@ -22,8 +22,13 @@ console.info(
 @customElement('sun-card')
 export class SunCard extends LitElement {
 
+  @property({ attribute: false })
   static readonly cardType = 'sun-card'
+
+  @property({ attribute: false })
   static readonly cardName = 'Sun Card'
+
+  @property({ attribute: false })
   static readonly cardDescription = 'Custom card that display a graph to track the sun position and related events'
   
   @state() 
