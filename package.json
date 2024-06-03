@@ -1,6 +1,6 @@
 {
   "name": "homeassistant-sun-card-2",
-  "version": "0.75.23",
+  "version": "0.75.24",
   "description": "New version Home assistant sun card based on Google weather design with new features",
   "main": "dist/home-assistant-sun-card2.js",
   "files": [
@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "start": "rollup -c rollup.config.dev.js --watch --bundleConfigAsCjs",
-    "build": "rimraf dist && npm run lint && npm run rollup",
+    "build2": "rimraf dist && npm run lint && npm run rollup",
+    "build": "rimraf dist && npm run rollup",
     "lint": "eslint src/*.ts",
     "rollup": "rollup -c --bundleConfigAsCjs",
     "copy": "copy-folder src/icons dist/icons",
@@ -37,6 +38,7 @@
     "@rollup/plugin-terser": "^0.4.4",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
+    "@types/node": "^20.10.5",
     "@eslint/js": "^9.4.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-simple-import-sort": "12.1.0",

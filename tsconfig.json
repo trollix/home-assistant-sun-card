@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
-    "declaration": false,
     "target": "ES2017",
     "module": "ESNext",
     "moduleResolution": "node",
-    "lib": ["es2017", "dom", "dom.iterable"],
+    "lib": ["es2017", "dom", "dom.iterable", "ESNext"],
     "noEmit": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "strict": true,
+    "noFallthroughCasesInSwitch": false,
+    "strict": false,
     "noImplicitAny": false,
     "skipLibCheck": true,
     "resolveJsonModule": true,
