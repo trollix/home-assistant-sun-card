@@ -45,7 +45,6 @@ export class SunCard extends LitElement {
   
   constructor () {
     super()
-
   }
 
 
