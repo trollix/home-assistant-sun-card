@@ -22,27 +22,15 @@ console.info(
 @customElement('sun-card')
 export class SunCard extends LitElement {
 
-  @property({ attribute: false })
-  static readonly cardType = 'sun-card'
-
-  @property({ attribute: false })
-  static readonly cardName = 'Sun Card'
-
-  @property({ attribute: false })
-  static readonly cardDescription = 'Custom card that display a graph to track the sun position and related events'
+  @property({ attribute: false }) static readonly cardType = 'sun-card'
+  @property({ attribute: false }) static readonly cardName = 'Sun Card'
+  @property({ attribute: false }) static readonly cardDescription = 'Custom card that display a graph to track the sun position and related events'
+  @property({ attribute: false }) private hasRendered = false
+  @property({ attribute: false }) private lastHass!: HomeAssistant
   
-  @state() 
-  private config: TSunCardConfig = {}
-  
-  @state() 
-  private data!: TSunCardData
+  @state() private config: TSunCardConfig = {}
+  @state() private data!: TSunCardData
 
-  @property({ attribute: false })
-  private hasRendered = false
-
-  @property({ attribute: false })
-  private lastHass!: HomeAssistant
-  
   constructor () {
     super()
   }

@@ -1,7 +1,7 @@
 import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
-import resolve from '@rollup/plugin-node-resolve'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 import serve from 'rollup-plugin-serve'
 
 const extensions = ['.ts']
@@ -13,7 +13,7 @@ export default {
     format: 'cjs'
   },
   plugins: [
-    resolve({ extensions }),
+    nodeResolve(),
     commonjs(),
     json(),
     babel({ extensions, include: ['src/**/*'], babelHelpers: 'bundled' }),
