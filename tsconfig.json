@@ -3,11 +3,6 @@
     "target": "ES2017",
     "module": "ESNext",
     "moduleResolution": "node",
-    "lib": [
-      "es2021", 
-      "dom", 
-      "dom.iterable"
-    ],
     "noEmit": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
@@ -19,7 +14,10 @@
     "experimentalDecorators": true,
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true,
-    "typeRoots": ["./src/types/custom", "node_modules/@types"],
+    "typeRoots": [
+      "./src/types/custom", 
+      "node_modules/@types"
+    ],
     "allowJs": true,
     "removeComments": true,
     "esModuleInterop": true
@@ -27,7 +25,6 @@
   },
   "include": [
     ".eslintrc.js",
-    "rollup.config.dev.js",
     "rollup.config.js",
     "src/**/*.ts",
   ],
