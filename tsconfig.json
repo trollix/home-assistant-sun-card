@@ -1,26 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "module": "ESNext",
+    "target": "ES6",
+    "module": "esnext",
+    "lib": ["es5", "es6", "dom"],
     "moduleResolution": "node",
-    "noEmit": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "strict": true,
-    "noImplicitAny": false,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
-    "noUnusedLocals": true,
-    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "strict": true,
+    "resolveJsonModule": true,
     "typeRoots": [
       "./src/types/custom", 
       "node_modules/@types"
     ],
-    "allowJs": true,
-    "removeComments": true,
-    "esModuleInterop": true
+    "allowSyntheticDefaultImports": true  // pour utiliser require sans alert
 
   },
   "include": [

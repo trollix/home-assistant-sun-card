@@ -44,7 +44,7 @@ export class SunCardContent {
   }
 
   // Tix
-  private static lightenColor ( color, amount:number ) {
+  private static lightenColor ( color:string, amount:number ) {
       let r = parseInt(color.substring(1, 3), 16)
       let g = parseInt(color.substring(3, 5), 16)
       let b = parseInt(color.substring(5, 7), 16)

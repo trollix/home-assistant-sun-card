@@ -120,7 +120,7 @@ export class SunCard extends LitElement {
     return  HHMM
   }
 
-  colourNameToHex ( colour ) {
+  colourNameToHex ( colour: string ):string {
 
     const reg = /^#([0-9a-f]{3}){1,2}$/i    // test if type of color is '#xxxxxx'
    

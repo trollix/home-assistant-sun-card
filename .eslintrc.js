@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
@@ -8,12 +9,12 @@ module.exports = {
     sourceType: 'module', // Allows for the use of imports
 
   },
-  'plugins': [
+  plugins: [
     '@typescript-eslint', 
     'import', 
     'simple-import-sort'
   ],
-  'extends': [
+  extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended'
