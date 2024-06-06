@@ -748,7 +748,7 @@ var ESunCardErrors;
 })(ESunCardErrors || (ESunCardErrors = {}));
 
 var name = "homeassistant-sun-card-2";
-var version = "0.75.34";
+var version = "0.75.35";
 
 console.info(`%c  ${name.toUpperCase()}  %c  Version ${version}  `, 'color: white; font-weight: bold; background: crimson', 'color: #000; font-weight: bold; background: #ddd');
 let SunCard = class SunCard extends s {
