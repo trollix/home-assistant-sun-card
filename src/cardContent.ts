@@ -23,10 +23,11 @@ export class SunCardContent {
   }
 
   private static generateHeader (data: TSunCardData, localization: TSunCardTexts, config: TSunCardConfig): TemplateResult {
+    
     const title = config.title !== undefined ? html`
       <h1 class="sun-card-title">${config.title}</h1>
     ` : html``
-
+ 
     return html`
       ${title}
       <div class="sun-card-header">
@@ -44,7 +45,7 @@ export class SunCardContent {
   }
 
   // Tix
-  private static lightenColor ( color:string, amount:number ) {
+  private static lightenColor ( color:string, amount:number ):string {
       let r = parseInt(color.substring(1, 3), 16)
       let g = parseInt(color.substring(3, 5), 16)
       let b = parseInt(color.substring(5, 7), 16)
@@ -61,12 +62,15 @@ export class SunCardContent {
     }
 
   private static generateBody (data: TSunCardData, config: TSunCardConfig): TemplateResult {
+    
     const sunID = Math.random().toString(36).replace('0.', '')
     const dawnID = Math.random().toString(36).replace('0.', '')
     const dayID = Math.random().toString(36).replace('0.', '')
     const duskID = Math.random().toString(36).replace('0.', '')
- 
-    const lightenedColor = this.lightenColor(config.sunColor, 50) // éclaircir la couleur de 30 points
+    
+    const suncolor = config.sunColor !== undefined ? config.sunColor : '#ffffff'
+    const lightenedColor = this.lightenColor(suncolor, 50) // éclaircir la couleur de 50 points
+
 
     //console.log(lightenedColor) // affiche '#ffe94a'
 

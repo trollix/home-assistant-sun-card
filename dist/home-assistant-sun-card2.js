@@ -139,7 +139,8 @@ var SunCard = (function (exports) {
             const dawnID = Math.random().toString(36).replace('0.', '');
             const dayID = Math.random().toString(36).replace('0.', '');
             const duskID = Math.random().toString(36).replace('0.', '');
-            const lightenedColor = this.lightenColor(config.sunColor, 50); // éclaircir la couleur de 30 points
+            const suncolor = config.sunColor !== undefined ? config.sunColor : '#ffffff';
+            const lightenedColor = this.lightenColor(suncolor, 50); // éclaircir la couleur de 50 points
             //console.log(lightenedColor) // affiche '#ffe94a'
             /*
             return html`
@@ -879,7 +880,9 @@ var SunCard = (function (exports) {
             else if (typeof COLOURS_TXT_HEX[colour.toLowerCase()] != 'undefined') {
                 return COLOURS_TXT_HEX[colour.toLowerCase()];
             }
-            return '#f9d05e'; // default value
+            else {
+                return '#f9d05e'; // default value
+            }
         }
         parseTime(timeText, locale) {
             const regex = /\d{1,2}[:.]\d{1,2}|[AMP]+/g;
@@ -903,7 +906,12 @@ var SunCard = (function (exports) {
             this.config.darkMode = (_a = this.config.darkMode) !== null && _a !== void 0 ? _a : this.lastHass.themes.darkMode;
             this.config.language = (_d = (_b = this.config.language) !== null && _b !== void 0 ? _b : (_c = this.lastHass.locale) === null || _c === void 0 ? void 0 : _c.language) !== null && _d !== void 0 ? _d : this.lastHass.language;
             this.config.timeFormat = (_e = this.config.timeFormat) !== null && _e !== void 0 ? _e : this.getTimeFormatByLanguage(this.config.language);
-            this.config.sunColor = this.colourNameToHex(this.config.sunColor);
+            if (this.config.sunColor != undefined) {
+                this.config.sunColor = this.colourNameToHex(this.config.sunColor);
+            }
+            else {
+                this.config.sunColor = '#f9d05e';
+            }
             const times = {
                 dawn: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_dawn),
                 dusk: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_dusk),

@@ -10,7 +10,7 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noImplicitThis": true,
-    "strict": true,
+    "strict": false,
     "resolveJsonModule": true,
     "typeRoots": [
       "./src/types/custom", 

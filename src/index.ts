@@ -128,12 +128,13 @@ export class SunCard extends LitElement {
       return colour
     } else if (typeof COLOURS_TXT_HEX[colour.toLowerCase()] != 'undefined') {
       return COLOURS_TXT_HEX[colour.toLowerCase()]
+    } else {    
+      return '#f9d05e' // default value
     }
-    
-    return '#f9d05e' // default value
   }
 
-  parseTime (timeText: string, locale?: string) {
+  parseTime (timeText: string, locale?: string){
+
     const regex = /\d{1,2}[:.]\d{1,2}|[AMP]+/g
     const date = new Date(timeText)
     const { language, timeFormat } = this.getConfig()
@@ -159,8 +160,11 @@ export class SunCard extends LitElement {
     this.config.darkMode = this.config.darkMode ?? this.lastHass.themes.darkMode
     this.config.language = this.config.language ?? this.lastHass.locale?.language ?? this.lastHass.language
     this.config.timeFormat = this.config.timeFormat ?? this.getTimeFormatByLanguage(this.config.language)
-    this.config.sunColor = this.colourNameToHex(this.config.sunColor)
-    
+    if (this.config.sunColor != undefined) {
+      this.config.sunColor = this.colourNameToHex(this.config.sunColor)
+    } else {
+      this.config.sunColor = '#f9d05e'
+    }
 
     const times = {
       dawn: this.parseTime(this.lastHass.states['sun.sun'].attributes.next_dawn),
