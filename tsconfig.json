@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ES2017",
     "module": "esnext",
-    "lib": ["es5", "es6", "dom"],
+    "lib": ["ES2017", "dom", "DOM.Iterable"],
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "experimentalDecorators": true,
+    "experimentalDecorators": false,
     "alwaysStrict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noImplicitThis": true,
     "strict": false,
     "resolveJsonModule": true,
+    "noEmit": true,
     "typeRoots": [
       "./src/types/custom", 
       "node_modules/@types"
